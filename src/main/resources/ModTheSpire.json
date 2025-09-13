@@ -1,0 +1,14 @@
+{
+    "modid":"EnderLiliesMod",
+    "name":"EnderLiliesMod",
+    "author_list":[
+        "0v0"
+    ],
+    "description":"...",
+    "dependencies":[
+        "basemod",
+        "stslib"
+    ],
+    "version":"1.0",
+    "sts_version":"9-21-2023"
+}
