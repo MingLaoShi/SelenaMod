@@ -10,16 +10,20 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class WhiteSpacePower extends AbstractPower implements IPreUseCard {
-    public static final String POWER_ID = ModHelper.makeID(WhiteSpacePower.class.getSimpleName());
+import java.util.Optional;
+
+public class OverridePower extends AbstractPower implements IPreUseCard {
+    public static final String POWER_ID = ModHelper.makeID(OverridePower.class.getSimpleName());
     private static final PowerStrings strings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public ToneAndSpaceData toneAndSpaceData;
 
-    public WhiteSpacePower(AbstractCreature owner, int amount, ToneAndSpaceDataManager.ToneAndSpaceType type){
+
+    public OverridePower(AbstractCreature owner, int amount, ToneAndSpaceDataManager.ToneAndSpaceType type){
         this.ID = POWER_ID;
         this.owner = owner;
         this.amount = amount;
@@ -42,15 +46,23 @@ public class WhiteSpacePower extends AbstractPower implements IPreUseCard {
         String typeDesc = String.format(toneAndSpaceData.getDescription(), String.valueOf(toneAndSpaceData.amount));
         this.description = desc + ": NL " + typeDesc;
     }
+
     @Override
     public void onPreUseCard(AbstractCard card, AbstractMonster target) {
-        if(card.cardID.equals(Letter.ID)){
-            ModHelper.addWhiteSpaceModifier(card,toneAndSpaceData);
+        if(card instanceof Letter&&this==AdjustApplyInstance()){
+            Letter letter= (Letter) card;
+            letter.setOverrideEffect(toneAndSpaceData);
             this.flash();
             card.flash();
             card.calculateCardDamage(target);
+            card.initializeDescription();
             addToBot(new LetterWaitAction(5,card));
             addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
         }
     }
+    public static AbstractPower AdjustApplyInstance(){
+        Optional<AbstractPower> powerInstance= AbstractDungeon.player.powers.stream().filter(power->power.ID.contains(POWER_ID)).findFirst();
+        return powerInstance.orElse(null);
+    }
+
 }

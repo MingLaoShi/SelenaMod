@@ -9,10 +9,21 @@
   },
   "SelenaMod:Overture": {
     "NAME": "序曲",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:留白 ： 遇见 !M! 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:留白 ： 遇见 !M! 。",
+    "FLAVOR": "“序曲已了，该进入正篇了。”"
   },
   "SelenaMod:Letter": {
     "NAME": "信",
     "DESCRIPTION": "抽 !M! 张牌，然后将 !M! 张手牌放入抽牌堆。"
+  },
+  "SelenaMod:DevelopmentSection": {
+    "NAME": "展开部",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:转调 ：获得 !B! 点 格挡 。",
+    "FLAVOR": "“展开部，起！”"
+  },
+  "SelenaMod:Finale": {
+    "NAME": "终章",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:覆写 ：造成 !M! 点伤害。",
+    "FLAVOR": "“谢幕的终章！”"
   }
 }

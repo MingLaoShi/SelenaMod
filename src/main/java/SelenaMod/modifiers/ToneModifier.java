@@ -1,5 +1,6 @@
 package SelenaMod.modifiers;
 
+import SelenaMod.cardEffects.AbstractCardEffect;
 import SelenaMod.utils.ModHelper;
 import SelenaMod.utils.ToneAndSpaceData;
 import SelenaMod.utils.ToneAndSpaceDataManager;
@@ -7,15 +8,18 @@ import basemod.abstracts.AbstractCardModifier;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ToneModifier extends AbstractCardModifier {
 
-    public List<ToneAndSpaceData> tones;
+    public List<AbstractCardEffect> tones;
     public static final String ID = ModHelper.makeID(ToneModifier.class.getSimpleName());
     public static final int TONE_MAX=3;
+    private AbstractCard.CardTarget target= AbstractCard.CardTarget.NONE;
+
     public ToneModifier(){
         this.tones=new ArrayList<>();
     }
@@ -30,7 +34,9 @@ public class ToneModifier extends AbstractCardModifier {
         while(tones.size()>=TONE_MAX){
             tones.remove(0);
         }
-        tones.add(data);
+        tones.add(ToneAndSpaceDataManager.getEffectInstance(data));
+//        ModHelper.adjustTarget(this.target,data.getTarget());
+
     }
     @Override
     public String identifier(AbstractCard card) {
@@ -39,18 +45,30 @@ public class ToneModifier extends AbstractCardModifier {
 
     @Override
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
-        for(ToneAndSpaceData tone:tones){
-            addToBot(ToneAndSpaceDataManager.getAction(tone));
+        for(AbstractCardEffect tone:tones){
+            addToBot(tone.trigger(target));
         }
     }
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
         StringBuilder rawDescriptionBuilder = new StringBuilder(rawDescription);
-        for(ToneAndSpaceData tone:tones){
+        for(AbstractCardEffect tone:tones){
             rawDescriptionBuilder.append(" NL ").append(tone.getDescription());
         }
         rawDescription = rawDescriptionBuilder.toString();
         return rawDescription;
+    }
+
+    @Override
+    public void onApplyPowers(AbstractCard card) {
+        super.onApplyPowers(card);
+        this.tones.forEach(AbstractCardEffect::applyPowers);
+    }
+
+    @Override
+    public void onCalculateCardDamage(AbstractCard card, AbstractMonster mo) {
+        super.onCalculateCardDamage(card, mo);
+        this.tones.forEach(tone->tone.calcCardDamage(mo));
     }
 }

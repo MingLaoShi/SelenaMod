@@ -2,7 +2,6 @@ package SelenaMod.utils;
 
 import SelenaMod.modifiers.ToneModifier;
 import SelenaMod.modifiers.WhiteSpaceModifier;
-import SelenaMod.powers.WhiteSpacePower;
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.Gdx;
@@ -14,6 +13,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ModHelper {
     public static String MOD_ID="SelenaMod";
@@ -130,5 +131,50 @@ public class ModHelper {
             whiteSpacePower.addWhiteSpace(data);
             card.initializeDescription();
         }
+    }
+
+    public static void addOverrideModifier(AbstractCard card,ToneAndSpaceData data){
+//        ArrayList<AbstractCardModifier> modifier= CardModifierManager.getModifiers(card, WhiteSpaceModifier.ID);
+//        if(modifier.isEmpty()){
+//            WhiteSpaceModifier whiteSpaceModifier=new WhiteSpaceModifier();
+//            whiteSpaceModifier.addWhiteSpace(data);
+//            CardModifierManager.addModifier(card,whiteSpaceModifier);
+//            card.initializeDescription();
+//        }else{
+//            WhiteSpaceModifier whiteSpacePower= (WhiteSpaceModifier) modifier.get(0);
+//            whiteSpacePower.addWhiteSpace(data);
+//            card.initializeDescription();
+//        }
+    }
+
+    public static AbstractCard.CardTarget adjustTarget(AbstractCard.CardTarget originTarget, AbstractCard.CardTarget newTarget) {
+        if(originTarget== AbstractCard.CardTarget.NONE){
+            return newTarget;
+        }
+        if(originTarget==AbstractCard.CardTarget.ALL){
+            if(newTarget==AbstractCard.CardTarget.ENEMY){
+                return newTarget;
+            }
+        }
+        if(originTarget==AbstractCard.CardTarget.ENEMY){
+            if(newTarget== AbstractCard.CardTarget.SELF){
+                return AbstractCard.CardTarget.SELF_AND_ENEMY;
+            }
+        }
+        if(originTarget==AbstractCard.CardTarget.SELF){
+            if(newTarget== AbstractCard.CardTarget.ENEMY){
+                return AbstractCard.CardTarget.SELF_AND_ENEMY;
+            }else if(newTarget== AbstractCard.CardTarget.ALL_ENEMY) {
+                return AbstractCard.CardTarget.ALL;
+            }
+        }
+        if(originTarget==AbstractCard.CardTarget.ALL_ENEMY){
+            if(newTarget== AbstractCard.CardTarget.SELF){
+                return AbstractCard.CardTarget.ALL;
+            }else if(newTarget== AbstractCard.CardTarget.ENEMY){
+                return AbstractCard.CardTarget.ENEMY;
+            }
+        }
+        return originTarget;
     }
 }

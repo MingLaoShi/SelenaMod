@@ -16,7 +16,7 @@ public class PreCardUsePatch {
         public static void prefix(AbstractPlayer __instance, AbstractCard c, AbstractMonster monster, int energyOnUse){
             for(AbstractPower power:__instance.powers){
                 if(power instanceof IPreUseCard){
-                    ((IPreUseCard) power).onPreUseCard(c);
+                    ((IPreUseCard) power).onPreUseCard(c,monster);
                 }
             }
         }

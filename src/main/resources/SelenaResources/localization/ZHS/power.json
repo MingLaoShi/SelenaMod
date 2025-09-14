@@ -1,5 +1,5 @@
 {
-  "SelenaMod:SCRY_TONE": {
+  "SelenaMod:SCRY_EFFECT": {
     "NAME": "预见",
     "DESCRIPTIONS": [
       " 预见 %s"
@@ -11,10 +11,29 @@
       "打出的下一张“信”添加其后续效果"
     ]
   },
-  "SelenaMod:WhiteSpacePower":{
+  "SelenaMod:WhiteSpacePower": {
     "NAME": "留白",
     "DESCRIPTIONS": [
       "打出的下一张“信”添加其后续效果，允许与其他效果共存"
+    ]
+  },
+  "SelenaMod:BLOCK_EFFECT": {
+    "NAME": "格挡",
+    "DESCRIPTIONS": [
+      "获得%s点格挡。"
+    ]
+  },
+  "SelenaMod:OverridePower": {
+    "NAME": "复写",
+    "DESCRIPTIONS": [
+      "打出的下一张“信”的原始效果修改为其后续效果"
+    ]
+  },
+  "SelenaMod:DAMAGE_EFFECT": {
+    "NAME": "伤害",
+    "DESCRIPTIONS": [
+      "造成%s点伤害",
+      "ENEMY"
     ]
   }
 }

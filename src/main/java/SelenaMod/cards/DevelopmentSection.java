@@ -1,28 +1,29 @@
 package SelenaMod.cards;
 
+import SelenaMod.powers.TonePower;
 import SelenaMod.utils.ModHelper;
+import SelenaMod.utils.ToneAndSpaceDataManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Strike extends CustomSelenaCard{
-    public static final String ID = ModHelper.makeID(Strike.class.getSimpleName());
-
-
-    public Strike() {
+public class DevelopmentSection extends CustomSelenaCard{
+    public static String ID= ModHelper.makeID(DevelopmentSection.class.getSimpleName());
+    public DevelopmentSection() {
         super(ID, 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
         this.setDamage(6);
-        this.tags.add(CardTags.STARTER_STRIKE);
-        this.tags.add(CardTags.STRIKE);
+        this.setBlock(2);
     }
 
     @Override
     protected void upgradeMethod() {
         this.upgradeDamage(3);
+        this.upgradeBlock(1);
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
+        this.addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.FIRE);
+        addPowerToSelf(new TonePower(abstractPlayer,this.block, ToneAndSpaceDataManager.ToneAndSpaceType.BLOCK));
     }
 }
