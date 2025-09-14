@@ -1,6 +1,6 @@
 {
-    "modid":"EnderLiliesMod",
-    "name":"EnderLiliesMod",
+    "modid":"SelenaMod",
+    "name":"SelenaMod",
     "author_list":[
         "0v0"
     ],
@@ -9,6 +9,6 @@
         "basemod",
         "stslib"
     ],
-    "version":"1.0",
+    "version":"0.1",
     "sts_version":"9-21-2023"
 }

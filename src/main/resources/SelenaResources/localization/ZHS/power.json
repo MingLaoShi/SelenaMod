@@ -1,0 +1,44 @@
+{
+  "Lily:Dirty": {
+    "NAME": "污秽",
+    "DESCRIPTIONS": [
+      "造成的伤害和受到的伤害增加%s。"
+    ]
+  },
+  "Lily:CombatInstinctPower": {
+    "NAME": "战斗本能",
+    "DESCRIPTIONS": [
+      "本回合打出伤害低于10点的耗能为1的攻击牌后获得 [E] 。"
+    ]
+  },
+  "Lily:JiandunPower": {
+    "NAME": "坚盾",
+    "DESCRIPTIONS": [
+      "直到下回合开始时，你的格挡被突破时的溢出伤害减少%s点。"
+    ]
+  },
+  "Lily:WingsOfGuardianPower": {
+    "NAME": "守护者的羽翼",
+    "DESCRIPTIONS": [
+      "灵魂召回时，获得%s点格挡。"
+    ]
+  },
+  "Lily:DoppelgangerPower": {
+    "NAME": "二重身",
+    "DESCRIPTIONS": [
+      "场上可以出现相同的灵魂"
+    ]
+  },
+  "Lily:TransformPower": {
+    "NAME": "转化",
+    "DESCRIPTIONS": [
+      "本场战斗获得的敌人给予的debuff变为%s倍污秽"
+    ]
+  },
+  "Lily:EnthusiasticPower": {
+    "NAME": "狂热",
+    "DESCRIPTIONS": [
+      "下%d场上有空位时召唤%s。"
+    ]
+  }
+}

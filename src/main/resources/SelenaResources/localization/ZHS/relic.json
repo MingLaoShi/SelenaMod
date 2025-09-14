@@ -1,0 +1,9 @@
+{
+  "SelenaMod:PaperAndPen": {
+    "NAME": "纸与笔",
+    "FLAVOR": "如此简单，如此浪漫。",
+    "DESCRIPTIONS": [
+      "每回合限一次，当你不因本效果抽牌时，额外抽一张。"
+    ]
+  }
+}
