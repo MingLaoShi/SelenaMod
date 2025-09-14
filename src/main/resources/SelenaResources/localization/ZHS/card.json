@@ -1,3 +1,18 @@
 {
-
+  "SelenaMod:Strike": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "SelenaMod:Dodge": {
+    "NAME": "闪避",
+    "DESCRIPTION": "获得 !B! 点 格挡 。"
+  },
+  "SelenaMod:Overture": {
+    "NAME": "序曲",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:留白 ： 遇见 !M! 。"
+  },
+  "SelenaMod:Letter": {
+    "NAME": "信",
+    "DESCRIPTION": "抽 !M! 张牌，然后将 !M! 张手牌放入抽牌堆。"
+  }
 }

@@ -1,0 +1,28 @@
+package SelenaMod.cards;
+
+import SelenaMod.utils.ModHelper;
+import com.megacrit.cardcrawl.actions.common.PutOnDeckAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+public class Letter extends CustomSelenaCard {
+    public static String ID = ModHelper.makeID(Letter.class.getSimpleName());
+
+    public Letter() {
+        super(ID, 0, CardType.SKILL, CardRarity.BASIC, CardTarget.NONE);
+        this.setMagic(1);
+    }
+
+    @Override
+    protected void upgradeMethod() {
+        this.upgradeMagicNumber(1);
+    }
+
+    @Override
+    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        addDrawCardAction();
+        addToBot(new PutOnDeckAction(abstractPlayer, abstractPlayer, this.magicNumber, false));
+
+    }
+
+}
