@@ -6,15 +6,11 @@ import com.google.gson.JsonElement;
 
 public class SaveHelper implements CustomSavable<SaveHelper.SaveValue> {
 
-    public static class SaveValue {
-    }
-
     public SaveValue values = new SaveValue();
 
     public SaveHelper() {
-        BaseMod.addSaveField(ModHelper.MOD_ID,this);
+        BaseMod.addSaveField(ModHelper.MOD_ID, this);
     }
-
 
     @Override
     public SaveValue onSave() {
@@ -36,5 +32,8 @@ public class SaveHelper implements CustomSavable<SaveHelper.SaveValue> {
         if (value != null) {
             this.values = ModHelper.gson.fromJson(value, SaveValue.class);
         }
+    }
+
+    public static class SaveValue {
     }
 }

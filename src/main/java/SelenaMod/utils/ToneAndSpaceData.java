@@ -1,18 +1,30 @@
 package SelenaMod.utils;
 
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class ToneAndSpaceData {
-    public ToneAndSpaceDataManager.ToneAndSpaceType ID;
     public String name;
     public String description;
-    public int amount;
+    public int amount = 0;
     public AbstractCard.CardTarget target;
+    public int amount2 = 0;
+    public boolean isTone;
+
+    public int getAmount2() {
+        return amount2;
+    }
+
+    public void setAmount2(int amount2) {
+        this.amount2 = amount2;
+    }
 
     public AbstractCard.CardTarget getTarget() {
         return target;
+    }
+
+    public void setTarget(AbstractCard.CardTarget target) {
+        this.target = target;
     }
 
     public void setTarget(String target) {
@@ -46,23 +58,12 @@ public class ToneAndSpaceData {
         this.name = name;
     }
 
-    public boolean isTone;
-
     public boolean isTone() {
         return isTone;
     }
 
     public void setTone(boolean tone) {
         isTone = tone;
-    }
-
-
-    public ToneAndSpaceDataManager.ToneAndSpaceType getID() {
-        return ID;
-    }
-
-    public void setID(ToneAndSpaceDataManager.ToneAndSpaceType ID) {
-        this.ID = ID;
     }
 
     public String getDescription() {

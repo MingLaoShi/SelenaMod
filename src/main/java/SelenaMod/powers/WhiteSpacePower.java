@@ -1,11 +1,11 @@
 package SelenaMod.powers;
 
 import SelenaMod.actions.LetterWaitAction;
+import SelenaMod.cardEffects.AbstractCardEffect;
 import SelenaMod.cards.Letter;
 import SelenaMod.interfaces.IPreUseCard;
 import SelenaMod.utils.ModHelper;
 import SelenaMod.utils.ToneAndSpaceData;
-import SelenaMod.utils.ToneAndSpaceDataManager;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -18,38 +18,35 @@ public class WhiteSpacePower extends AbstractPower implements IPreUseCard {
     public static final String POWER_ID = ModHelper.makeID(WhiteSpacePower.class.getSimpleName());
     private static final PowerStrings strings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public ToneAndSpaceData toneAndSpaceData;
+    public AbstractCardEffect effect;
 
-    public WhiteSpacePower(AbstractCreature owner, int amount, ToneAndSpaceDataManager.ToneAndSpaceType type){
+    public WhiteSpacePower(AbstractCreature owner, int amount, AbstractCardEffect effect) {
         this.ID = POWER_ID;
         this.owner = owner;
         this.amount = amount;
         this.type = PowerType.BUFF;
-        toneAndSpaceData = new ToneAndSpaceData();
-        toneAndSpaceData.setID(type);
-        toneAndSpaceData.setAmount(this.amount);
-        toneAndSpaceData.setTone(true);
-        PowerStrings toneStrings = CardCrawlGame.languagePack.getPowerStrings(ModHelper.makeID(type.name() + "_EFFECT"));
-        toneAndSpaceData.setName(toneStrings.NAME);
-        toneAndSpaceData.setDescription(toneStrings.DESCRIPTIONS[0]);
-        toneAndSpaceData.setTarget(toneStrings.DESCRIPTIONS.length>1?toneStrings.DESCRIPTIONS[1]:"");
+        this.effect = effect;
+        this.toneAndSpaceData = this.effect.data;
         ModHelper.initPower(this);
-        this.ID = POWER_ID + ":" + type.name();
+        this.ID = POWER_ID + ":" + effect.getClass().getName();
         this.name = this.name + ":" + toneAndSpaceData.getName();
     }
 
     public void updateDescription() {
         String desc = strings.DESCRIPTIONS[0];
-        String typeDesc = String.format(toneAndSpaceData.getDescription(), String.valueOf(toneAndSpaceData.amount));
+        String typeDesc = String.format(toneAndSpaceData.getDescription(), String.valueOf(toneAndSpaceData.amount), String.valueOf(toneAndSpaceData.amount2));
         this.description = desc + ": NL " + typeDesc;
     }
+
     @Override
     public void onPreUseCard(AbstractCard card, AbstractMonster target) {
-        if(card.cardID.equals(Letter.ID)){
-            ModHelper.addWhiteSpaceModifier(card,toneAndSpaceData);
+        if (card.cardID.equals(Letter.ID)) {
+            ModHelper.addWhiteSpaceModifier(card, effect);
             this.flash();
             card.flash();
             card.calculateCardDamage(target);
-            addToBot(new LetterWaitAction(5,card));
+            card.initializeDescription();
+            addToBot(new LetterWaitAction(5, card));
             addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
         }
     }

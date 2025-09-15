@@ -11,19 +11,25 @@ public abstract class AbstractCardEffect {
     public ToneAndSpaceData data;
     //用来计算powers数值的
     protected AbstractCard card;
-    public AbstractCardEffect(ToneAndSpaceData data) {
-        this.data=data;
-        card=new Strike_Red();
+
+    public AbstractCardEffect() {
+        card = new Strike_Red();
+        this.data = new ToneAndSpaceData();
     }
+
     public abstract AbstractGameAction trigger(AbstractCreature target);
 
-    public void applyPowers(){
+    public void applyPowers() {
         card.applyPowers();
-    };
+    }
 
-    public void calcCardDamage(AbstractMonster mo){
+    ;
+
+    public void calcCardDamage(AbstractMonster mo) {
         card.calculateCardDamage(mo);
-    };
+    }
+
+    ;
 
     public abstract String getDescription();
 }

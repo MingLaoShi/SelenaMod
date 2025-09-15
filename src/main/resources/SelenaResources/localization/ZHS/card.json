@@ -18,12 +18,81 @@
   },
   "SelenaMod:DevelopmentSection": {
     "NAME": "展开部",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:转调 ：获得 !B! 点 格挡 。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:转调 ：获得 !M! 点 格挡 。",
     "FLAVOR": "“展开部，起！”"
   },
   "SelenaMod:Finale": {
     "NAME": "终章",
     "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:覆写 ：造成 !M! 点伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:覆写 ：对所有敌人造成 !M! 点伤害。",
     "FLAVOR": "“谢幕的终章！”"
+  },
+  "SelenaMod:Minuet": {
+    "NAME": "小步舞曲",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:转调 ：获得 !M! 点活力。",
+    "FLAVOR": "“该到小步舞曲了。”"
+  },
+  "SelenaMod:Aria": {
+    "NAME": "咏叹调",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:转调 ：造成3点伤害 !M! 次。",
+    "FLAVOR": "“现在是咏叹调的时间。”"
+  },
+  "SelenaMod:OffenseDefense": {
+    "NAME": "攻防",
+    "DESCRIPTION": "造成 !D! 点伤害，获得 !B! 点 格挡 。 NL selenamod:留白 ：给予 !M! 层 易伤 。",
+    "FLAVOR": "她们彼此不肯退让一步。"
+  },
+  "SelenaMod:Seeking": {
+    "NAME": "求索",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:留白 ：抽 !M! 张牌。",
+    "FLAVOR": "她仰望繁星。"
+  },
+  "SelenaMod:Confrontation": {
+    "NAME": "对峙",
+    "DESCRIPTION": "仅当手牌中没有攻击牌时才能打出，造成 !D! 点伤害。 NL 反复 。",
+    "FLAVOR": "她们不会再成为很好的朋友了。"
+  },
+  "SelenaMod:SoundOfStorm": {
+    "NAME": "“岚音”",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:初见 ：获得 混乱 ，进入 selenamod:塞壬 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:初见 ：进入 selenamod:塞壬 。"
+  },
+  "SelenaMod:Lament": {
+    "NAME": "哀唱",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将1张 *失控 加入抽牌堆。 NL selenamod:转调 ：获得 !M! 点 敏捷 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:转调 ：获得 !M! 点 敏捷 。",
+    "FLAVOR": "“如怨如慕，如泣如诉。”"
+  },
+  "SelenaMod:OutOfControl": {
+    "NAME": "失控",
+    "DESCRIPTION": "不能被打出 。 NL 回合结束时若此牌在手牌且不处于” selenamod:塞壬 “，进入” selenamod:塞壬 “，否则消耗此牌。 NL selenamod:反复 。"
+  },
+  "SelenaMod:StrangerPath": {
+    "NAME": "陌路",
+    "DESCRIPTION": "获得 !B! 点 格挡 ，获得 !M! 层 易伤 。 NL 消耗 。",
+    "FLAVOR": "“初次见面。”"
+  },
+  "SelenaMod:IncomingLetter": {
+    "NAME": "来信",
+    "DESCRIPTION": "无法被打出 。 NL selenamod:初见 ：将 !M! 张 *信 加入抽牌堆，然后 消耗 此牌。",
+    "UPGRADE_DESCRIPTION": "无法被打出 。 NL selenamod:初见 ：将 !M! 张 *信 加入手牌，然后 消耗 此牌。",
+    "FLAVOR": "“亲爱的陌生人……”"
+  },
+  "SelenaMod:ArcadiaRetreat": {
+    "NAME": "阿卡迪亚大撤退",
+    "DESCRIPTION": "对自己造成5点生命值削减。 selenamod:覆写 ：将 !M! 张随机稀有牌加入手牌。这张牌直到下次打出前耗能变为0。",
+    "UPGRADE_DESCRIPTION": "对自己造成5点生命值削减。 selenamod:覆写 ：从 !M! 张随机稀有牌中选择1张加入手牌。这张牌直到下次打出前耗能变为0。",
+    "FLAVOR": "此前她是一名著名的歌剧家，现在她是一名最普通的构造体"
+  },
+  "SelenaMod:Questing": {
+    "NAME": "寻觅",
+    "DESCRIPTION": "获得 !B! 点 格挡 ，下1张牌不能打出攻击牌。 NL selenamod:留白 ：抽 !M! 张牌。",
+    "FLAVOR": "猎豹、狮子与母狼"
+  },
+  "SelenaMod:DivineComedy": {
+    "NAME": "《神曲》",
+    "DESCRIPTION": "直到下个回合，每次收到伤害时，获得1层 再生 。 消耗 NL selenamod:覆写 ：获得 !M! 层临时 力量 和临时 敏捷。",
+    "UPGRADE_DESCRIPTION": " 保留 。 NL 直到下个回合，每次收到伤害时，获得1层 再生 。 消耗 NL selenamod:覆写 ：获得 !M! 层临时 力量 和临时 敏捷。",
+    "FLAVOR": "猎豹、狮子与母狼"
   }
 }

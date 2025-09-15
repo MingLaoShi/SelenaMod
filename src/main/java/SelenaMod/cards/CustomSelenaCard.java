@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class CustomSelenaCard extends CustomCard {
+    public boolean firstSight = true;
 
     public CustomSelenaCard(String id, String name, String img, int cost, String rawDescription, AbstractCard.CardType type, AbstractCard.CardColor color, AbstractCard.CardRarity rarity, AbstractCard.CardTarget target) {
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
@@ -78,12 +79,21 @@ public abstract class CustomSelenaCard extends CustomCard {
         addToBot(new ApplyPowerAction(target, AbstractDungeon.player, power));
     }
 
-    protected void addDrawCardAction(){
+    protected void addDrawCardAction() {
         addToBot(new DrawCardAction(this.magicNumber));
     }
 
     protected void upgradeDescription() {
         this.rawDescription = CardCrawlGame.languagePack.getCardStrings(this.cardID).UPGRADE_DESCRIPTION;
         this.initializeDescription();
+    }
+
+    @Override
+    public AbstractCard makeCopy() {
+        AbstractCard card = super.makeCopy();
+        if (card instanceof CustomSelenaCard) {
+            ((CustomSelenaCard) card).firstSight = this.firstSight;
+        }
+        return card;
     }
 }

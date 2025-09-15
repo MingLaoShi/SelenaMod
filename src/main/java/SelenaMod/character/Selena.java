@@ -1,33 +1,23 @@
 package SelenaMod.character;
 
 
-import SelenaMod.cards.Dodge;
-import SelenaMod.cards.Letter;
-import SelenaMod.cards.Overture;
-import SelenaMod.cards.Strike;
+import SelenaMod.cards.*;
 import SelenaMod.core.SelenaMod;
 import SelenaMod.relics.PaperAndPen;
 import SelenaMod.utils.ModHelper;
 import basemod.abstracts.CustomPlayer;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.characters.Defect;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 
 import java.util.ArrayList;
 
@@ -62,6 +52,7 @@ public class Selena extends CustomPlayer {
                 0.0F, 0.0F, 200.0F, 250.0F, new EnergyManager(3));
 
     }
+
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> deck = new ArrayList<>();
@@ -77,6 +68,8 @@ public class Selena extends CustomPlayer {
         deck.add(Letter.ID);
         deck.add(Letter.ID);
         deck.add(Letter.ID);
+        deck.add(DevelopmentSection.ID);
+        deck.add(Finale.ID);
 
         return deck;
     }

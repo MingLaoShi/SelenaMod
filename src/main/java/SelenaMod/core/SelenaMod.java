@@ -5,10 +5,8 @@ import SelenaMod.character.Selena;
 import SelenaMod.relics.PaperAndPen;
 import SelenaMod.utils.ModHelper;
 import SelenaMod.utils.SaveHelper;
-import SelenaMod.utils.ToneAndSpaceDataManager;
 import basemod.AutoAdd;
 import basemod.BaseMod;
-import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -118,6 +116,5 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
     @Override
     public void receivePostInitialize() {
         saveHelper.values = new SaveHelper.SaveValue();
-        ToneAndSpaceDataManager.registerAll();
     }
 }

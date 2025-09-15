@@ -1,24 +1,24 @@
 package SelenaMod.cards;
 
+import SelenaMod.modifiers.RepeatModifier;
 import SelenaMod.utils.ModHelper;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Strike extends CustomSelenaCard {
-    public static final String ID = ModHelper.makeID(Strike.class.getSimpleName());
+public class Confrontation extends CustomSelenaCard {
+    public static String ID = ModHelper.makeID(Confrontation.class.getSimpleName());
 
-
-    public Strike() {
-        super(ID, 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
-        this.setDamage(6);
-        this.tags.add(CardTags.STARTER_STRIKE);
-        this.tags.add(CardTags.STRIKE);
+    public Confrontation() {
+        super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        this.setDamage(10);
+        CardModifierManager.addModifier(this, new RepeatModifier());
     }
 
     @Override
     protected void upgradeMethod() {
-        this.upgradeDamage(3);
+        this.upgradeDamage(4);
     }
 
     @Override

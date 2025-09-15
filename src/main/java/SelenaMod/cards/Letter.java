@@ -2,8 +2,6 @@ package SelenaMod.cards;
 
 import SelenaMod.cardEffects.AbstractCardEffect;
 import SelenaMod.utils.ModHelper;
-import SelenaMod.utils.ToneAndSpaceData;
-import SelenaMod.utils.ToneAndSpaceDataManager;
 import com.megacrit.cardcrawl.actions.common.PutOnDeckAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -32,12 +30,18 @@ public class Letter extends CustomSelenaCard {
         }
     }
 
-    public void setOverrideEffect(ToneAndSpaceData overrideEffect) {
-        this.target = ModHelper.adjustTarget(this.target, overrideEffect.target);
-        this.overrideEffect = ToneAndSpaceDataManager.getEffectInstance(overrideEffect);
-        assert this.overrideEffect != null;
-        this.rawDescription = this.overrideEffect.getDescription();
+    public void setOverrideEffect(AbstractCardEffect overrideEffect) {
+        this.target = ModHelper.adjustTarget(this.target, overrideEffect.data.getTarget());
+        this.overrideEffect = overrideEffect;
         this.initializeDescription();
+    }
+
+    @Override
+    public void initializeDescription() {
+        if(this.overrideEffect!=null){
+            this.rawDescription=this.overrideEffect.getDescription();
+        }
+        super.initializeDescription();
     }
 
     @Override

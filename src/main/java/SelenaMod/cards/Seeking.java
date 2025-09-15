@@ -1,29 +1,29 @@
 package SelenaMod.cards;
 
-import SelenaMod.cardEffects.ScryEffect;
+import SelenaMod.cardEffects.DrawEffect;
 import SelenaMod.powers.WhiteSpacePower;
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Overture extends CustomSelenaCard {
-    public static String ID = ModHelper.makeID(Overture.class.getSimpleName());
+public class Seeking extends CustomSelenaCard {
+    public static String ID = ModHelper.makeID(Seeking.class.getSimpleName());
 
-    public Overture() {
-        super(ID, 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
-        this.setNums(6, -1, 3);
+    public Seeking() {
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        this.setDamage(9);
+        this.setMagic(1);
     }
 
     @Override
     protected void upgradeMethod() {
-        this.upgradeDamage(3);
-        this.upgradeMagicNumber(2);
+        this.upgradeDamage(4);
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        addPowerToSelf(new WhiteSpacePower(abstractPlayer, this.magicNumber, new ScryEffect(this.magicNumber)));
+        addPowerToSelf(new WhiteSpacePower(abstractPlayer, this.magicNumber, new DrawEffect(this.magicNumber)));
     }
 }

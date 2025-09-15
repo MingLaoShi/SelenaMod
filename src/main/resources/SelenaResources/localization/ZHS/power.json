@@ -1,5 +1,5 @@
 {
-  "SelenaMod:SCRY_EFFECT": {
+  "SelenaMod:ScryEffect": {
     "NAME": "预见",
     "DESCRIPTIONS": [
       " 预见 %s"
@@ -17,7 +17,7 @@
       "打出的下一张“信”添加其后续效果，允许与其他效果共存"
     ]
   },
-  "SelenaMod:BLOCK_EFFECT": {
+  "SelenaMod:BlockEffect": {
     "NAME": "格挡",
     "DESCRIPTIONS": [
       "获得%s点格挡。"
@@ -29,11 +29,65 @@
       "打出的下一张“信”的原始效果修改为其后续效果"
     ]
   },
-  "SelenaMod:DAMAGE_EFFECT": {
+  "SelenaMod:DamageEffect": {
     "NAME": "伤害",
     "DESCRIPTIONS": [
-      "造成%s点伤害",
+      "造成%s点伤害%s次",
       "ENEMY"
+    ]
+  },
+  "SelenaMod:DamageAllEffect": {
+    "NAME": "全体伤害",
+    "DESCRIPTIONS": [
+      "对所有敌人造成%s点伤害"
+    ]
+  },
+  "SelenaMod:DAMAGE_MULTI_EFFECT": {
+    "NAME": "易伤",
+    "DESCRIPTIONS": [
+      "给予%s层易伤"
+    ]
+  },
+  "SelenaMod:SirenPower": {
+    "NAME": "塞壬",
+    "DESCRIPTIONS": [
+      "将你获得格挡的效果变为获得对一名随机敌人进行攻击。每回合结束阶段时，消耗1张随机的信，否则对自己造成等同于当前回合数的生命值削减"
+    ]
+  },
+  "SelenaMod:DexterityEffect": {
+    "NAME": "敏捷",
+    "DESCRIPTIONS": [
+      "获得%s点敏捷"
+    ]
+  },
+  "SelenaMod:QuestingPower": {
+    "NAME": "寻觅",
+    "DESCRIPTIONS": [
+      "下%s张牌不能打出攻击牌"
+    ]
+  },
+  "SelenaMod:VigorEffect": {
+    "NAME": "活力",
+    "DESCRIPTIONS": [
+      "获得%s点活力"
+    ]
+  },
+  "SelenaMod:DivineComedyPower": {
+    "NAME": "神曲",
+    "DESCRIPTIONS": [
+      "直到下个回合开始前，每次受到伤害，获得%s层再生。"
+    ]
+  },
+  "SelenaMod:DivineComedyEffect": {
+    "NAME": "神曲",
+    "DESCRIPTIONS": [
+      "获得%s层临时力量和临时敏捷"
+    ]
+  },
+  "SelenaMod:DrawEffect": {
+    "NAME": "抽牌",
+    "DESCRIPTIONS": [
+      "抽%s张牌"
     ]
   }
 }

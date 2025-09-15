@@ -11,9 +11,10 @@ public class PaperAndPen extends CustomRelic {
     public static final String ID = ModHelper.makeID(PaperAndPen.class.getSimpleName());
     private static final Texture TEXTURE = TextureLoader.getTexture(ModHelper.makeRelicImagePath(ID));
     private static final Texture OUTLINE = TextureLoader.getTexture(ModHelper.makeRelicOutlinePath(ID));
+
     public PaperAndPen() {
-        super(ID, TEXTURE, OUTLINE,RelicTier.STARTER, LandingSound.MAGICAL);
-        this.grayscale=false;
+        super(ID, TEXTURE, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);
+        this.grayscale = false;
     }
 
     @Override
@@ -24,19 +25,19 @@ public class PaperAndPen extends CustomRelic {
     @Override
     public void onCardDraw(AbstractCard drawnCard) {
         super.onCardDraw(drawnCard);
-        if(!this.grayscale){
+        if (!this.grayscale) {
             addToBot(new DrawCardAction(1));
-            this.grayscale=true;
+            this.grayscale = true;
         }
     }
 
     @Override
     public void atTurnStart() {
-        this.grayscale=false;
+        this.grayscale = false;
     }
 
     @Override
     public void atBattleStart() {
-        this.grayscale=false;
+        this.grayscale = false;
     }
 }

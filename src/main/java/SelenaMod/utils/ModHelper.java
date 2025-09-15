@@ -1,5 +1,6 @@
 package SelenaMod.utils;
 
+import SelenaMod.cardEffects.AbstractCardEffect;
 import SelenaMod.modifiers.ToneModifier;
 import SelenaMod.modifiers.WhiteSpaceModifier;
 import basemod.abstracts.AbstractCardModifier;
@@ -13,14 +14,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ModHelper {
-    public static String MOD_ID="SelenaMod";
-    public static String MOD_PRE="SelenaMod";
+    public static String MOD_ID = "SelenaMod";
+    public static String MOD_PRE = "SelenaMod";
     public static String RESOURCES_FOLDER_PATH = "SelenaResources";
-    public static Gson gson=new GsonBuilder().setPrettyPrinting().create();
+    public static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public static String makeImgPath(String folder, String imgName) {
         return RESOURCES_FOLDER_PATH + "/img/" + folder + "/" + imgName + ".png";
@@ -40,7 +39,7 @@ public class ModHelper {
         }
     }
 
-    public static String makePowerIconPath(String ID,boolean bigIcon){
+    public static String makePowerIconPath(String ID, boolean bigIcon) {
         String filename = ID.replace(MOD_PRE + ":", "");
         if (bigIcon) {
             filename += "84";
@@ -83,57 +82,57 @@ public class ModHelper {
         return RESOURCES_FOLDER_PATH + "/localization/" + lang + "/" + type + ".json";
     }
 
-    public static AbstractCard.CardColor getSelenaColor(){
+    public static AbstractCard.CardColor getSelenaColor() {
         return SelenaEnums.SelenaColorEnum.Selena_CARD;
     }
 
-    public static String makeFilePath(String folder, String fileName,String fileType) {
+    public static String makeFilePath(String folder, String fileName, String fileType) {
         return String.format("%s/%s/%s.%s", RESOURCES_FOLDER_PATH, folder, fileName, fileType);
     }
 
-    public static void initPower(AbstractPower power){
-        power.name= CardCrawlGame.languagePack.getPowerStrings(power.ID).NAME;
-        String IMG_84=ModHelper.makePowerIconPath(power.ID,true);
-        String IMG_32=ModHelper.makePowerIconPath(power.ID,false);
-        power.region128= TextureLoader.getTextureRegion(IMG_84);
-        power.region48=TextureLoader.getTextureRegion(IMG_32);
+    public static void initPower(AbstractPower power) {
+        power.name = CardCrawlGame.languagePack.getPowerStrings(power.ID).NAME;
+        String IMG_84 = ModHelper.makePowerIconPath(power.ID, true);
+        String IMG_32 = ModHelper.makePowerIconPath(power.ID, false);
+        power.region128 = TextureLoader.getTextureRegion(IMG_84);
+        power.region48 = TextureLoader.getTextureRegion(IMG_32);
         power.updateDescription();
     }
 
-    public static AbstractPlayer.PlayerClass getSelenaClass(){
+    public static AbstractPlayer.PlayerClass getSelenaClass() {
         return SelenaEnums.SelenaColorEnum.Selena;
     }
 
 
-    public static void addToneModifier(AbstractCard card,ToneAndSpaceData data){
-        ArrayList<AbstractCardModifier> modifier= CardModifierManager.getModifiers(card,ToneModifier.ID);
-        if(modifier.isEmpty()){
-            ToneModifier toneModifier=new ToneModifier();
-            toneModifier.addTone(data);
-            CardModifierManager.addModifier(card,toneModifier);
+    public static void addToneModifier(AbstractCard card, AbstractCardEffect effect) {
+        ArrayList<AbstractCardModifier> modifier = CardModifierManager.getModifiers(card, ToneModifier.ID);
+        if (modifier.isEmpty()) {
+            ToneModifier toneModifier = new ToneModifier();
+            toneModifier.addTone(effect);
+            CardModifierManager.addModifier(card, toneModifier);
             card.initializeDescription();
-        }else{
-            ToneModifier toneModifier= (ToneModifier) modifier.get(0);
-            toneModifier.addTone(data);
-            card.initializeDescription();
-        }
-    }
-
-    public static void addWhiteSpaceModifier(AbstractCard card,ToneAndSpaceData data){
-        ArrayList<AbstractCardModifier> modifier= CardModifierManager.getModifiers(card, WhiteSpaceModifier.ID);
-        if(modifier.isEmpty()){
-            WhiteSpaceModifier whiteSpaceModifier=new WhiteSpaceModifier();
-            whiteSpaceModifier.addWhiteSpace(data);
-            CardModifierManager.addModifier(card,whiteSpaceModifier);
-            card.initializeDescription();
-        }else{
-            WhiteSpaceModifier whiteSpacePower= (WhiteSpaceModifier) modifier.get(0);
-            whiteSpacePower.addWhiteSpace(data);
+        } else {
+            ToneModifier toneModifier = (ToneModifier) modifier.get(0);
+            toneModifier.addTone(effect);
             card.initializeDescription();
         }
     }
 
-    public static void addOverrideModifier(AbstractCard card,ToneAndSpaceData data){
+    public static void addWhiteSpaceModifier(AbstractCard card, AbstractCardEffect effect) {
+        ArrayList<AbstractCardModifier> modifier = CardModifierManager.getModifiers(card, WhiteSpaceModifier.ID);
+        if (modifier.isEmpty()) {
+            WhiteSpaceModifier whiteSpaceModifier = new WhiteSpaceModifier();
+            whiteSpaceModifier.addWhiteSpace(effect);
+            CardModifierManager.addModifier(card, whiteSpaceModifier);
+            card.initializeDescription();
+        } else {
+            WhiteSpaceModifier whiteSpacePower = (WhiteSpaceModifier) modifier.get(0);
+            whiteSpacePower.addWhiteSpace(effect);
+            card.initializeDescription();
+        }
+    }
+
+    public static void addOverrideModifier(AbstractCard card, ToneAndSpaceData data) {
 //        ArrayList<AbstractCardModifier> modifier= CardModifierManager.getModifiers(card, WhiteSpaceModifier.ID);
 //        if(modifier.isEmpty()){
 //            WhiteSpaceModifier whiteSpaceModifier=new WhiteSpaceModifier();
@@ -148,30 +147,30 @@ public class ModHelper {
     }
 
     public static AbstractCard.CardTarget adjustTarget(AbstractCard.CardTarget originTarget, AbstractCard.CardTarget newTarget) {
-        if(originTarget== AbstractCard.CardTarget.NONE){
+        if (originTarget == AbstractCard.CardTarget.NONE) {
             return newTarget;
         }
-        if(originTarget==AbstractCard.CardTarget.ALL){
-            if(newTarget==AbstractCard.CardTarget.ENEMY){
+        if (originTarget == AbstractCard.CardTarget.ALL) {
+            if (newTarget == AbstractCard.CardTarget.ENEMY) {
                 return newTarget;
             }
         }
-        if(originTarget==AbstractCard.CardTarget.ENEMY){
-            if(newTarget== AbstractCard.CardTarget.SELF){
+        if (originTarget == AbstractCard.CardTarget.ENEMY) {
+            if (newTarget == AbstractCard.CardTarget.SELF) {
                 return AbstractCard.CardTarget.SELF_AND_ENEMY;
             }
         }
-        if(originTarget==AbstractCard.CardTarget.SELF){
-            if(newTarget== AbstractCard.CardTarget.ENEMY){
+        if (originTarget == AbstractCard.CardTarget.SELF) {
+            if (newTarget == AbstractCard.CardTarget.ENEMY) {
                 return AbstractCard.CardTarget.SELF_AND_ENEMY;
-            }else if(newTarget== AbstractCard.CardTarget.ALL_ENEMY) {
+            } else if (newTarget == AbstractCard.CardTarget.ALL_ENEMY) {
                 return AbstractCard.CardTarget.ALL;
             }
         }
-        if(originTarget==AbstractCard.CardTarget.ALL_ENEMY){
-            if(newTarget== AbstractCard.CardTarget.SELF){
+        if (originTarget == AbstractCard.CardTarget.ALL_ENEMY) {
+            if (newTarget == AbstractCard.CardTarget.SELF) {
                 return AbstractCard.CardTarget.ALL;
-            }else if(newTarget== AbstractCard.CardTarget.ENEMY){
+            } else if (newTarget == AbstractCard.CardTarget.ENEMY) {
                 return AbstractCard.CardTarget.ENEMY;
             }
         }
