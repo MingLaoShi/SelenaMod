@@ -24,6 +24,6 @@ public class Overture extends CustomSelenaCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        addPowerToSelf(new WhiteSpacePower(abstractPlayer, this.magicNumber, new ScryEffect(this.magicNumber)));
+        addPowerToSelf(new WhiteSpacePower(abstractPlayer, this.magicNumber, new ScryEffect(this.cardID,this.magicNumber)));
     }
 }

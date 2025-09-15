@@ -8,8 +8,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
 public class ScryEffect extends AbstractCardEffect {
-    public ScryEffect(int amount) {
-        super();
+    public ScryEffect(String id,int amount) {
+        super(id);
         this.data.setAmount(amount);
         PowerStrings toneStrings = CardCrawlGame.languagePack.getPowerStrings(ModHelper.makeID(ScryEffect.class.getSimpleName()));
         this.data.setName(toneStrings.NAME);

@@ -12,7 +12,7 @@ public class IncomingLetter extends CustomSelenaCard {
     public static String ID = ModHelper.makeID(IncomingLetter.class.getSimpleName());
 
     public IncomingLetter() {
-        super(ID, -1, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
+        super(ID, -2, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
         setMagic(1);
     }
 

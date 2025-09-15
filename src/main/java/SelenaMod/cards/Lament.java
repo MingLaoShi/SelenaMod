@@ -29,6 +29,6 @@ public class Lament extends CustomSelenaCard {
             addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         }
         addToBot(new MakeTempCardInDiscardAction(new OutOfControl(), 1));
-        addPowerToSelf(new TonePower(abstractPlayer, this.magicNumber, new DexterityEffect(this.magicNumber)));
+        addPowerToSelf(new TonePower(abstractPlayer, this.magicNumber, new DexterityEffect(this.cardID,this.magicNumber)));
     }
 }

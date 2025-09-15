@@ -23,6 +23,8 @@ public class OverridePower extends AbstractPower implements IPreUseCard {
     public AbstractCardEffect effect;
     public ToneAndSpaceData toneAndSpaceData;
 
+    private static int counter = 0;
+
 
     public OverridePower(AbstractCreature owner, int amount, AbstractCardEffect effect) {
         this.ID = POWER_ID;
@@ -32,7 +34,8 @@ public class OverridePower extends AbstractPower implements IPreUseCard {
         this.effect = effect;
         this.toneAndSpaceData = this.effect.data;
         ModHelper.initPower(this);
-        this.ID = POWER_ID + ":" + effect.getClass().getName();
+        this.ID = POWER_ID + ":" + effect.getClass().getName()+counter;
+        counter++;
         this.name = this.name + ":" + toneAndSpaceData.getName();
     }
 

@@ -24,7 +24,7 @@ public class Letter extends CustomSelenaCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         if (this.overrideEffect == null) {
             addDrawCardAction();
-            addToBot(new PutOnDeckAction(abstractPlayer, abstractPlayer, this.magicNumber, false));
+            addToBot(new PutOnDeckAction(abstractPlayer, abstractPlayer, this.magicNumber, true));
         } else {
             addToBot(this.overrideEffect.trigger(abstractMonster));
         }

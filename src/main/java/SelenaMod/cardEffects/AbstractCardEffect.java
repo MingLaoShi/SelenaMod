@@ -12,9 +12,10 @@ public abstract class AbstractCardEffect {
     //用来计算powers数值的
     protected AbstractCard card;
 
-    public AbstractCardEffect() {
+    public AbstractCardEffect(String id) {
         card = new Strike_Red();
         this.data = new ToneAndSpaceData();
+        this.data.setId(id);
     }
 
     public abstract AbstractGameAction trigger(AbstractCreature target);
@@ -23,13 +24,15 @@ public abstract class AbstractCardEffect {
         card.applyPowers();
     }
 
-    ;
 
     public void calcCardDamage(AbstractMonster mo) {
         card.calculateCardDamage(mo);
     }
 
-    ;
 
     public abstract String getDescription();
+
+    public boolean canApply(AbstractCard card){
+        return true;
+    }
 }

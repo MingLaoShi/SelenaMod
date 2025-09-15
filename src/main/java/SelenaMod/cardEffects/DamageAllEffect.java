@@ -10,8 +10,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
 public class DamageAllEffect extends AbstractCardEffect {
-    public DamageAllEffect(int amount) {
-        super();
+    public DamageAllEffect(String id,int amount) {
+        super(id);
         this.data.setAmount(amount);
         PowerStrings toneStrings = CardCrawlGame.languagePack.getPowerStrings(ModHelper.makeID(DamageAllEffect.class.getSimpleName()));
         this.data.setName(toneStrings.NAME);

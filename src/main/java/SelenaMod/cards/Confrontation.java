@@ -25,4 +25,9 @@ public class Confrontation extends CustomSelenaCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
     }
+
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        return super.canUse(p,m)&&p.hand.group.stream().noneMatch(c->c!=this&&c.type==CardType.ATTACK);
+    }
 }

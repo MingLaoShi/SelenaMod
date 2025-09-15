@@ -13,7 +13,7 @@ public class OutOfControl extends CustomSelenaCard {
     public static String ID = ModHelper.makeID(OutOfControl.class.getSimpleName());
 
     public OutOfControl() {
-        super(ID, -1, CardType.CURSE, CardColor.CURSE, CardRarity.SPECIAL, CardTarget.NONE);
+        super(ID, -2, CardType.CURSE, CardColor.CURSE, CardRarity.SPECIAL, CardTarget.NONE);
         CardModifierManager.addModifier(this, new RepeatModifier());
     }
 

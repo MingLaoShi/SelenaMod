@@ -49,7 +49,7 @@
   },
   "SelenaMod:Confrontation": {
     "NAME": "对峙",
-    "DESCRIPTION": "仅当手牌中没有攻击牌时才能打出，造成 !D! 点伤害。 NL 反复 。",
+    "DESCRIPTION": "仅当手牌中没有其他攻击牌时才能打出，造成 !D! 点伤害。 NL selenamod:反复 。",
     "FLAVOR": "她们不会再成为很好的朋友了。"
   },
   "SelenaMod:SoundOfStorm": {

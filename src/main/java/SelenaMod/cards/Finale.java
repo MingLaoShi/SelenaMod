@@ -28,8 +28,8 @@ public class Finale extends CustomSelenaCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.LIGHTNING);
         if (!this.upgraded)
-            addPowerToSelf(new OverridePower(abstractPlayer, this.magicNumber, new DamageEffect(this.magicNumber, 1)));
+            addPowerToSelf(new OverridePower(abstractPlayer, this.magicNumber, new DamageEffect(this.cardID,this.magicNumber, 1)));
         else
-            addPowerToSelf(new OverridePower(abstractPlayer, this.magicNumber, new DamageAllEffect(this.magicNumber)));
+            addPowerToSelf(new OverridePower(abstractPlayer, this.magicNumber, new DamageAllEffect(this.cardID,this.magicNumber)));
     }
 }

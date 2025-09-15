@@ -9,8 +9,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
 public class BlockEffect extends AbstractCardEffect {
-    public BlockEffect(int amount) {
-        super();
+    public BlockEffect(String id,int amount) {
+        super(id);
         this.data.setAmount(amount);
         PowerStrings toneStrings = CardCrawlGame.languagePack.getPowerStrings(ModHelper.makeID(BlockEffect.class.getSimpleName()));
         this.data.setName(toneStrings.NAME);
