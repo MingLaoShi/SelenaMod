@@ -1,8 +1,8 @@
 package SelenaMod.cards;
 
+import SelenaMod.actions.PutToDeckAction;
 import SelenaMod.cardEffects.AbstractCardEffect;
 import SelenaMod.utils.ModHelper;
-import com.megacrit.cardcrawl.actions.common.PutOnDeckAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -24,7 +24,7 @@ public class Letter extends CustomSelenaCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         if (this.overrideEffect == null) {
             addDrawCardAction();
-            addToBot(new PutOnDeckAction(abstractPlayer, abstractPlayer, this.magicNumber, true));
+            addToBot(new PutToDeckAction(abstractPlayer, abstractPlayer, this.magicNumber, false));
         } else {
             addToBot(this.overrideEffect.trigger(abstractMonster));
         }
