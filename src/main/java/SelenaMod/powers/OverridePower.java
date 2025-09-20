@@ -32,6 +32,7 @@ public class OverridePower extends AbstractPower implements IPreUseCard {
         this.amount = amount;
         this.type = PowerType.BUFF;
         this.effect = effect;
+        this.effect.data.setType(ToneAndSpaceData.Type.OVERRIDE);
         this.toneAndSpaceData = this.effect.data;
         ModHelper.initPower(this);
         this.ID = POWER_ID + ":" + effect.getClass().getName()+counter;

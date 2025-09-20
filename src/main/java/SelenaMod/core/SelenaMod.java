@@ -2,7 +2,9 @@ package SelenaMod.core;
 
 import SelenaMod.cards.CustomSelenaCard;
 import SelenaMod.character.Selena;
+import SelenaMod.patches.LoseHPActionPatch;
 import SelenaMod.relics.PaperAndPen;
+import SelenaMod.utils.EffectsDynamicVariableManager;
 import SelenaMod.utils.ModHelper;
 import SelenaMod.utils.SaveHelper;
 import basemod.AutoAdd;
@@ -23,7 +25,7 @@ import static com.megacrit.cardcrawl.core.Settings.language;
 
 @SpireInitializer
 public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywordsSubscriber, EditCharactersSubscriber,
-        EditCardsSubscriber, EditRelicsSubscriber, PostInitializeSubscriber {
+        EditCardsSubscriber, EditRelicsSubscriber, PostInitializeSubscriber ,OnPlayerTurnStartSubscriber{
 
     public static final Color SELENA_COLOR = new Color(0.8f, 0.8f, 1.0f, 1.0f);
     public static final String SELENA_ATTACK_512 = ModHelper.makeImgPath("512", "bg_attack_512");
@@ -42,6 +44,8 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
 
     public static SaveHelper saveHelper;
 
+    public static boolean LOSE_HP_THIS_TURN=false;
+
     public SelenaMod() {
         BaseMod.subscribe(this);
         BaseMod.addColor(ModHelper.getSelenaColor(), SELENA_COLOR, SELENA_COLOR, SELENA_COLOR, SELENA_COLOR, SELENA_COLOR, SELENA_COLOR, SELENA_COLOR, SELENA_ATTACK_512, SELENA_SKILL_512, SELENA_POWER_512, SELENA_BIG_ORB, SELENA_ATTACK_1024, SELENA_SKILL_1024, SELENA_POWER_1024, SELENA_ENERGY_ORB, SELENA_SMALL_ORB);
@@ -58,6 +62,8 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
     @Override
     public void receiveEditCards() {
         new AutoAdd(ModHelper.MOD_ID).packageFilter(CustomSelenaCard.class).setDefaultSeen(true).cards();
+
+        BaseMod.addDynamicVariable(EffectsDynamicVariableManager.instance);
 
     }
 
@@ -116,5 +122,10 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
     @Override
     public void receivePostInitialize() {
         saveHelper.values = new SaveHelper.SaveValue();
+    }
+
+    @Override
+    public void receiveOnPlayerTurnStart() {
+        LOSE_HP_THIS_TURN=false;
     }
 }

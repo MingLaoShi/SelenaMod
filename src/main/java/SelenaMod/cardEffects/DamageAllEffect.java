@@ -3,6 +3,7 @@ package SelenaMod.cardEffects;
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -25,8 +26,27 @@ public class DamageAllEffect extends AbstractCardEffect {
         return new DamageAllEnemiesAction(AbstractDungeon.player, data.amount, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
     }
 
+//    @Override
+//    public String getDescription() {
+//        return String.format(this.data.getDescription(), String.valueOf(this.data.amount));
+//    }
     @Override
-    public String getDescription() {
-        return String.format(this.data.getDescription(), String.valueOf(this.data.amount));
+    public int val(AbstractCard card) {
+        return this.card.damage;
+    }
+
+    @Override
+    public int baseVal(AbstractCard card) {
+        return this.data.amount;
+    }
+
+    @Override
+    public boolean modified(AbstractCard card) {
+        return this.card.damage!=this.data.amount;
+    }
+
+    @Override
+    public boolean upgraded(AbstractCard card) {
+        return false;
     }
 }

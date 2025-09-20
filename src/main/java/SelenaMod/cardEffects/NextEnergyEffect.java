@@ -8,26 +8,22 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 
-public class VulnerableEffect extends AbstractCardEffect {
-    public VulnerableEffect(String id,int amount) {
+public class NextEnergyEffect extends AbstractCardEffect{
+    public NextEnergyEffect(String id,int amount) {
         super(id);
         this.data.setAmount(amount);
-        PowerStrings toneStrings = CardCrawlGame.languagePack.getPowerStrings(ModHelper.makeID(VulnerableEffect.class.getSimpleName()));
+        PowerStrings toneStrings = CardCrawlGame.languagePack.getPowerStrings(ModHelper.makeID(NextEnergyEffect.class.getSimpleName()));
         this.data.setName(toneStrings.NAME);
         this.data.setDescription(toneStrings.DESCRIPTIONS[0]);
         this.data.setTarget(toneStrings.DESCRIPTIONS.length > 1 ? toneStrings.DESCRIPTIONS[1] : "");
+        card.baseBlock = data.amount;
     }
 
     @Override
     public AbstractGameAction trigger(AbstractCreature target) {
-        return new ApplyPowerAction(AbstractDungeon.player, target, new VulnerablePower(target, this.data.amount, false), this.data.amount);
-    }
-
-    @Override
-    public String getDescription() {
-        return String.format(this.data.getDescription(), String.valueOf(this.data.amount));
+        return new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new EnergizedBluePower(AbstractDungeon.player,this.data.amount));
     }
 
     @Override

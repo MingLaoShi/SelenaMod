@@ -4,6 +4,12 @@ package SelenaMod.utils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class ToneAndSpaceData {
+    public enum Type {
+        TONE,
+        SPACE,
+        OVERRIDE
+    }
+
     public String name;
     public String id;
 
@@ -19,7 +25,16 @@ public class ToneAndSpaceData {
     public int amount = 0;
     public AbstractCard.CardTarget target;
     public int amount2 = 0;
-    public boolean isTone;
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public Type type=Type.SPACE;
 
     public int getAmount2() {
         return amount2;
@@ -68,13 +83,6 @@ public class ToneAndSpaceData {
         this.name = name;
     }
 
-    public boolean isTone() {
-        return isTone;
-    }
-
-    public void setTone(boolean tone) {
-        isTone = tone;
-    }
 
     public String getDescription() {
         return this.description;

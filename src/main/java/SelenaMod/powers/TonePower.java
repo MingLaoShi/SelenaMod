@@ -35,6 +35,7 @@ public class TonePower extends AbstractPower implements IPreUseCard {
         this.amount = amount;
         this.type = PowerType.BUFF;
         this.effect = effect;
+        this.effect.data.setType(ToneAndSpaceData.Type.TONE);
         this.toneAndSpaceData = effect.data;
         ModHelper.initPower(this);
         this.ID = POWER_ID + ":" + effect.getClass().getName()+counter;

@@ -89,5 +89,17 @@
     "DESCRIPTIONS": [
       "抽%s张牌"
     ]
+  },
+  "SelenaMod:KeepAppointmentPower":{
+    "NAME": "赴约",
+    "DESCRIPTIONS": [
+      "对%s造成%s点生命值削减%s次"
+    ]
+  },
+  "SelenaMod:NextEnergyEffect":{
+    "NAME": "下回合能量",
+    "DESCRIPTIONS": [
+      "下回合开始获得%s点能量"
+    ]
   }
 }

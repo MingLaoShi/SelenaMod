@@ -176,4 +176,8 @@ public class ModHelper {
         }
         return originTarget;
     }
+
+    public static String makeVarId(String id){
+        return " !"+id+"! ";
+    }
 }

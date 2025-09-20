@@ -3,6 +3,7 @@ package SelenaMod.cardEffects;
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,8 +26,28 @@ public class BlockEffect extends AbstractCardEffect {
     }
 
 
+//    @Override
+//    public String getDescription() {
+//        return String.format(this.data.getDescription(), this.numberColoring(this.data.amount, card.block));
+//    }
+
     @Override
-    public String getDescription() {
-        return String.format(this.data.getDescription(), String.valueOf(card.block));
+    public int val(AbstractCard card) {
+        return this.card.block;
+    }
+
+    @Override
+    public int baseVal(AbstractCard card) {
+        return this.data.amount;
+    }
+
+    @Override
+    public boolean modified(AbstractCard card) {
+        return this.data.amount!=this.card.block;
+    }
+
+    @Override
+    public boolean upgraded(AbstractCard card) {
+        return false;
     }
 }

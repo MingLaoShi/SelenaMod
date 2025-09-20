@@ -35,6 +35,7 @@ public class WhiteSpacePower extends AbstractPower implements IPreUseCard {
         this.type = PowerType.BUFF;
         this.effect = effect;
         this.toneAndSpaceData = this.effect.data;
+        this.effect.data.setType(ToneAndSpaceData.Type.SPACE);
         ModHelper.initPower(this);
         this.ID = POWER_ID + ":" + effect.getClass().getName()+counter;
         counter++;

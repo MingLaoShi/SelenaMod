@@ -3,6 +3,7 @@ package SelenaMod.cardEffects;
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -43,5 +44,26 @@ public class DivineComedyEffect extends AbstractCardEffect {
     @Override
     public String getDescription() {
         return String.format(this.data.getDescription(), String.valueOf(this.data.amount));
+    }
+
+
+    @Override
+    public int val(AbstractCard card) {
+        return this.data.amount;
+    }
+
+    @Override
+    public int baseVal(AbstractCard card) {
+        return this.data.amount;
+    }
+
+    @Override
+    public boolean modified(AbstractCard card) {
+        return false;
+    }
+
+    @Override
+    public boolean upgraded(AbstractCard card) {
+        return false;
     }
 }

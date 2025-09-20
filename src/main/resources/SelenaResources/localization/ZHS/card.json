@@ -90,9 +90,30 @@
     "FLAVOR": "猎豹、狮子与母狼"
   },
   "SelenaMod:DivineComedy": {
-    "NAME": "《神曲》",
+    "NAME": "繁星谣",
     "DESCRIPTION": "直到下个回合，每次收到伤害时，获得1层 再生 。 消耗 NL selenamod:覆写 ：获得 !M! 层临时 力量 和临时 敏捷。",
     "UPGRADE_DESCRIPTION": " 保留 。 NL 直到下个回合，每次收到伤害时，获得1层 再生 。 消耗 NL selenamod:覆写 ：获得 !M! 层临时 力量 和临时 敏捷。",
-    "FLAVOR": "猎豹、狮子与母狼"
+    "FLAVOR": "“漫天的繁星坠入了她的眼中。”"
+  },
+  "SelenaMod:PursuitDance": {
+    "NAME": "逐舞",
+    "DESCRIPTION": "对所有敌人造成 !M! 点伤命值削减，若本回合已经造成过生命值削减，恢复 !M! 点生命。 NL 消耗 。 NL selenamod:初见 ：对自己造成1点生命值削减。",
+    "FLAVOR": "“今宵剩把银釭照，犹恐相逢是梦中。”"
+  },
+  "SelenaMod:KeepAppointment": {
+    "NAME": "赴约",
+    "DESCRIPTION": "5-X回合后，造成 !M! 点生命值削减X次。 NL 虚无 。 NL 消耗 。 NL selenamod:初见 ：将1张 *奇迹 加入手牌。",
+    "UPGRADE_DESCRIPTION": "5-X回合后，造成 !M! 点生命值削减X次。 NL 虚无 。 NL 消耗 。 NL selenamod:初见 ：将1张 *奇迹+ 加入手牌。",
+    "FLAVOR": "我的心比双脚更先到达。"
+  },
+  "SelenaMod:PhantomMelody": {
+    "NAME": "幻奏",
+    "DESCRIPTION": "获得1层 缓冲 。 NL 保留 。 消耗 。 NL selenamod:初见 ：获得 !M! 层 残影 。"
+  },
+  "SelenaMod:FaustHoliday": {
+    "NAME": "法斯特假日",
+    "DESCRIPTION": "消耗抽牌堆中任意数量的状态牌与诅咒牌。 消耗 。 NL selenamod:转调 ：下回合获得1点能量。",
+    "UPGRADE_DESCRIPTION": "消耗抽牌堆与弃牌堆中任意数量的状态牌与诅咒牌。 消耗 。 NL selenamod:转调 ：下回合获得1点能量。",
+    "FLAVOR": "“Rome. By all means, Rome.”"
   }
 }
