@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
 public class DrawEffect extends AbstractCardEffect {
-    public DrawEffect(String id,int amount) {
+    public DrawEffect(String id, int amount) {
         super(id);
         this.data.setAmount(amount);
         PowerStrings toneStrings = CardCrawlGame.languagePack.getPowerStrings(ModHelper.makeID(DrawEffect.class.getSimpleName()));

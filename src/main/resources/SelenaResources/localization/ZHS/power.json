@@ -101,5 +101,57 @@
     "DESCRIPTIONS": [
       "下回合开始获得%s点能量"
     ]
+  },
+  "SelenaMod:AsFirstSightPower":{
+    "NAME": "如初见",
+    "DESCRIPTIONS": [
+      "每回合初见效果可以再触发至多%s次"
+    ]
+  },
+  "SelenaMod:ExhaustEffect":{
+    "NAME": "消耗",
+    "DESCRIPTIONS": [
+      "消耗"
+    ]
+  },
+  "SelenaMod:EchoingPower":{
+    "NAME": "ECHOING",
+    "DESCRIPTIONS": [
+      "回合开始时，将上回合打出的最后%s张牌加入手牌"
+    ]
+  },
+  "SelenaMod:WanderPower":{
+    "NAME": "流浪",
+    "DESCRIPTIONS": [
+      "每回合开始时",
+      "每回合结束时",
+      "对自己造成%s点生命值削减，获得%s层无实体，战斗结束后每触发一次恢复%s点生命值"
+    ]
+  },
+  "SelenaMod:WildGooseLetterPower":{
+    "NAME": "雁书",
+    "DESCRIPTIONS": [
+      "所有初始为造成伤害的效果变为造成生命值削减"
+    ]
+  },
+  "SelenaMod:ShortLetterPower":{
+    "NAME": "尺素",
+    "DESCRIPTIONS": [
+      "所有初始为生命值削减的效果变为造成伤害"
+    ]
+  },
+  "SelenaMod:NextFormBondPower":{
+    "NAME": "结缘",
+    "DESCRIPTIONS": [
+      "下个回合，攻击牌会打出两次",
+      "下个回合，所有牌会打出两次"
+    ]
+  },
+  "SelenaMod:FormBondPower":{
+    "NAME": "结缘",
+    "DESCRIPTIONS": [
+      "攻击牌会打出两次",
+      "所有牌会打出两次"
+    ]
   }
 }

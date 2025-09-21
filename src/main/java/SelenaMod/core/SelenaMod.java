@@ -2,30 +2,36 @@ package SelenaMod.core;
 
 import SelenaMod.cards.CustomSelenaCard;
 import SelenaMod.character.Selena;
-import SelenaMod.patches.LoseHPActionPatch;
+import SelenaMod.modifiers.ReduceCostModifier;
 import SelenaMod.relics.PaperAndPen;
 import SelenaMod.utils.EffectsDynamicVariableManager;
 import SelenaMod.utils.ModHelper;
 import SelenaMod.utils.SaveHelper;
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.abstracts.AbstractCardModifier;
+import basemod.helpers.CardModifierManager;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.apache.commons.lang3.StringUtils;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 import static com.megacrit.cardcrawl.core.Settings.language;
 
 @SpireInitializer
 public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywordsSubscriber, EditCharactersSubscriber,
-        EditCardsSubscriber, EditRelicsSubscriber, PostInitializeSubscriber ,OnPlayerTurnStartSubscriber{
+        EditCardsSubscriber, EditRelicsSubscriber, PostInitializeSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber {
 
     public static final Color SELENA_COLOR = new Color(0.8f, 0.8f, 1.0f, 1.0f);
     public static final String SELENA_ATTACK_512 = ModHelper.makeImgPath("512", "bg_attack_512");
@@ -44,7 +50,7 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
 
     public static SaveHelper saveHelper;
 
-    public static boolean LOSE_HP_THIS_TURN=false;
+    public static boolean LOSE_HP_THIS_TURN = false;
 
     public SelenaMod() {
         BaseMod.subscribe(this);
@@ -61,7 +67,8 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
 
     @Override
     public void receiveEditCards() {
-        new AutoAdd(ModHelper.MOD_ID).packageFilter(CustomSelenaCard.class).setDefaultSeen(true).cards();
+        new AutoAdd(ModHelper.MOD_ID).packageFilter(CustomSelenaCard.class)
+                .notPackageFilter("SelenaMod.cards.options").setDefaultSeen(true).cards();
 
         BaseMod.addDynamicVariable(EffectsDynamicVariableManager.instance);
 
@@ -126,6 +133,23 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
 
     @Override
     public void receiveOnPlayerTurnStart() {
-        LOSE_HP_THIS_TURN=false;
+        LOSE_HP_THIS_TURN = false;
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom abstractRoom) {
+        for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
+            List<AbstractCardModifier> modifierList = CardModifierManager.getModifiers(card, ReduceCostModifier.ID);
+            if (!modifierList.isEmpty()) {
+                for (AbstractCardModifier modifier : modifierList) {
+                    if (modifier instanceof ReduceCostModifier) {
+                        ((ReduceCostModifier) modifier).amount--;
+                        if (((ReduceCostModifier) modifier).amount < 0) {
+                            CardModifierManager.removeSpecificModifier(card, modifier, true);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

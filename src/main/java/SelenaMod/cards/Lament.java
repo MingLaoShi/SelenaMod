@@ -5,6 +5,7 @@ import SelenaMod.powers.TonePower;
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -28,7 +29,11 @@ public class Lament extends CustomSelenaCard {
         for (int i = 0; i < 5; i++) {
             addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         }
-        addToBot(new MakeTempCardInDiscardAction(new OutOfControl(), 1));
-        addPowerToSelf(new TonePower(abstractPlayer, this.magicNumber, new DexterityEffect(this.cardID,this.magicNumber)));
+        if (this.upgraded) {
+            addToBot(new MakeTempCardInDiscardAction(new OutOfControl(), 1));
+        } else {
+            addToBot(new MakeTempCardInDrawPileAction(new OutOfControl(), 1, true, true));
+        }
+        addPowerToSelf(new TonePower(abstractPlayer, this.magicNumber, new DexterityEffect(this.cardID, this.magicNumber)));
     }
 }

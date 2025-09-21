@@ -2,10 +2,12 @@ package SelenaMod.powers;
 
 import SelenaMod.cards.Letter;
 import SelenaMod.utils.ModHelper;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -44,7 +46,9 @@ public class SirenPower extends AbstractPower {
                 AbstractCard card = letters.get(AbstractDungeon.cardRandomRng.random(letters.size() - 1));
                 addToBot(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand));
             } else {
-                addToBot(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, GameActionManager.turn));
+                addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, GameActionManager.turn, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+
+//                addToBot(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, GameActionManager.turn));
             }
         }
     }

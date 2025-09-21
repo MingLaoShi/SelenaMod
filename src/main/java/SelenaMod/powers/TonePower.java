@@ -24,10 +24,9 @@ import java.util.Optional;
 public class TonePower extends AbstractPower implements IPreUseCard {
     public static final String POWER_ID = ModHelper.makeID(TonePower.class.getSimpleName());
     private static final PowerStrings strings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    private static int counter = 0;
     public ToneAndSpaceData toneAndSpaceData;
     public AbstractCardEffect effect;
-
-    private static int counter=0;
 
     public TonePower(AbstractCreature owner, int amount, AbstractCardEffect effect) {
         this.ID = POWER_ID;
@@ -38,7 +37,7 @@ public class TonePower extends AbstractPower implements IPreUseCard {
         this.effect.data.setType(ToneAndSpaceData.Type.TONE);
         this.toneAndSpaceData = effect.data;
         ModHelper.initPower(this);
-        this.ID = POWER_ID + ":" + effect.getClass().getName()+counter;
+        this.ID = POWER_ID + ":" + effect.getClass().getName() + counter;
         counter++;
         this.name = this.name + ":" + toneAndSpaceData.getName();
 
@@ -47,17 +46,17 @@ public class TonePower extends AbstractPower implements IPreUseCard {
     public static AbstractPower AdjustApplyInstance(AbstractCard card) {
         Optional<AbstractPower> powerInstance = AbstractDungeon.player.powers.stream()
                 .filter(power -> {
-                    if(power instanceof TonePower){
-                        TonePower p= (TonePower) power;
-                        if(!p.effect.canApply(card)){
+                    if (power instanceof TonePower) {
+                        TonePower p = (TonePower) power;
+                        if (!p.effect.canApply(card)) {
                             return false;
                         }
-                        List<AbstractCardModifier> modifierList= CardModifierManager.getModifiers(card, ToneModifier.ID);
-                        if(modifierList.isEmpty()){
+                        List<AbstractCardModifier> modifierList = CardModifierManager.getModifiers(card, ToneModifier.ID);
+                        if (modifierList.isEmpty()) {
                             return true;
-                        }else{
-                            ToneModifier modifier= (ToneModifier) modifierList.get(0);
-                            return modifier.tones.stream().noneMatch(t->t.data.id.equals(p.toneAndSpaceData.id));
+                        } else {
+                            ToneModifier modifier = (ToneModifier) modifierList.get(0);
+                            return modifier.tones.stream().noneMatch(t -> t.data.id.equals(p.toneAndSpaceData.id));
                         }
 
                     }

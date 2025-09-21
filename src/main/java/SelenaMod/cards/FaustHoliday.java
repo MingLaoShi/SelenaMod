@@ -12,15 +12,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class FaustHoliday extends CustomSelenaCard{
+public class FaustHoliday extends CustomSelenaCard {
     public static String ID = ModHelper.makeID(FaustHoliday.class.getSimpleName());
 
     public FaustHoliday() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
         this.setMagic(1);
-        this.exhaust=true;
+        this.exhaust = true;
     }
 
     @Override
@@ -32,25 +31,26 @@ public class FaustHoliday extends CustomSelenaCard{
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addToBot(new AbstractGameAction() {
             {
-                boolean upgraded=FaustHoliday.this.upgraded;
+                boolean upgraded = FaustHoliday.this.upgraded;
             }
+
             @Override
             public void update() {
-                ArrayList<AbstractCard> cardList=new ArrayList<>();
+                ArrayList<AbstractCard> cardList = new ArrayList<>();
                 cardList.addAll(AbstractDungeon.player.drawPile.group);
-                if(upgraded){
+                if (upgraded) {
                     cardList.addAll(AbstractDungeon.player.discardPile.group);
                 }
 
-                addToTop(new SelectCardsAction(cardList,999,"",true,card -> card.type==CardType.CURSE || card.type==CardType.STATUS, cards -> {
-                    for(AbstractCard card:cards){
-                        addToTop(new ExhaustSpecificCardAction(card,AbstractDungeon.player.drawPile.contains(card)?AbstractDungeon.player.drawPile:AbstractDungeon.player.discardPile));
+                addToTop(new SelectCardsAction(cardList, 999, "", true, card -> card.type == CardType.CURSE || card.type == CardType.STATUS, cards -> {
+                    for (AbstractCard card : cards) {
+                        addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.drawPile.contains(card) ? AbstractDungeon.player.drawPile : AbstractDungeon.player.discardPile));
                     }
                 }));
-                this.isDone=true;
+                this.isDone = true;
             }
         });
 
-        addPowerToSelf(new TonePower(abstractPlayer,1,new NextEnergyEffect(this.cardID,1)));
+        addPowerToSelf(new TonePower(abstractPlayer, 1, new NextEnergyEffect(this.cardID, 1)));
     }
 }

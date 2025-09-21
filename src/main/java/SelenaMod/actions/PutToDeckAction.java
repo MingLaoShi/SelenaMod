@@ -8,22 +8,22 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 
-import java.util.Iterator;
-
 public class PutToDeckAction extends AbstractGameAction {
-    private static final UIStrings uiStrings=CardCrawlGame.languagePack.getUIString("PutOnDeckAction");;
-    public static final String[] TEXT=uiStrings.TEXT;
-    private AbstractPlayer p;
-    private final boolean isRandom;
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("PutOnDeckAction");
+    ;
+    public static final String[] TEXT = uiStrings.TEXT;
     public static int numPlaced;
+    private final boolean isRandom;
+    private AbstractPlayer p;
 
     public PutToDeckAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom) {
         this.target = target;
-        this.p = (AbstractPlayer)target;
+        this.p = (AbstractPlayer) target;
         this.setValues(target, source, amount);
         this.actionType = ActionType.CARD_MANIPULATION;
         this.isRandom = isRandom;
     }
+
     @Override
     public void update() {
         if (this.duration == 0.5F) {
@@ -33,7 +33,7 @@ public class PutToDeckAction extends AbstractGameAction {
 
             int i;
             if (this.isRandom) {
-                for(i = 0; i < this.amount; ++i) {
+                for (i = 0; i < this.amount; ++i) {
                     this.p.hand.moveToDeck(this.p.hand.getRandomCard(AbstractDungeon.cardRandomRng), true);
                 }
             } else {
@@ -44,7 +44,7 @@ public class PutToDeckAction extends AbstractGameAction {
                     return;
                 }
 
-                for(i = 0; i < this.p.hand.size(); ++i) {
+                for (i = 0; i < this.p.hand.size(); ++i) {
                     this.p.hand.moveToDeck(this.p.hand.getRandomCard(AbstractDungeon.cardRandomRng), this.isRandom);
                 }
             }

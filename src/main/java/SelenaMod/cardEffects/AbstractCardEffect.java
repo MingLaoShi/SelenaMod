@@ -33,17 +33,21 @@ public abstract class AbstractCardEffect implements DynamicEffectVar {
     }
 
 
-    public String getDescription(){
+    public String getDescription() {
         EffectsDynamicVariableManager.register(this);
         return String.format(this.data.getDescription(), ModHelper.makeVarId(this.key()), ModHelper.makeVarId(this.key()));
     }
 
-    public boolean canApply(AbstractCard card){
+    public boolean canApply(AbstractCard card) {
         return true;
     }
 
     @Override
     public String key() {
         return this.data.id + this.data.type.name();
+    }
+
+    public void initializeCardEffect(AbstractCard card) {
+
     }
 }

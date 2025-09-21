@@ -59,8 +59,8 @@
   },
   "SelenaMod:Lament": {
     "NAME": "哀唱",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 将1张 *失控 加入抽牌堆。 NL selenamod:转调 ：获得 !M! 点 敏捷 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:转调 ：获得 !M! 点 敏捷 。",
+    "DESCRIPTION": "造成 !D! 点伤害5次。 NL 将1张 *失控 加入抽牌堆。 NL selenamod:转调 ：获得 !M! 点 敏捷 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害5次。 NL 将1张 *失控 加入弃牌堆。 NL selenamod:转调 ：获得 !M! 点 敏捷 。",
     "FLAVOR": "“如怨如慕，如泣如诉。”"
   },
   "SelenaMod:OutOfControl": {
@@ -115,5 +115,79 @@
     "DESCRIPTION": "消耗抽牌堆中任意数量的状态牌与诅咒牌。 消耗 。 NL selenamod:转调 ：下回合获得1点能量。",
     "UPGRADE_DESCRIPTION": "消耗抽牌堆与弃牌堆中任意数量的状态牌与诅咒牌。 消耗 。 NL selenamod:转调 ：下回合获得1点能量。",
     "FLAVOR": "“Rome. By all means, Rome.”"
+  },
+  "SelenaMod:NaiveProphecy": {
+    "NAME": "天真的预言",
+    "DESCRIPTION": " 预见 3 . NL 打出其中未被丢弃的初始牌。",
+    "FLAVOR": "从人性见神性"
+  },
+  "SelenaMod:TheyLoveEachOther": {
+    "NAME": "他们彼此相爱",
+    "DESCRIPTION": "获得 !M! 点 力量 与-1点 敏捷，每次打出后数值互换。 NL selenamod:反复 。",
+    "EXTENDED_DESCRIPTION": [
+      "获得-1点 力量 与 !M! 点 敏捷，每次打出后数值互换。 NL selenamod:反复 。"
+    ],
+    "FLAVOR": "Sie liebten sich beide, doch keiner，wollt\u0027 es dem andern gestehn."
+  },
+  "SelenaMod:Dusk": {
+    "NAME": "黄昏",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !M! 层 缓慢 。 NL 消耗 。",
+    "FLAVOR": "“即将发生什么前的短暂光阴，总是最动人。”"
+  },
+  "SelenaMod:SelfQuestion": {
+    "NAME": "自问",
+    "DESCRIPTION": "选择：获得 !M! 点 力量；消耗一张随机的信，本次战斗耗能-1；下场战斗耗能-1；",
+    "UPGRADE_DESCRIPTION": "选择：获得 !M! 点 力量；消耗一张随机的信，本次战斗耗能-1；下两场战斗耗能-1；",
+    "FLAVOR": "“但是爱人，请原谅我。但是爱人，请别难过。”",
+    "EXTENDED_DESCRIPTION": [
+      "获得 !M! 点 力量。",
+      "消耗一张随机的信，本次战斗耗能-1",
+      "下 !M! 场战斗耗能-1。"
+    ]
+  },
+  "SelenaMod:Sacrifice": {
+    "NAME": "牺牲",
+    "DESCRIPTION": "获得 !B! 点 格挡 !M! 次，将1张 *失控 加入抽牌堆。这张卡造成的伤害变为两倍。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 !M! 次，将1张 *失控 加入抽牌堆。这张卡造成的伤害变为三倍。",
+    "FLAVOR": "连痛苦与死亡不能再令她恐惧"
+  },
+  "SelenaMod:AsFirstSight": {
+    "NAME": "如初见",
+    "DESCRIPTION": "每回合 selenamod:初见 效果可以再触发至多 !M! 次。 NL selenamod:初见 ： selenamod:留白 ： 消耗 。",
+    "FLAVOR": "“她最好永远天真，为她所爱的人。”"
+  },
+  "SelenaMod:echoing": {
+    "NAME": "ECHOING",
+    "DESCRIPTION": "回合开始时，将上回合打出的最后 !M! 张牌加入手牌。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 回合开始时，将上回合打出的最后 !M! 张牌加入手牌。",
+    "FLAVOR": "“念念不忘，必有回响。”"
+  },
+  "SelenaMod:Wander": {
+    "NAME": "流浪",
+    "DESCRIPTION": "每回合开始时对自己造成10点生命值削减，获得1层 无实体 。战斗结束后，每触发一次恢复 !M! 点生命。",
+    "UPGRADE_DESCRIPTION": "每回合结束时对自己造成10点生命值削减，获得1层 无实体 。战斗结束后，每触发一次恢复 !M! 点生命。",
+    "FLAVOR": "苦难本身并没有意义。"
+  },
+  "SelenaMod:WildGooseLetter": {
+    "NAME": "雁书",
+    "DESCRIPTION": "所有初始为造成伤害的效果变为造成生命值削减。",
+    "FLAVOR": "鸿雁长飞光不度。"
+  },
+  "SelenaMod:ShortLetter": {
+    "NAME": "尺素",
+    "DESCRIPTION": "所有初始为生命值削减的效果变为造成伤害",
+    "FLAVOR": "鱼龙潜跃水成文"
+  },
+  "SelenaMod:FormBond": {
+    "NAME": "结缘",
+    "DESCRIPTION": "下个回合，攻击牌会打出两次",
+    "UPGRADE_DESCRIPTION": "下个回合，所有牌会打出两次",
+    "FLAVOR": "“两姓联姻，一堂缔约，良缘永结，匹配同称。”"
+  },
+  "SelenaMod:Bewitch": {
+    "NAME": "蛊惑",
+    "DESCRIPTION": "进入 “ selenamod:塞壬 ”，将 !M! 张 *疯狂 加入手牌。",
+    "UPGRADE_DESCRIPTION": "进入 “ selenamod:塞壬 ”，将 !M! 张 *疯狂+ 加入手牌。",
+    "FLAVOR": "她有一万种理由沉沦。"
   }
 }

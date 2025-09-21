@@ -28,6 +28,6 @@ public class Confrontation extends CustomSelenaCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return super.canUse(p,m)&&p.hand.group.stream().noneMatch(c->c!=this&&c.type==CardType.ATTACK);
+        return super.canUse(p, m) && p.hand.group.stream().noneMatch(c -> c != this && c.type == CardType.ATTACK);
     }
 }

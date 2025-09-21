@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
 public class DamageAllEffect extends AbstractCardEffect {
-    public DamageAllEffect(String id,int amount) {
+    public DamageAllEffect(String id, int amount) {
         super(id);
         this.data.setAmount(amount);
         PowerStrings toneStrings = CardCrawlGame.languagePack.getPowerStrings(ModHelper.makeID(DamageAllEffect.class.getSimpleName()));
@@ -26,7 +26,7 @@ public class DamageAllEffect extends AbstractCardEffect {
         return new DamageAllEnemiesAction(AbstractDungeon.player, data.amount, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
     }
 
-//    @Override
+    //    @Override
 //    public String getDescription() {
 //        return String.format(this.data.getDescription(), String.valueOf(this.data.amount));
 //    }
@@ -42,7 +42,7 @@ public class DamageAllEffect extends AbstractCardEffect {
 
     @Override
     public boolean modified(AbstractCard card) {
-        return this.card.damage!=this.data.amount;
+        return this.card.damage != this.data.amount;
     }
 
     @Override

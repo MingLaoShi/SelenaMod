@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
 public class DamageEffect extends AbstractCardEffect {
-    public DamageEffect(String id,int amount, int count) {
+    public DamageEffect(String id, int amount, int count) {
         super(id);
         this.data.setAmount(amount);
         this.data.setAmount2(count);
@@ -50,7 +50,7 @@ public class DamageEffect extends AbstractCardEffect {
 
     @Override
     public boolean modified(AbstractCard card) {
-        return this.data.amount!=this.card.damage;
+        return this.data.amount != this.card.damage;
     }
 
     @Override

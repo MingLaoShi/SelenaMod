@@ -11,7 +11,6 @@ import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -23,10 +22,9 @@ import java.util.List;
 public class WhiteSpacePower extends AbstractPower implements IPreUseCard {
     public static final String POWER_ID = ModHelper.makeID(WhiteSpacePower.class.getSimpleName());
     private static final PowerStrings strings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    private static int counter = 0;
     public ToneAndSpaceData toneAndSpaceData;
     public AbstractCardEffect effect;
-
-    private static int counter=0;
 
     public WhiteSpacePower(AbstractCreature owner, int amount, AbstractCardEffect effect) {
         this.ID = POWER_ID;
@@ -37,7 +35,7 @@ public class WhiteSpacePower extends AbstractPower implements IPreUseCard {
         this.toneAndSpaceData = this.effect.data;
         this.effect.data.setType(ToneAndSpaceData.Type.SPACE);
         ModHelper.initPower(this);
-        this.ID = POWER_ID + ":" + effect.getClass().getName()+counter;
+        this.ID = POWER_ID + ":" + effect.getClass().getName() + counter;
         counter++;
         this.name = this.name + ":" + toneAndSpaceData.getName();
     }
@@ -50,7 +48,7 @@ public class WhiteSpacePower extends AbstractPower implements IPreUseCard {
 
     @Override
     public void onPreUseCard(AbstractCard card, AbstractMonster target) {
-        if (card.cardID.equals(Letter.ID)&&this.canApply(card)) {
+        if (card.cardID.equals(Letter.ID) && this.canApply(card)) {
             ModHelper.addWhiteSpaceModifier(card, effect);
             this.flash();
             card.flash();
@@ -61,16 +59,16 @@ public class WhiteSpacePower extends AbstractPower implements IPreUseCard {
         }
     }
 
-    private boolean canApply(AbstractCard card){
-        if(!this.effect.canApply(card)){
+    private boolean canApply(AbstractCard card) {
+        if (!this.effect.canApply(card)) {
             return false;
         }
-        List<AbstractCardModifier> modifierList=CardModifierManager.getModifiers(card, WhiteSpaceModifier.ID);
-        if(modifierList.isEmpty()){
+        List<AbstractCardModifier> modifierList = CardModifierManager.getModifiers(card, WhiteSpaceModifier.ID);
+        if (modifierList.isEmpty()) {
             return true;
-        }else{
-            WhiteSpaceModifier modifier= (WhiteSpaceModifier) modifierList.get(0);
-            return modifier.spaces.stream().noneMatch(s->s.data.id.equals(this.toneAndSpaceData.id));
+        } else {
+            WhiteSpaceModifier modifier = (WhiteSpaceModifier) modifierList.get(0);
+            return modifier.spaces.stream().noneMatch(s -> s.data.id.equals(this.toneAndSpaceData.id));
         }
 
     }

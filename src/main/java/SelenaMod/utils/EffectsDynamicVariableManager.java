@@ -22,10 +22,19 @@ import java.util.HashMap;
 import java.util.List;
 
 public class EffectsDynamicVariableManager extends DynamicVariable {
-    public static EffectsDynamicVariableManager instance=new EffectsDynamicVariableManager();
-    public static String workingKey="";
-    public static String KEY=ModHelper.makeID(EffectsDynamicVariableManager.class.getSimpleName()).toLowerCase();
-    public static String KEY_WITH_SPACE=String.format(" !%s! ",KEY);
+    public static EffectsDynamicVariableManager instance = new EffectsDynamicVariableManager();
+    public static String workingKey = "";
+    public static String KEY = ModHelper.makeID(EffectsDynamicVariableManager.class.getSimpleName()).toLowerCase();
+    public static String KEY_WITH_SPACE = String.format(" !%s! ", KEY);
+
+    public static void register(DynamicEffectVar var) {
+        BaseMod.cardDynamicVariableMap.put(var.key(), instance);
+    }
+
+    private static boolean isLetter(AbstractCard card) {
+        return card instanceof Letter;
+    }
+
     @Override
     public String key() {
         return KEY;
@@ -33,27 +42,27 @@ public class EffectsDynamicVariableManager extends DynamicVariable {
 
     @Override
     public boolean isModified(AbstractCard abstractCard) {
-        if(isLetter(abstractCard)) {
+        if (isLetter(abstractCard)) {
             Letter letter = (Letter) abstractCard;
-            if (letter.overrideEffect instanceof DynamicEffectVar&&((DynamicEffectVar) letter.overrideEffect).key().equals(workingKey)) {
+            if (letter.overrideEffect instanceof DynamicEffectVar && ((DynamicEffectVar) letter.overrideEffect).key().equals(workingKey)) {
                 return ((DynamicEffectVar) letter.overrideEffect).modified(abstractCard);
             }
 
-            List<AbstractCardModifier> modifierList= CardModifierManager.getModifiers(abstractCard, ToneModifier.ID);
-            for(AbstractCardModifier modifier:modifierList){
-                ToneModifier toneModifier= (ToneModifier) modifier;
-                for(AbstractCardEffect effect:toneModifier.tones){
-                    if(effect instanceof DynamicEffectVar&&((DynamicEffectVar) effect).key().equals(workingKey)){
+            List<AbstractCardModifier> modifierList = CardModifierManager.getModifiers(abstractCard, ToneModifier.ID);
+            for (AbstractCardModifier modifier : modifierList) {
+                ToneModifier toneModifier = (ToneModifier) modifier;
+                for (AbstractCardEffect effect : toneModifier.tones) {
+                    if (effect instanceof DynamicEffectVar && ((DynamicEffectVar) effect).key().equals(workingKey)) {
                         return ((DynamicEffectVar) effect).modified(abstractCard);
                     }
                 }
             }
 
-            modifierList=CardModifierManager.getModifiers(abstractCard, WhiteSpaceModifier.ID);
-            for(AbstractCardModifier modifier:modifierList){
-                WhiteSpaceModifier whiteSpaceModifier= (WhiteSpaceModifier) modifier;
-                for(AbstractCardEffect effect:whiteSpaceModifier.spaces){
-                    if(effect instanceof DynamicEffectVar&&((DynamicEffectVar) effect).key().equals(workingKey)){
+            modifierList = CardModifierManager.getModifiers(abstractCard, WhiteSpaceModifier.ID);
+            for (AbstractCardModifier modifier : modifierList) {
+                WhiteSpaceModifier whiteSpaceModifier = (WhiteSpaceModifier) modifier;
+                for (AbstractCardEffect effect : whiteSpaceModifier.spaces) {
+                    if (effect instanceof DynamicEffectVar && ((DynamicEffectVar) effect).key().equals(workingKey)) {
                         return ((DynamicEffectVar) effect).modified(abstractCard);
                     }
                 }
@@ -64,27 +73,27 @@ public class EffectsDynamicVariableManager extends DynamicVariable {
 
     @Override
     public int value(AbstractCard abstractCard) {
-        if(isLetter(abstractCard)) {
+        if (isLetter(abstractCard)) {
             Letter letter = (Letter) abstractCard;
-            if (letter.overrideEffect instanceof DynamicEffectVar&&((DynamicEffectVar) letter.overrideEffect).key().equals(workingKey)) {
+            if (letter.overrideEffect instanceof DynamicEffectVar && ((DynamicEffectVar) letter.overrideEffect).key().equals(workingKey)) {
                 return ((DynamicEffectVar) letter.overrideEffect).val(abstractCard);
             }
 
-            List<AbstractCardModifier> modifierList= CardModifierManager.getModifiers(abstractCard, ToneModifier.ID);
-            for(AbstractCardModifier modifier:modifierList){
-                ToneModifier toneModifier= (ToneModifier) modifier;
-                for(AbstractCardEffect effect:toneModifier.tones){
-                    if(effect instanceof DynamicEffectVar&&((DynamicEffectVar) effect).key().equals(workingKey)){
+            List<AbstractCardModifier> modifierList = CardModifierManager.getModifiers(abstractCard, ToneModifier.ID);
+            for (AbstractCardModifier modifier : modifierList) {
+                ToneModifier toneModifier = (ToneModifier) modifier;
+                for (AbstractCardEffect effect : toneModifier.tones) {
+                    if (effect instanceof DynamicEffectVar && ((DynamicEffectVar) effect).key().equals(workingKey)) {
                         return ((DynamicEffectVar) effect).val(abstractCard);
                     }
                 }
             }
 
-            modifierList=CardModifierManager.getModifiers(abstractCard, WhiteSpaceModifier.ID);
-            for(AbstractCardModifier modifier:modifierList){
-                WhiteSpaceModifier whiteSpaceModifier= (WhiteSpaceModifier) modifier;
-                for(AbstractCardEffect effect:whiteSpaceModifier.spaces){
-                    if(effect instanceof DynamicEffectVar&&((DynamicEffectVar) effect).key().equals(workingKey)){
+            modifierList = CardModifierManager.getModifiers(abstractCard, WhiteSpaceModifier.ID);
+            for (AbstractCardModifier modifier : modifierList) {
+                WhiteSpaceModifier whiteSpaceModifier = (WhiteSpaceModifier) modifier;
+                for (AbstractCardEffect effect : whiteSpaceModifier.spaces) {
+                    if (effect instanceof DynamicEffectVar && ((DynamicEffectVar) effect).key().equals(workingKey)) {
                         return ((DynamicEffectVar) effect).val(abstractCard);
                     }
                 }
@@ -95,27 +104,27 @@ public class EffectsDynamicVariableManager extends DynamicVariable {
 
     @Override
     public int baseValue(AbstractCard abstractCard) {
-        if(isLetter(abstractCard)) {
+        if (isLetter(abstractCard)) {
             Letter letter = (Letter) abstractCard;
-            if (letter.overrideEffect instanceof DynamicEffectVar&&((DynamicEffectVar) letter.overrideEffect).key().equals(workingKey)) {
+            if (letter.overrideEffect instanceof DynamicEffectVar && ((DynamicEffectVar) letter.overrideEffect).key().equals(workingKey)) {
                 return ((DynamicEffectVar) letter.overrideEffect).baseVal(abstractCard);
             }
 
-            List<AbstractCardModifier> modifierList= CardModifierManager.getModifiers(abstractCard, ToneModifier.ID);
-            for(AbstractCardModifier modifier:modifierList){
-                ToneModifier toneModifier= (ToneModifier) modifier;
-                for(AbstractCardEffect effect:toneModifier.tones){
-                    if(effect instanceof DynamicEffectVar&&((DynamicEffectVar) effect).key().equals(workingKey)){
+            List<AbstractCardModifier> modifierList = CardModifierManager.getModifiers(abstractCard, ToneModifier.ID);
+            for (AbstractCardModifier modifier : modifierList) {
+                ToneModifier toneModifier = (ToneModifier) modifier;
+                for (AbstractCardEffect effect : toneModifier.tones) {
+                    if (effect instanceof DynamicEffectVar && ((DynamicEffectVar) effect).key().equals(workingKey)) {
                         return ((DynamicEffectVar) effect).baseVal(abstractCard);
                     }
                 }
             }
 
-            modifierList=CardModifierManager.getModifiers(abstractCard, WhiteSpaceModifier.ID);
-            for(AbstractCardModifier modifier:modifierList){
-                WhiteSpaceModifier whiteSpaceModifier= (WhiteSpaceModifier) modifier;
-                for(AbstractCardEffect effect:whiteSpaceModifier.spaces){
-                    if(effect instanceof DynamicEffectVar&&((DynamicEffectVar) effect).key().equals(workingKey)){
+            modifierList = CardModifierManager.getModifiers(abstractCard, WhiteSpaceModifier.ID);
+            for (AbstractCardModifier modifier : modifierList) {
+                WhiteSpaceModifier whiteSpaceModifier = (WhiteSpaceModifier) modifier;
+                for (AbstractCardEffect effect : whiteSpaceModifier.spaces) {
+                    if (effect instanceof DynamicEffectVar && ((DynamicEffectVar) effect).key().equals(workingKey)) {
                         return ((DynamicEffectVar) effect).baseVal(abstractCard);
                     }
                 }
@@ -126,37 +135,33 @@ public class EffectsDynamicVariableManager extends DynamicVariable {
 
     @Override
     public boolean upgraded(AbstractCard abstractCard) {
-        if(isLetter(abstractCard)) {
+        if (isLetter(abstractCard)) {
             Letter letter = (Letter) abstractCard;
-            if (letter.overrideEffect instanceof DynamicEffectVar&&((DynamicEffectVar) letter.overrideEffect).key().equals(workingKey)) {
+            if (letter.overrideEffect instanceof DynamicEffectVar && ((DynamicEffectVar) letter.overrideEffect).key().equals(workingKey)) {
                 return ((DynamicEffectVar) letter.overrideEffect).upgraded(abstractCard);
             }
 
-            List<AbstractCardModifier> modifierList= CardModifierManager.getModifiers(abstractCard, ToneModifier.ID);
-            for(AbstractCardModifier modifier:modifierList){
-                ToneModifier toneModifier= (ToneModifier) modifier;
-                for(AbstractCardEffect effect:toneModifier.tones){
-                    if(effect instanceof DynamicEffectVar&&((DynamicEffectVar) effect).key().equals(workingKey)){
+            List<AbstractCardModifier> modifierList = CardModifierManager.getModifiers(abstractCard, ToneModifier.ID);
+            for (AbstractCardModifier modifier : modifierList) {
+                ToneModifier toneModifier = (ToneModifier) modifier;
+                for (AbstractCardEffect effect : toneModifier.tones) {
+                    if (effect instanceof DynamicEffectVar && ((DynamicEffectVar) effect).key().equals(workingKey)) {
                         return ((DynamicEffectVar) effect).upgraded(abstractCard);
                     }
                 }
             }
 
-            modifierList=CardModifierManager.getModifiers(abstractCard, WhiteSpaceModifier.ID);
-            for(AbstractCardModifier modifier:modifierList){
-                WhiteSpaceModifier whiteSpaceModifier= (WhiteSpaceModifier) modifier;
-                for(AbstractCardEffect effect:whiteSpaceModifier.spaces){
-                    if(effect instanceof DynamicEffectVar&&((DynamicEffectVar) effect).key().equals(workingKey)){
+            modifierList = CardModifierManager.getModifiers(abstractCard, WhiteSpaceModifier.ID);
+            for (AbstractCardModifier modifier : modifierList) {
+                WhiteSpaceModifier whiteSpaceModifier = (WhiteSpaceModifier) modifier;
+                for (AbstractCardEffect effect : whiteSpaceModifier.spaces) {
+                    if (effect instanceof DynamicEffectVar && ((DynamicEffectVar) effect).key().equals(workingKey)) {
                         return ((DynamicEffectVar) effect).upgraded(abstractCard);
                     }
                 }
             }
         }
         return false;
-    }
-
-    public static void register(DynamicEffectVar var){
-        BaseMod.cardDynamicVariableMap.put(var.key(),instance);
     }
 
     @SpirePatches2({@SpirePatch2(clz = SmithPreview.class, method = "ForEachDynamicVariable"), @SpirePatch2(clz = basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.RenderCustomDynamicVariable.Inner.class, method = "subRenderDynamicVariable"), @SpirePatch2(clz = basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.RenderCustomDynamicVariableCN.class, method = "Insert"),
@@ -175,12 +180,8 @@ public class EffectsDynamicVariableManager extends DynamicVariable {
 
         public static Object grabWorkingKey(Object key) {
             if (key instanceof String)
-                EffectsDynamicVariableManager.workingKey = (String)key;
+                EffectsDynamicVariableManager.workingKey = (String) key;
             return key;
         }
-    }
-
-    private static boolean isLetter(AbstractCard card){
-        return card instanceof Letter;
     }
 }

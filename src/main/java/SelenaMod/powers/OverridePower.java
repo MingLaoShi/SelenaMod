@@ -20,10 +20,9 @@ import java.util.Optional;
 public class OverridePower extends AbstractPower implements IPreUseCard {
     public static final String POWER_ID = ModHelper.makeID(OverridePower.class.getSimpleName());
     private static final PowerStrings strings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    private static int counter = 0;
     public AbstractCardEffect effect;
     public ToneAndSpaceData toneAndSpaceData;
-
-    private static int counter = 0;
 
 
     public OverridePower(AbstractCreature owner, int amount, AbstractCardEffect effect) {
@@ -35,7 +34,7 @@ public class OverridePower extends AbstractPower implements IPreUseCard {
         this.effect.data.setType(ToneAndSpaceData.Type.OVERRIDE);
         this.toneAndSpaceData = this.effect.data;
         ModHelper.initPower(this);
-        this.ID = POWER_ID + ":" + effect.getClass().getName()+counter;
+        this.ID = POWER_ID + ":" + effect.getClass().getName() + counter;
         counter++;
         this.name = this.name + ":" + toneAndSpaceData.getName();
     }
@@ -56,6 +55,7 @@ public class OverridePower extends AbstractPower implements IPreUseCard {
         if (card instanceof Letter && this == AdjustApplyInstance()) {
             Letter letter = (Letter) card;
             letter.setOverrideEffect(effect);
+            effect.initializeCardEffect(letter);
             this.flash();
             card.flash();
             card.calculateCardDamage(target);

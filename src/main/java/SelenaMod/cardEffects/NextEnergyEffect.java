@@ -10,8 +10,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 
-public class NextEnergyEffect extends AbstractCardEffect{
-    public NextEnergyEffect(String id,int amount) {
+public class NextEnergyEffect extends AbstractCardEffect {
+    public NextEnergyEffect(String id, int amount) {
         super(id);
         this.data.setAmount(amount);
         PowerStrings toneStrings = CardCrawlGame.languagePack.getPowerStrings(ModHelper.makeID(NextEnergyEffect.class.getSimpleName()));
@@ -23,7 +23,7 @@ public class NextEnergyEffect extends AbstractCardEffect{
 
     @Override
     public AbstractGameAction trigger(AbstractCreature target) {
-        return new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new EnergizedBluePower(AbstractDungeon.player,this.data.amount));
+        return new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new EnergizedBluePower(AbstractDungeon.player, this.data.amount));
     }
 
     @Override

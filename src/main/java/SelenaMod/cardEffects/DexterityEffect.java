@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 
 public class DexterityEffect extends AbstractCardEffect {
 
-    public DexterityEffect(String id,int amount) {
+    public DexterityEffect(String id, int amount) {
         super(id);
         this.data.setAmount(amount);
         PowerStrings toneStrings = CardCrawlGame.languagePack.getPowerStrings(ModHelper.makeID(DexterityEffect.class.getSimpleName()));

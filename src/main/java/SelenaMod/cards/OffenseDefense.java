@@ -26,6 +26,6 @@ public class OffenseDefense extends CustomSelenaCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         addCustomBlockAction();
-        addPowerToSelf(new WhiteSpacePower(abstractPlayer, this.magicNumber, new VulnerableEffect(this.cardID,this.magicNumber)));
+        addPowerToSelf(new WhiteSpacePower(abstractPlayer, this.magicNumber, new VulnerableEffect(this.cardID, this.magicNumber)));
     }
 }

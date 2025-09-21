@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
 public class VigorEffect extends AbstractCardEffect {
-    public VigorEffect(String id,int amount) {
+    public VigorEffect(String id, int amount) {
         super(id);
         this.data.setAmount(amount);
         PowerStrings toneStrings = CardCrawlGame.languagePack.getPowerStrings(ModHelper.makeID(VigorEffect.class.getSimpleName()));

@@ -8,7 +8,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Questing extends CustomSelenaCard {
     public static String ID = ModHelper.makeID(Questing.class.getSimpleName());
-    public static String QUESTING_SEEKING_ID=ID+Seeking.ID;
+    public static String QUESTING_SEEKING_ID = ID + Seeking.ID;
+
     public Questing() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         this.setBlock(9);
@@ -24,6 +25,6 @@ public class Questing extends CustomSelenaCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomBlockAction();
         addPowerToSelf(new SelenaMod.powers.QuestingPower(abstractPlayer, 1));
-        addPowerToSelf(new WhiteSpacePower(abstractPlayer, 1, new DrawEffect(QUESTING_SEEKING_ID,1)));
+        addPowerToSelf(new WhiteSpacePower(abstractPlayer, 1, new DrawEffect(QUESTING_SEEKING_ID, 1)));
     }
 }

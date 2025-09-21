@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 public class VulnerableEffect extends AbstractCardEffect {
-    public VulnerableEffect(String id,int amount) {
+    public VulnerableEffect(String id, int amount) {
         super(id);
         this.data.setAmount(amount);
         PowerStrings toneStrings = CardCrawlGame.languagePack.getPowerStrings(ModHelper.makeID(VulnerableEffect.class.getSimpleName()));

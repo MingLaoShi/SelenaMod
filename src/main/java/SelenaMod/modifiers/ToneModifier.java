@@ -61,7 +61,6 @@ public class ToneModifier extends AbstractCardModifier {
     }
 
 
-
     @Override
     public void onApplyPowers(AbstractCard card) {
         super.onApplyPowers(card);

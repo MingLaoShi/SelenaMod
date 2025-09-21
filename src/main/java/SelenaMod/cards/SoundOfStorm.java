@@ -1,5 +1,7 @@
 package SelenaMod.cards;
 
+import SelenaMod.interfaces.IFirstSight;
+import SelenaMod.powers.AsFirstSightPower;
 import SelenaMod.powers.SirenPower;
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -8,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ConfusionPower;
 
-public class SoundOfStorm extends CustomSelenaCard {
+public class SoundOfStorm extends CustomSelenaCard implements IFirstSight {
     public static String ID = ModHelper.makeID(SoundOfStorm.class.getSimpleName());
 
     public SoundOfStorm() {
@@ -30,12 +32,17 @@ public class SoundOfStorm extends CustomSelenaCard {
 
     @Override
     public void triggerWhenDrawn() {
-        if (this.firstSight) {
-            if (!this.upgraded) {
-                addPowerToSelf(new ConfusionPower(AbstractDungeon.player));
-            }
-            addPowerToSelf(new SirenPower(AbstractDungeon.player));
-            this.firstSight=false;
+        if (AsFirstSightPower.isFirstSight(this)) {
+            this.firstSight = false;
+            this.onFirstSight();
         }
+    }
+
+    @Override
+    public void onFirstSight() {
+        if (!this.upgraded) {
+            addPowerToSelf(new ConfusionPower(AbstractDungeon.player));
+        }
+        addPowerToSelf(new SirenPower(AbstractDungeon.player));
     }
 }

@@ -24,6 +24,6 @@ public class Seeking extends CustomSelenaCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        addPowerToSelf(new WhiteSpacePower(abstractPlayer, this.magicNumber, new DrawEffect(Questing.QUESTING_SEEKING_ID,this.magicNumber)));
+        addPowerToSelf(new WhiteSpacePower(abstractPlayer, this.magicNumber, new DrawEffect(Questing.QUESTING_SEEKING_ID, this.magicNumber)));
     }
 }

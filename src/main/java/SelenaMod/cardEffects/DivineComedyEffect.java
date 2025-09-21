@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class DivineComedyEffect extends AbstractCardEffect {
-    public DivineComedyEffect(String id,int amount) {
+    public DivineComedyEffect(String id, int amount) {
         super(id);
         this.data.setAmount(amount);
         PowerStrings toneStrings = CardCrawlGame.languagePack.getPowerStrings(ModHelper.makeID(DivineComedyEffect.class.getSimpleName()));

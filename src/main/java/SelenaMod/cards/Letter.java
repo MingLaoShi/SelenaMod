@@ -38,8 +38,8 @@ public class Letter extends CustomSelenaCard {
 
     @Override
     public void initializeDescription() {
-        if(this.overrideEffect!=null){
-            this.rawDescription=this.overrideEffect.getDescription();
+        if (this.overrideEffect != null) {
+            this.rawDescription = this.overrideEffect.getDescription();
         }
         super.initializeDescription();
     }

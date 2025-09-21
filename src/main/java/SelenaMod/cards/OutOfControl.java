@@ -31,7 +31,7 @@ public class OutOfControl extends CustomSelenaCard {
     @Override
     public void triggerOnEndOfPlayerTurn() {
         if (SirenPower.IsInSiren()) {
-            addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
+            addToTop(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
         } else {
             this.addPowerToSelf(new SirenPower(AbstractDungeon.player));
         }

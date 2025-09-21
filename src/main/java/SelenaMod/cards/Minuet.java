@@ -25,6 +25,6 @@ public class Minuet extends CustomSelenaCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.LIGHTNING);
-        addPowerToSelf(new TonePower(abstractPlayer, this.magicNumber, new VigorEffect(this.cardID,this.magicNumber)));
+        addPowerToSelf(new TonePower(abstractPlayer, this.magicNumber, new VigorEffect(this.cardID, this.magicNumber)));
     }
 }

@@ -116,6 +116,7 @@ public class ModHelper {
             toneModifier.addTone(effect);
             card.initializeDescription();
         }
+        effect.initializeCardEffect(card);
     }
 
     public static void addWhiteSpaceModifier(AbstractCard card, AbstractCardEffect effect) {
@@ -130,6 +131,7 @@ public class ModHelper {
             whiteSpacePower.addWhiteSpace(effect);
             card.initializeDescription();
         }
+        effect.initializeCardEffect(card);
     }
 
     public static void addOverrideModifier(AbstractCard card, ToneAndSpaceData data) {
@@ -177,7 +179,7 @@ public class ModHelper {
         return originTarget;
     }
 
-    public static String makeVarId(String id){
-        return " !"+id+"! ";
+    public static String makeVarId(String id) {
+        return " !" + id + "! ";
     }
 }
