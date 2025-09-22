@@ -9,7 +9,7 @@
   },
   "SelenaMod:Overture": {
     "NAME": "序曲",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:留白 ： 遇见 !M! 。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:留白 ： 预见 !M! 。",
     "FLAVOR": "“序曲已了，该进入正篇了。”"
   },
   "SelenaMod:Letter": {
@@ -118,7 +118,7 @@
   },
   "SelenaMod:NaiveProphecy": {
     "NAME": "天真的预言",
-    "DESCRIPTION": " 预见 3 . NL 打出其中未被丢弃的初始牌。",
+    "DESCRIPTION": " 预见 3 。 NL 打出其中未被丢弃的初始牌。",
     "FLAVOR": "从人性见神性"
   },
   "SelenaMod:TheyLoveEachOther": {
@@ -127,7 +127,7 @@
     "EXTENDED_DESCRIPTION": [
       "获得-1点 力量 与 !M! 点 敏捷，每次打出后数值互换。 NL selenamod:反复 。"
     ],
-    "FLAVOR": "Sie liebten sich beide, doch keiner，wollt\u0027 es dem andern gestehn."
+    "FLAVOR": "Sie liebten sich beide, doch keiner，wolltes dem andern gestehn."
   },
   "SelenaMod:Dusk": {
     "NAME": "黄昏",

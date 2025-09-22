@@ -16,6 +16,7 @@ public class Lament extends CustomSelenaCard {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.setDamage(2);
         this.setMagic(1);
+        this.cardsToPreview=new OutOfControl();
     }
 
     @Override

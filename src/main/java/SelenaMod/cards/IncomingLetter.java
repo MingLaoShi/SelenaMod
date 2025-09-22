@@ -36,4 +36,9 @@ public class IncomingLetter extends CustomSelenaCard {
         }
         addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
     }
+
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        return false;
+    }
 }

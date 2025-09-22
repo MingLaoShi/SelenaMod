@@ -24,7 +24,7 @@
     ]
   },
   "SelenaMod:OverridePower": {
-    "NAME": "复写",
+    "NAME": "覆写",
     "DESCRIPTIONS": [
       "打出的下一张“信”的原始效果修改为其后续效果"
     ]
@@ -42,7 +42,7 @@
       "对所有敌人造成%s点伤害"
     ]
   },
-  "SelenaMod:DAMAGE_MULTI_EFFECT": {
+  "SelenaMod:VulnerableEffect": {
     "NAME": "易伤",
     "DESCRIPTIONS": [
       "给予%s层易伤"
@@ -73,13 +73,13 @@
     ]
   },
   "SelenaMod:DivineComedyPower": {
-    "NAME": "神曲",
+    "NAME": "繁星谣",
     "DESCRIPTIONS": [
       "直到下个回合开始前，每次受到伤害，获得%s层再生。"
     ]
   },
   "SelenaMod:DivineComedyEffect": {
-    "NAME": "神曲",
+    "NAME": "繁星谣",
     "DESCRIPTIONS": [
       "获得%s层临时力量和临时敏捷"
     ]
