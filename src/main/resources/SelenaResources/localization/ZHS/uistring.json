@@ -3,5 +3,10 @@
     "TEXT": [
       ""
     ]
+  },
+  "SelenaMod:GridSelectTitle": {
+    "TEXT": [
+      "选择一张"
+    ]
   }
 }

@@ -32,7 +32,7 @@ public class FormBondPower extends AbstractPower {
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (!card.purgeOnUse && this.checkType(card) ) {
+        if (!card.purgeOnUse && this.checkType(card)) {
             flash();
             AbstractMonster m = null;
 
@@ -56,10 +56,10 @@ public class FormBondPower extends AbstractPower {
         }
     }
 
-    private boolean checkType(AbstractCard card){
-        if(this.powertype==0){
-            return card.type== AbstractCard.CardType.ATTACK;
-        }else{
+    private boolean checkType(AbstractCard card) {
+        if (this.powertype == 0) {
+            return card.type == AbstractCard.CardType.ATTACK;
+        } else {
             return true;
         }
     }

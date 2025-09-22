@@ -80,8 +80,8 @@
   },
   "SelenaMod:ArcadiaRetreat": {
     "NAME": "阿卡迪亚大撤退",
-    "DESCRIPTION": "对自己造成5点生命值削减。 selenamod:覆写 ：将 !M! 张随机稀有牌加入手牌。这张牌直到下次打出前耗能变为0。",
-    "UPGRADE_DESCRIPTION": "对自己造成5点生命值削减。 selenamod:覆写 ：从 !M! 张随机稀有牌中选择1张加入手牌。这张牌直到下次打出前耗能变为0。",
+    "DESCRIPTION": "对自己造成5点生命值削减。 NL selenamod:覆写 ：将 !M! 张随机稀有牌加入手牌。这张牌直到下次打出前耗能变为0。",
+    "UPGRADE_DESCRIPTION": "对自己造成5点生命值削减。 NL selenamod:覆写 ：从 !M! 张随机稀有牌中选择1张加入手牌。这张牌直到下次打出前耗能变为0。",
     "FLAVOR": "此前她是一名著名的歌剧家，现在她是一名最普通的构造体"
   },
   "SelenaMod:Questing": {
@@ -189,5 +189,16 @@
     "DESCRIPTION": "进入 “ selenamod:塞壬 ”，将 !M! 张 *疯狂 加入手牌。",
     "UPGRADE_DESCRIPTION": "进入 “ selenamod:塞壬 ”，将 !M! 张 *疯狂+ 加入手牌。",
     "FLAVOR": "她有一万种理由沉沦。"
+  },
+  "SelenaMod:SoloPerformance": {
+    "NAME": "独演",
+    "DESCRIPTION": "当这张牌是抽牌堆唯一的牌才会自动打出并生效。造成 !M! 点生命值削减。 NL selenamod:反复 。 NL selenamod:转调 ： 消耗 1张手牌。",
+    "FLAVOR": "“一切美好都才刚刚盛开，所有的浪漫都还来得及一步步发生。”"
+  },
+  "SelenaMod:Storm": {
+    "NAME": "《暴风雨》",
+    "DESCRIPTION": "获得12层坚不可摧，直到下回合开始。 NL 消耗 。 NL selenamod:覆写 ：获得 !M! 层真言。",
+    "UPGRADE_DESCRIPTION": "获得12层坚不可摧，直到下回合结束。 NL 消耗 。 NL selenamod:覆写 ：获得 !M! 层真言。",
+    "FLAVOR": "苦难无法磨灭真正高贵的品格"
   }
 }

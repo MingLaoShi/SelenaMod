@@ -153,5 +153,30 @@
       "攻击牌会打出两次",
       "所有牌会打出两次"
     ]
+  },
+  "SelenaMod:ExhaustCardEffect": {
+    "NAME": "消耗牌",
+    "DESCRIPTIONS": [
+      "消耗%s张牌"
+    ]
+  },
+  "SelenaMod:RareCardEffect":{
+    "NAME": "稀有卡",
+    "DESCRIPTIONS": [
+      "从%s张稀有卡中选择1张加入手牌，在打出前耗能为0"
+    ]
+  },
+  "SelenaMod:RemoveInvinciblePower":{
+    "NAME": "移除坚不可摧",
+    "DESCRIPTIONS": [
+      "下回合开始时，移除12层坚不可摧",
+      "下回合结束时，移除12层坚不可摧"
+    ]
+  },
+  "SelenaMod:PrayerEffect":{
+    "NAME": "真言",
+    "DESCRIPTIONS": [
+      "获得%s层真言"
+    ]
   }
 }

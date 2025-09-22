@@ -71,7 +71,7 @@ public class WanderPower extends TwoAmountPower {
 
     @Override
     public void atStartOfTurn() {
-        if(this.stackAmount1>0){
+        if (this.stackAmount1 > 0) {
             addToBot(new DamageAction(this.owner, new DamageInfo(this.owner, this.stackAmount1 * 10, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 
 //        addToBot(new LoseHPAction(this.owner,this.owner,this.stackAmount1*10));
@@ -85,7 +85,7 @@ public class WanderPower extends TwoAmountPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {
-            if(this.stackAmount2>0){
+            if (this.stackAmount2 > 0) {
                 addToBot(new DamageAction(this.owner, new DamageInfo(this.owner, this.stackAmount2 * 10, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 //            addToBot(new LoseHPAction(this.owner,this.owner,this.stackAmount2*10));
                 addToBot(new ApplyPowerAction(this.owner, this.owner, new IntangiblePlayerPower(this.owner, this.stackAmount2)));

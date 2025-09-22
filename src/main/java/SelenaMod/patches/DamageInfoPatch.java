@@ -12,13 +12,13 @@ public class DamageInfoPatch {
     public static class ConstructorPatch {
         @SpirePostfixPatch
         public static void Postfix(DamageInfo __instance) {
-            try{
+            try {
                 if (__instance.type == DamageInfo.DamageType.NORMAL && __instance.owner.hasPower(WildGooseLetterPower.POWER_ID)) {
                     __instance.type = DamageInfo.DamageType.HP_LOSS;
                 } else if (__instance.type == DamageInfo.DamageType.HP_LOSS && __instance.owner.hasPower(ShortLetterPower.POWER_ID)) {
                     __instance.type = DamageInfo.DamageType.NORMAL;
                 }
-            }catch (NullPointerException e){
+            } catch (NullPointerException e) {
                 //do nothing
             }
 

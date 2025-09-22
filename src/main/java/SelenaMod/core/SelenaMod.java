@@ -1,6 +1,8 @@
 package SelenaMod.core;
 
+import SelenaMod.actions.PlayDrawPailCardAction;
 import SelenaMod.cards.CustomSelenaCard;
+import SelenaMod.cards.SoloPerformance;
 import SelenaMod.character.Selena;
 import SelenaMod.modifiers.ReduceCostModifier;
 import SelenaMod.relics.PaperAndPen;
@@ -31,7 +33,8 @@ import static com.megacrit.cardcrawl.core.Settings.language;
 
 @SpireInitializer
 public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywordsSubscriber, EditCharactersSubscriber,
-        EditCardsSubscriber, EditRelicsSubscriber, PostInitializeSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber {
+        EditCardsSubscriber, EditRelicsSubscriber, PostInitializeSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber,
+        PostUpdateSubscriber {
 
     public static final Color SELENA_COLOR = new Color(0.8f, 0.8f, 1.0f, 1.0f);
     public static final String SELENA_ATTACK_512 = ModHelper.makeImgPath("512", "bg_attack_512");
@@ -147,6 +150,22 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
                         if (((ReduceCostModifier) modifier).amount < 0) {
                             CardModifierManager.removeSpecificModifier(card, modifier, true);
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void receivePostUpdate() {
+        if (AbstractDungeon.currMapNode != null &&
+                AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player != null) {
+            if (AbstractDungeon.actionManager.isEmpty()) {
+                if (AbstractDungeon.player.drawPile.size() == 1) {
+                    if (AbstractDungeon.player.drawPile.getTopCard() instanceof SoloPerformance) {
+                        SoloPerformance soloPerformance = (SoloPerformance) AbstractDungeon.player.drawPile.getTopCard();
+                        soloPerformance.activeFlag = true;
+                        AbstractDungeon.actionManager.addToBottom(new PlayDrawPailCardAction(AbstractDungeon.player.drawPile.getTopCard(), null));
                     }
                 }
             }

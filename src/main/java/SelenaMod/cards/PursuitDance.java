@@ -20,7 +20,7 @@ public class PursuitDance extends CustomSelenaCard implements IFirstSight {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
         this.setMagic(7);
         this.exhaust = true;
-        this.isMultiDamage=true;
+        this.isMultiDamage = true;
     }
 
     @Override
