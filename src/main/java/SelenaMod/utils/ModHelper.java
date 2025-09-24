@@ -1,6 +1,7 @@
 package SelenaMod.utils;
 
 import SelenaMod.cardEffects.AbstractCardEffect;
+import SelenaMod.core.SelenaMod;
 import SelenaMod.modifiers.ToneModifier;
 import SelenaMod.modifiers.WhiteSpaceModifier;
 import basemod.abstracts.AbstractCardModifier;
@@ -12,6 +13,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
@@ -20,6 +23,11 @@ public class ModHelper {
     public static String MOD_PRE = "SelenaMod";
     public static String RESOURCES_FOLDER_PATH = "SelenaResources";
     public static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+    public static final Logger logger = LogManager.getLogger(SelenaMod.class.getName());
+
+    public static final char symbol= '\u200B';
+
 
     public static String makeImgPath(String folder, String imgName) {
         return RESOURCES_FOLDER_PATH + "/img/" + folder + "/" + imgName + ".png";
@@ -181,5 +189,11 @@ public class ModHelper {
 
     public static String makeVarId(String id) {
         return " !" + id + "! ";
+    }
+
+    public static String removeBracketsContent(String input) {
+        if (input == null) return null;
+        // 正则：\\[.*?\\] 匹配 [开头 到 ]结尾 的最短内容
+        return input.replaceAll("\\[.*?\\]", "");
     }
 }

@@ -7,16 +7,19 @@ import SelenaMod.interfaces.IPreUseCard;
 import SelenaMod.modifiers.WhiteSpaceModifier;
 import SelenaMod.utils.ModHelper;
 import SelenaMod.utils.ToneAndSpaceData;
+import basemod.ReflectionHacks;
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DescriptionLine;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WhiteSpacePower extends AbstractPower implements IPreUseCard {
@@ -49,12 +52,24 @@ public class WhiteSpacePower extends AbstractPower implements IPreUseCard {
     @Override
     public void onPreUseCard(AbstractCard card, AbstractMonster target) {
         if (card.cardID.equals(Letter.ID) && this.canApply(card)) {
+//            ArrayList<DescriptionLine> lines= ReflectionHacks.getPrivate(card,AbstractCard.class,"description");
+//            ArrayList<DescriptionLine> originLines=new ArrayList<>(lines);
             ModHelper.addWhiteSpaceModifier(card, effect);
             this.flash();
-            card.flash();
-            card.calculateCardDamage(target);
-            card.initializeDescription();
-            addToBot(new LetterWaitAction(5, card));
+//            card.flash();
+//            card.calculateCardDamage(target);
+//            card.initializeDescription();
+//            ArrayList<DescriptionLine> newLines=new ArrayList<>(lines);
+//            newLines.removeIf(l->{
+//                for(DescriptionLine line:originLines){
+//                    if(line.getText().equals(l.getText())){
+//                        return true;
+//                    }
+//                }
+//                return false;
+//            });
+//            addToBot(new LetterWaitAction(5, card,newLines));
+
             addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
         }
     }
