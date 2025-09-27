@@ -45,7 +45,7 @@ public class PutToDeckAction extends AbstractGameAction {
                 }
 
                 for (i = 0; i < this.p.hand.size(); ++i) {
-                    this.p.hand.moveToDeck(this.p.hand.getRandomCard(AbstractDungeon.cardRandomRng), this.isRandom);
+                    this.p.hand.moveToDeck(this.p.hand.getRandomCard(AbstractDungeon.cardRandomRng), true);
                 }
             }
         }

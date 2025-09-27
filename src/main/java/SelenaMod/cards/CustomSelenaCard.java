@@ -16,6 +16,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class CustomSelenaCard extends CustomCard {
     public boolean firstSight = true;
+    public int baseSecondMagicVar=0;
+    public int secondMagicVar=0;
 
     public CustomSelenaCard(String id, String name, String img, int cost, String rawDescription, AbstractCard.CardType type, AbstractCard.CardColor color, AbstractCard.CardRarity rarity, AbstractCard.CardTarget target) {
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
@@ -56,10 +58,15 @@ public abstract class CustomSelenaCard extends CustomCard {
         this.baseMagicNumber = this.magicNumber = magic;
     }
 
+    public void setSecondMagic(int secondMagic){
+        this.baseSecondMagicVar=this.secondMagicVar=secondMagic;
+    }
+
     public void setNums(int... nums) {
         if (nums.length > 0) this.setDamage(nums[0]);
         if (nums.length > 1) this.setBlock(nums[1]);
         if (nums.length > 2) this.setMagic(nums[2]);
+        if (nums.length > 3) this.setSecondMagic(nums[3]);
     }
 
     protected void addCustomDamageAction(AbstractMonster target, AbstractGameAction.AttackEffect effect) {

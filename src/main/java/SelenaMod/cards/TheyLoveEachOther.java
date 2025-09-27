@@ -16,7 +16,7 @@ public class TheyLoveEachOther extends CustomSelenaCard {
     private boolean changeEffect = false;
 
     public TheyLoveEachOther() {
-        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         this.setMagic(3);
     }
 

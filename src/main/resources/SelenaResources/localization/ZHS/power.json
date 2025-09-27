@@ -20,7 +20,7 @@
   "SelenaMod:BlockEffect": {
     "NAME": "格挡",
     "DESCRIPTIONS": [
-      "获得%s点格挡。"
+      "获得%s点 格挡 。"
     ]
   },
   "SelenaMod:OverridePower": {
@@ -177,6 +177,36 @@
     "NAME": "真言",
     "DESCRIPTIONS": [
       "获得%s层真言"
+    ]
+  },
+  "SelenaMod:NextTurnReturnHandPower": {
+    "NAME": "回到手牌",
+    "DESCRIPTIONS": [
+      "下%s个回合开始时，%s回到手牌"
+    ]
+  },
+  "SelenaMod:NextTurnTempDexPower": {
+    "NAME": "下回合临时敏捷",
+    "DESCRIPTIONS": [
+      "下回合开始时获得%s点临时敏捷"
+      ]
+  },
+  "SelenaMod:SilentHopePower":{
+    "NAME": "希声",
+    "DESCRIPTIONS": [
+      "每回合开始时，可以从弃牌堆或抽牌堆选择至多%s张信加入手牌"
+    ]
+  },
+  "SelenaMod:RebirthPower": {
+    "NAME": "新生",
+    "DESCRIPTIONS": [
+      "不会再进入“塞壬”"
+    ]
+  },
+  "SelenaMod:SkipNextDrawPower": {
+    "NAME": "跳过抽牌",
+    "DESCRIPTIONS": [
+      "跳过下%s次抽牌"
     ]
   }
 }

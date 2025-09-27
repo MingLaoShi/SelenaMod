@@ -15,6 +15,8 @@ public abstract class AbstractCardEffect implements DynamicEffectVar {
     //用来计算powers数值的
     protected AbstractCard card;
 
+    public boolean waiting=false;
+
     public AbstractCardEffect(String id) {
         card = new Strike_Red();
         this.data = new ToneAndSpaceData();

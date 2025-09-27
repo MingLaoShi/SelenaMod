@@ -79,7 +79,7 @@
     "FLAVOR": "“亲爱的陌生人……”"
   },
   "SelenaMod:ArcadiaRetreat": {
-    "NAME": "阿卡迪亚大撤退",
+    "NAME": "《阿卡狄亚大撤退》",
     "DESCRIPTION": "对自己造成5点生命值削减。 NL selenamod:覆写 ：将 !M! 张随机稀有牌加入手牌。这张牌直到下次打出前耗能变为0。",
     "UPGRADE_DESCRIPTION": "对自己造成5点生命值削减。 NL selenamod:覆写 ：从 !M! 张随机稀有牌中选择1张加入手牌。这张牌直到下次打出前耗能变为0。",
     "FLAVOR": "此前她是一名著名的歌剧家，现在她是一名最普通的构造体"
@@ -108,7 +108,8 @@
   },
   "SelenaMod:PhantomMelody": {
     "NAME": "幻奏",
-    "DESCRIPTION": "获得1层 缓冲 。 NL 保留 。 消耗 。 NL selenamod:初见 ：获得 !M! 层 残影 。"
+    "DESCRIPTION": "获得1层 缓冲 。 NL 保留 。 消耗 。 NL selenamod:初见 ：获得 !M! 层 残影 。",
+    "FLAVOR": "幻乐崩影，无声独奏"
   },
   "SelenaMod:FaustHoliday": {
     "NAME": "法斯特假日",
@@ -156,7 +157,7 @@
     "DESCRIPTION": "每回合 selenamod:初见 效果可以再触发至多 !M! 次。 NL selenamod:初见 ： selenamod:留白 ： 消耗 。",
     "FLAVOR": "“她最好永远天真，为她所爱的人。”"
   },
-  "SelenaMod:echoing": {
+  "SelenaMod:Echoing": {
     "NAME": "ECHOING",
     "DESCRIPTION": "回合开始时，将上回合打出的最后 !M! 张牌加入手牌。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 回合开始时，将上回合打出的最后 !M! 张牌加入手牌。",
@@ -200,5 +201,58 @@
     "DESCRIPTION": "获得12层坚不可摧，直到下回合开始。 NL 消耗 。 NL selenamod:覆写 ：获得 !M! 层真言。",
     "UPGRADE_DESCRIPTION": "获得12层坚不可摧，直到下回合结束。 NL 消耗 。 NL selenamod:覆写 ：获得 !M! 层真言。",
     "FLAVOR": "苦难无法磨灭真正高贵的品格"
+  },
+  "SelenaMod:Premiere": {
+    "NAME": "首演",
+    "DESCRIPTION": "造成 !D! 点伤害，这张牌在规则上也视为 *信 。",
+    "FLAVOR": "“即便你我从未相见，但是这一刻，你无疑是离我内心最近的那一个人。”"
+  },
+  "SelenaMod:NightingaleAndRose": {
+    "NAME": "夜莺与玫瑰",
+    "DESCRIPTION": "失去 !SelenaMod:SecondMagicVar! 点生命，从抽牌堆或弃牌堆中选择至多 !M! 张牌加入手牌，每次打出后本场战斗失去生命值+1。",
+    "FLAVOR": "月色婉转，荆棘灼烧"
+  },
+  "SelenaMod:Correspondence": {
+    "NAME": "鸿爪",
+    "DESCRIPTION": "抽 !M! 张牌，本场战斗每打出1张 *信 数值+1。 NL selenamod:反复 ， 消耗 。",
+    "FLAVOR": "春安，夏祺，秋绥，冬禧"
+  },
+  "SelenaMod:Cadenza": {
+    "NAME": "华彩乐段",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。若你有任意种 selenamod:留白 ， selenamod:转调 或 selenamod:覆写 状态，清除所有上述状态，每清除一种额外造成一次伤害。",
+    "FLAVOR": "“感谢您欣赏 华彩乐段。”"
+  },
+  "SelenaMod:BunnyDeerAndYou": {
+    "NAME": "小兔、小鹿与你",
+    "DESCRIPTION": " 固有 。 NL 获得 !M! 层 活力 ，下回合开始时获得 !B! 点临时 敏捷 ，第二个回合开始时将此牌加入手牌。每次打出后数值+ !SelenaMod:SecondMagicVar! 直到战斗结束。",
+    "FLAVOR": "前天、昨天与今天"
+  },
+  "SelenaMod:Fireworks": {
+    "NAME": "烟花",
+    "DESCRIPTION": "选择一张手牌，随机获得一张拥有相同关键词的同类型牌，下次打出前耗能为0。 NL 消耗 ， 虚无 。",
+    "UPGRADE_DESCRIPTION": "选择一张手牌，随机获得一张升级后的拥有相同关键词的同类型牌，下次打出前耗能为0。 NL 消耗 ， 虚无 。",
+    "FLAVOR": "“幼稚！伊利斯，你幼稚！”"
+  },
+  "SelenaMod:SilentHope": {
+    "NAME": "”希声“",
+    "DESCRIPTION": "每回合开始时，可以从弃牌堆或抽牌堆中选择 !M! 张 *信 加入手牌。 NL selenamod:初见 ：获得 !SelenaMod:SecondMagicVar! 层 人工制品 。",
+    "FLAVOR": "“大音希声，大象无形”"
+  },
+  "SelenaMod:Rebirth": {
+    "NAME": "新生",
+    "DESCRIPTION": "不会再进入“ selenamod:塞壬 ”。 NL selenamod:覆写 ： 消耗 。",
+    "UPGRADE_DESCRIPTION": "不会再进入“ selenamod:塞壬 ”。",
+    "FLAVOR": "“我想要的……只是见到你。”"
+  },
+  "SelenaMod:FiftyTwoHz": {
+    "NAME": "52hz",
+    "DESCRIPTION": "仅当拥有另一张 *52hz 才能一起打出，获得1张 *奇迹 ，造成 !D! 点伤害，获得 !B! 点 格挡 。 NL 消耗 ， 虚无 。",
+    "UPGRADE_DESCRIPTION": "仅当拥有另一张 *52hz 才能一起打出，获得1张 *奇迹+ ，造成 !D! 点伤害，获得 !B! 点 格挡 。 NL 消耗 ， 虚无 。",
+    "FLAVOR": "斯人若彩虹，遇上方知有"
+  },
+  "SelenaMod:WeiGu": {
+    "NAME": "维谷",
+    "DESCRIPTION": "造成 !D! 点伤害， 保留 所有手牌，跳过下次抽牌。",
+    "FLAVOR": "她是否想过，在那些宏大叙事里，自己也只是不起眼的句号而已？"
   }
 }

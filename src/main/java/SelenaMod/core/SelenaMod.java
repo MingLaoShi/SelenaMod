@@ -9,6 +9,7 @@ import SelenaMod.relics.PaperAndPen;
 import SelenaMod.utils.EffectsDynamicVariableManager;
 import SelenaMod.utils.ModHelper;
 import SelenaMod.utils.SaveHelper;
+import SelenaMod.utils.SecondMagicVar;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.abstracts.AbstractCardModifier;
@@ -74,6 +75,8 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
                 .notPackageFilter("SelenaMod.cards.options").setDefaultSeen(true).cards();
 
         BaseMod.addDynamicVariable(EffectsDynamicVariableManager.instance);
+        BaseMod.addDynamicVariable(new SecondMagicVar());
+
 
     }
 

@@ -1,0 +1,37 @@
+package SelenaMod.cards;
+
+import SelenaMod.modifiers.RepeatModifier;
+import SelenaMod.utils.ModHelper;
+import basemod.helpers.CardModifierManager;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+public class Correspondence extends CustomSelenaCard{
+    public static String ID= ModHelper.makeID(Correspondence.class.getSimpleName());
+    public Correspondence() {
+        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
+        this.setMagic(0);
+        this.exhaust=true;
+        CardModifierManager.addModifier(this,new RepeatModifier());
+    }
+
+    @Override
+    protected void upgradeMethod() {
+        this.upgradeMagicNumber(1);
+    }
+
+    @Override
+    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        addDrawCardAction();
+    }
+
+
+    @Override
+    public void triggerOnCardPlayed(AbstractCard cardPlayed) {
+        if(Letter.isLetterCard(cardPlayed)){
+            this.magicNumber++;
+            this.isMagicNumberModified=this.baseMagicNumber!=this.magicNumber;
+        }
+    }
+}

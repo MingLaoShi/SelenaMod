@@ -1,6 +1,7 @@
 package SelenaMod.modifiers;
 
 import SelenaMod.cards.Confrontation;
+import SelenaMod.cards.Correspondence;
 import SelenaMod.cards.OutOfControl;
 import SelenaMod.utils.ModHelper;
 import basemod.abstracts.AbstractCardModifier;
@@ -22,6 +23,7 @@ public class RepeatModifier extends AbstractCardModifier {
     @Override
     public boolean isInherent(AbstractCard card) {
         return card instanceof Confrontation ||
-                card instanceof OutOfControl;
+                card instanceof OutOfControl
+                ||card instanceof Correspondence;
     }
 }

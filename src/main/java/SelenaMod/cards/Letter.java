@@ -3,6 +3,7 @@ package SelenaMod.cards;
 import SelenaMod.actions.PutToDeckAction;
 import SelenaMod.cardEffects.AbstractCardEffect;
 import SelenaMod.utils.ModHelper;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -13,6 +14,10 @@ public class Letter extends CustomSelenaCard {
     public Letter() {
         super(ID, 0, CardType.SKILL, CardRarity.BASIC, CardTarget.NONE);
         this.setMagic(1);
+    }
+
+    public Letter(String id, int i, CardType cardType, CardRarity cardRarity, CardTarget cardTarget) {
+        super(id, i, cardType, cardRarity, cardTarget);
     }
 
     @Override
@@ -58,5 +63,10 @@ public class Letter extends CustomSelenaCard {
         if (this.overrideEffect != null) {
             this.overrideEffect.calcCardDamage(mo);
         }
+    }
+
+
+    public static boolean isLetterCard(AbstractCard card){
+        return card instanceof Letter;
     }
 }

@@ -1,5 +1,6 @@
 package SelenaMod.cards;
 
+import SelenaMod.powers.EchoingPower;
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -20,6 +21,6 @@ public class Echoing extends CustomSelenaCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-//        a
+        addPowerToSelf(new EchoingPower(abstractPlayer, this.magicNumber));
     }
 }

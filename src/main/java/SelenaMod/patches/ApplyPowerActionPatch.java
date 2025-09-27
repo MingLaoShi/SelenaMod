@@ -1,8 +1,12 @@
 package SelenaMod.patches;
 
+import SelenaMod.powers.RebirthPower;
+import SelenaMod.powers.SirenPower;
 import SelenaMod.powers.WanderPower;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInstrumentPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import javassist.CannotCompileException;
@@ -36,6 +40,19 @@ public class ApplyPowerActionPatch {
                     }
                 }
             };
+        }
+    }
+
+    @SpirePatch(clz = ApplyPowerAction.class,method = "update")
+    public static class updatePatch{
+        @SpirePrefixPatch
+        public static SpireReturn<Void> prefixPatch(ApplyPowerAction _instance,AbstractPower ___powerToApply){
+            if(_instance.target!=null&&___powerToApply instanceof SirenPower &&_instance.target.hasPower(RebirthPower.POWER_ID)){
+                _instance.isDone=true;
+                _instance.target.getPower(RebirthPower.POWER_ID).flash();
+                return SpireReturn.Return();
+            }
+            return SpireReturn.Continue();
         }
     }
 }
