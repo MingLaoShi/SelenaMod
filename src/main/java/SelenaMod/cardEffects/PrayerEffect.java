@@ -26,6 +26,11 @@ public class PrayerEffect extends AbstractCardEffect {
     }
 
     @Override
+    public AbstractCardEffect clone() {
+        return new PrayerEffect(this.data.id,this.data.amount);
+    }
+
+    @Override
     public int val(AbstractCard card) {
         return this.data.amount;
     }

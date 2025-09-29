@@ -14,6 +14,7 @@ public class Aria extends CustomSelenaCard {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         this.setDamage(6);
         this.setMagic(1);
+        this.setSecondMagic(4);
     }
 
     @Override
@@ -24,6 +25,6 @@ public class Aria extends CustomSelenaCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        addPowerToSelf(new TonePower(abstractPlayer, this.magicNumber, new DamageEffect(this.cardID, 3, this.magicNumber)));
+        addPowerToSelf(new TonePower(abstractPlayer, this.magicNumber, new DamageEffect(this.cardID, this.secondMagicVar, this.magicNumber)));
     }
 }

@@ -1,8 +1,10 @@
 package SelenaMod.cards;
 
 import SelenaMod.cardEffects.ExhaustCardEffect;
+import SelenaMod.modifiers.RepeatModifier;
 import SelenaMod.powers.TonePower;
 import SelenaMod.utils.ModHelper;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -16,6 +18,7 @@ public class SoloPerformance extends CustomSelenaCard {
     public SoloPerformance() {
         super(ID, -2, CardType.ATTACK, CardRarity.RARE, CardTarget.NONE);
         this.setMagic(50);
+        CardModifierManager.addModifier(this,new RepeatModifier());
     }
 
     @Override

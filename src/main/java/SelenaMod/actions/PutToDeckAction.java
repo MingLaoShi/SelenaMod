@@ -53,7 +53,7 @@ public class PutToDeckAction extends AbstractGameAction {
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
 
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
-                this.p.hand.moveToDeck(c, false);
+                this.p.hand.moveToDeck(c, true);
             }
 
             AbstractDungeon.player.hand.refreshHandLayout();

@@ -46,19 +46,27 @@ public class ClickAndDragCardsPatch {
         }
         //整理转调效果
         List<AbstractCardModifier> toneMod = CardModifierManager.getModifiers(card, ToneModifier.ID);
+        List<ToneAndSpaceData> tones;
         if (!toneMod.isEmpty()) {
-            List<ToneAndSpaceData> tones = ((ToneModifier) toneMod.get(0)).tones.stream().map(x -> x.data).collect(Collectors.toList());
-            int start = 0;
-            if (tones.size() >= ToneModifier.TONE_MAX) {
-                start = 1;
-                if (!tonePower.isEmpty()) {
-                    dataList.add(((TonePower) tonePower.get(0)).toneAndSpaceData);
-                }
-            }
-            for (int i = start; i < tones.size(); i++) {
+            tones = ((ToneModifier) toneMod.get(0)).tones.stream().map(x -> x.data).collect(Collectors.toList());
+        }else {
+            tones=new ArrayList<>();
+        }
+
+        while(tones.size()>ToneModifier.TONE_MAX){
+            tones.remove(0);
+        }
+        if(!tonePower.isEmpty()){
+            if(!tones.isEmpty())
+                tones.remove(0);
+            for(int i=0;i<tones.size()-1;i++){
                 dataList.add(tones.get(i));
             }
+            dataList.add(((TonePower) tonePower.get(0)).toneAndSpaceData);
+        }else{
+            dataList.addAll(tones);
         }
+
         //整理留白效果
         List<AbstractCardModifier> whiteSpaceMod = CardModifierManager.getModifiers(card, WhiteSpaceModifier.ID);
         if (!whiteSpaceMod.isEmpty()) {

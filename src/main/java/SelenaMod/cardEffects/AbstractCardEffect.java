@@ -9,8 +9,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import org.apache.commons.lang3.StringUtils;
 
-public abstract class AbstractCardEffect implements DynamicEffectVar {
+public abstract class AbstractCardEffect implements DynamicEffectVar,Cloneable {
     public ToneAndSpaceData data;
     //用来计算powers数值的
     protected AbstractCard card;
@@ -51,5 +52,15 @@ public abstract class AbstractCardEffect implements DynamicEffectVar {
 
     public void initializeCardEffect(AbstractCard card) {
 
+    }
+
+    public abstract AbstractCardEffect clone();
+
+    public AbstractCardEffect makeCopy(String id){
+        AbstractCardEffect effect=this.clone();
+        if(!StringUtils.isEmpty(id)){
+            effect.data.setId(id);
+        }
+        return effect;
     }
 }

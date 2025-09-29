@@ -25,6 +25,11 @@ public class BlockEffect extends AbstractCardEffect {
         return new GainBlockAction(AbstractDungeon.player, card.block);
     }
 
+    @Override
+    public AbstractCardEffect clone() {
+        return new BlockEffect(this.data.id,this.data.amount);
+    }
+
 
 //    @Override
 //    public String getDescription() {

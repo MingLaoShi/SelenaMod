@@ -49,4 +49,9 @@ public class ExhaustEffect extends AbstractCardEffect {
     public void initializeCardEffect(AbstractCard card) {
         CardModifierManager.addModifier(card, new ExhaustMod());
     }
+
+    @Override
+    public AbstractCardEffect clone() {
+        return new ExhaustEffect(this.data.id);
+    }
 }

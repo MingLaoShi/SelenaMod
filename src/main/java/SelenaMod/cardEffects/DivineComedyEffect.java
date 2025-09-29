@@ -46,6 +46,11 @@ public class DivineComedyEffect extends AbstractCardEffect {
         return String.format(this.data.getDescription(), String.valueOf(this.data.amount));
     }
 
+    @Override
+    public AbstractCardEffect clone() {
+        return new DivineComedyEffect(this.data.id,this.data.amount);
+    }
+
 
     @Override
     public int val(AbstractCard card) {

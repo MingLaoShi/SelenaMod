@@ -30,6 +30,11 @@ public class VigorEffect extends AbstractCardEffect {
         return String.format(this.data.getDescription(), String.valueOf(this.data.amount));
     }
 
+    @Override
+    public AbstractCardEffect clone() {
+        return new VigorEffect(this.data.id,this.data.amount);
+    }
+
 
     @Override
     public int val(AbstractCard card) {

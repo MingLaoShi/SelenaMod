@@ -24,6 +24,11 @@ public class ExhaustCardEffect extends AbstractCardEffect {
     }
 
     @Override
+    public AbstractCardEffect clone() {
+        return new ExhaustCardEffect(this.data.id,this.data.amount);
+    }
+
+    @Override
     public int val(AbstractCard card) {
         return this.data.amount;
     }

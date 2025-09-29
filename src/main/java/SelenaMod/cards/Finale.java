@@ -14,7 +14,7 @@ public class Finale extends CustomSelenaCard {
     public Finale() {
         super(ID, 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
         this.setDamage(6);
-        this.setMagic(3);
+        this.setMagic(6);
     }
 
     @Override

@@ -34,7 +34,7 @@
   },
   "SelenaMod:Aria": {
     "NAME": "咏叹调",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:转调 ：造成3点伤害 !M! 次。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:转调 ：造成 !SelenaMod:SecondMagicVar! 点伤害 !M! 次。",
     "FLAVOR": "“现在是咏叹调的时间。”"
   },
   "SelenaMod:OffenseDefense": {
@@ -44,7 +44,7 @@
   },
   "SelenaMod:Seeking": {
     "NAME": "求索",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:留白 ：抽 !M! 张牌。",
+    "DESCRIPTION": "造成 !D! 点伤害，下1张牌不能打出技能牌。 NL selenamod:留白 ：抽 !M! 张牌。",
     "FLAVOR": "她仰望繁星。"
   },
   "SelenaMod:Confrontation": {
@@ -55,7 +55,8 @@
   "SelenaMod:SoundOfStorm": {
     "NAME": "“岚音”",
     "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:初见 ：获得 混乱 ，进入 selenamod:塞壬 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:初见 ：进入 selenamod:塞壬 。"
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:初见 ：进入 selenamod:塞壬 。",
+    "FLAVOR": "渺渺雾岚，悠悠乐音"
   },
   "SelenaMod:Lament": {
     "NAME": "哀唱",
@@ -87,7 +88,7 @@
   "SelenaMod:Questing": {
     "NAME": "寻觅",
     "DESCRIPTION": "获得 !B! 点 格挡 ，下1张牌不能打出攻击牌。 NL selenamod:留白 ：抽 !M! 张牌。",
-    "FLAVOR": "猎豹、狮子与母狼"
+    "FLAVOR": "他凝视大地"
   },
   "SelenaMod:DivineComedy": {
     "NAME": "繁星谣",
@@ -119,7 +120,7 @@
   },
   "SelenaMod:NaiveProphecy": {
     "NAME": "天真的预言",
-    "DESCRIPTION": " 预见 3 。 NL 打出其中未被丢弃的初始牌。",
+    "DESCRIPTION": " 预见 !M! 。 NL 打出其中未被丢弃的初始牌。",
     "FLAVOR": "从人性见神性"
   },
   "SelenaMod:TheyLoveEachOther": {
@@ -132,7 +133,7 @@
   },
   "SelenaMod:Dusk": {
     "NAME": "黄昏",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !M! 层 缓慢 。 NL 消耗 。",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 给予 !M! 层 缓慢 。 NL 消耗 。",
     "FLAVOR": "“即将发生什么前的短暂光阴，总是最动人。”"
   },
   "SelenaMod:SelfQuestion": {
@@ -234,7 +235,7 @@
     "FLAVOR": "“幼稚！伊利斯，你幼稚！”"
   },
   "SelenaMod:SilentHope": {
-    "NAME": "”希声“",
+    "NAME": "“希声”",
     "DESCRIPTION": "每回合开始时，可以从弃牌堆或抽牌堆中选择 !M! 张 *信 加入手牌。 NL selenamod:初见 ：获得 !SelenaMod:SecondMagicVar! 层 人工制品 。",
     "FLAVOR": "“大音希声，大象无形”"
   },
@@ -254,5 +255,27 @@
     "NAME": "维谷",
     "DESCRIPTION": "造成 !D! 点伤害， 保留 所有手牌，跳过下次抽牌。",
     "FLAVOR": "她是否想过，在那些宏大叙事里，自己也只是不起眼的句号而已？"
+  },
+  "SelenaMod:Sonnet19": {
+    "NAME": "Sonnet19",
+    "DESCRIPTION": "下 !M! 次打出的牌 消耗 时，那些牌不会被消耗而是进入弃牌堆。 NL 保留 ，消耗 。",
+    "FLAVOR": "“在我的诗歌中，我的爱友将永葆芳华”"
+  },
+  "SelenaMod:Sonnet18": {
+    "NAME": "Sonnet18",
+    "DESCRIPTION": "将 !M! 张手牌变化为稀有度更高的随机牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将 !M! 张手牌变化为稀有度更高的随机牌并升级。 NL 消耗 。",
+    "FLAVOR": "“我可否将你比作一个夏日？”"
+  },
+  "SelenaMod:BitterJourney": {
+    "NAME": "苦旅",
+    "DESCRIPTION": "每对自己造成1次生命值削减，就对1名随机敌人造成 !M! 点生命值削减。",
+    "FLAVOR": "Per aspera ad astra"
+  },
+  "SelenaMod:SacredSong": {
+    "NAME": "神曲",
+    "DESCRIPTION": "获得已有的 selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果各1种。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得已有的 selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果各1种。",
+    "FLAVOR": "没见过魔鬼的人却要描绘地狱"
   }
 }

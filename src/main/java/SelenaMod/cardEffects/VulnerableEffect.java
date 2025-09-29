@@ -31,6 +31,11 @@ public class VulnerableEffect extends AbstractCardEffect {
     }
 
     @Override
+    public AbstractCardEffect clone() {
+        return new VulnerableEffect(this.data.id,this.data.amount);
+    }
+
+    @Override
     public int val(AbstractCard card) {
         return this.data.amount;
     }

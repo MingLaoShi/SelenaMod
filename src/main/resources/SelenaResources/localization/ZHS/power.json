@@ -208,5 +208,17 @@
     "DESCRIPTIONS": [
       "跳过下%s次抽牌"
     ]
+  },
+  "SelenaMod:SeekingPower":{
+    "NAME": "求索",
+    "DESCRIPTIONS": [
+      "下%s张牌不能打出技能牌"
+    ]
+  },
+  "SelenaMod:Sonnet19Power":{
+    "NAME": "Sonnet19",
+    "DESCRIPTIONS": [
+      "下%s张打出的牌将要消耗时不会被消耗而是进入弃牌堆"
+    ]
   }
 }

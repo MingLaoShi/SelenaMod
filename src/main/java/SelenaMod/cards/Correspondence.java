@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Correspondence extends CustomSelenaCard{
     public static String ID= ModHelper.makeID(Correspondence.class.getSimpleName());
+    private int letterNum=0;
     public Correspondence() {
         super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
         this.setMagic(0);
@@ -26,12 +27,22 @@ public class Correspondence extends CustomSelenaCard{
         addDrawCardAction();
     }
 
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        this.calMagicNumber();
+    }
 
     @Override
     public void triggerOnCardPlayed(AbstractCard cardPlayed) {
         if(Letter.isLetterCard(cardPlayed)){
-            this.magicNumber++;
-            this.isMagicNumberModified=this.baseMagicNumber!=this.magicNumber;
+            this.letterNum++;
+            calMagicNumber();
         }
+    }
+
+    private void calMagicNumber() {
+        this.magicNumber=this.baseMagicNumber+this.letterNum;
+        this.isMagicNumberModified=this.baseMagicNumber!=this.magicNumber;
     }
 }

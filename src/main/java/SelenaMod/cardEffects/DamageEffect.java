@@ -37,6 +37,11 @@ public class DamageEffect extends AbstractCardEffect {
         return String.format(this.data.getDescription(), String.valueOf(card.damage), String.valueOf(this.data.amount2));
     }
 
+    @Override
+    public AbstractCardEffect clone() {
+        return new DamageEffect(this.data.id,this.data.amount,this.data.amount2);
+    }
+
 
     @Override
     public int val(AbstractCard card) {

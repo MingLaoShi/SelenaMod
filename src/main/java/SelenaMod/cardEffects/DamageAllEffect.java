@@ -26,6 +26,11 @@ public class DamageAllEffect extends AbstractCardEffect {
         return new DamageAllEnemiesAction(AbstractDungeon.player, data.amount, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
     }
 
+    @Override
+    public AbstractCardEffect clone() {
+        return new DamageAllEffect(this.data.id,this.data.amount);
+    }
+
     //    @Override
 //    public String getDescription() {
 //        return String.format(this.data.getDescription(), String.valueOf(this.data.amount));
