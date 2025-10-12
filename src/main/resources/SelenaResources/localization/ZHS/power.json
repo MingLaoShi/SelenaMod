@@ -39,13 +39,15 @@
   "SelenaMod:DamageAllEffect": {
     "NAME": "全体伤害",
     "DESCRIPTIONS": [
-      "对所有敌人造成%s点伤害"
+      "对所有敌人造成%s点伤害",
+      "ALL_ENEMY"
     ]
   },
   "SelenaMod:VulnerableEffect": {
     "NAME": "易伤",
     "DESCRIPTIONS": [
-      "给予%s层易伤"
+      "给予%s层 易伤 。",
+      "ENEMY"
     ]
   },
   "SelenaMod:SirenPower": {
@@ -219,6 +221,12 @@
     "NAME": "Sonnet19",
     "DESCRIPTIONS": [
       "下%s张打出的牌将要消耗时不会被消耗而是进入弃牌堆"
+    ]
+  },
+  "SelenaMod:BitterJourneyPower":{
+    "NAME": "苦旅",
+    "DESCRIPTIONS": [
+      "每在自己回合受到1次伤害，对一名随机敌人造成%s点生命值削减。"
     ]
   }
 }

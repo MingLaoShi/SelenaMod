@@ -1,19 +1,15 @@
 package SelenaMod.powers;
 
-import SelenaMod.actions.LetterWaitAction;
 import SelenaMod.cardEffects.AbstractCardEffect;
 import SelenaMod.cards.Letter;
 import SelenaMod.interfaces.IPreUseCard;
 import SelenaMod.modifiers.ToneModifier;
 import SelenaMod.utils.ModHelper;
 import SelenaMod.utils.ToneAndSpaceData;
-import basemod.ReflectionHacks;
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DescriptionLine;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -21,7 +17,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

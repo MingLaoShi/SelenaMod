@@ -9,7 +9,7 @@ public class Wander extends CustomSelenaCard {
     public static String ID = ModHelper.makeID(Wander.class.getSimpleName());
 
     public Wander() {
-        super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
         this.setMagic(1);
     }
 

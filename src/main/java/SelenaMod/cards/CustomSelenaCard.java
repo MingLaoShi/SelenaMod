@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class CustomSelenaCard extends CustomCard {
-    public boolean firstSight = true;
+    public boolean firstSight = false;
     public int baseSecondMagicVar=0;
     public int secondMagicVar=0;
 

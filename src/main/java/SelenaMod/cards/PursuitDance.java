@@ -17,7 +17,7 @@ public class PursuitDance extends CustomSelenaCard implements IFirstSight {
     public static String ID = ModHelper.makeID(PursuitDance.class.getSimpleName());
 
     public PursuitDance() {
-        super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+        super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ALL_ENEMY);
         this.setMagic(7);
         this.exhaust = true;
         this.isMultiDamage = true;
@@ -51,5 +51,21 @@ public class PursuitDance extends CustomSelenaCard implements IFirstSight {
         addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, 1, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 
 //        addToBot(new LoseHPAction(AbstractDungeon.player,AbstractDungeon.player,1));
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        for (int i = 0; i < this.multiDamage.length; i++) {
+            multiDamage[i] = this.magicNumber;
+        }
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        for (int i = 0; i < this.multiDamage.length; i++) {
+            multiDamage[i] = this.magicNumber;
+        }
     }
 }

@@ -22,7 +22,7 @@ public class VulnerableEffect extends AbstractCardEffect {
 
     @Override
     public AbstractGameAction trigger(AbstractCreature target) {
-        return new ApplyPowerAction(AbstractDungeon.player, target, new VulnerablePower(target, this.data.amount, false), this.data.amount);
+        return new ApplyPowerAction(target, AbstractDungeon.player, new VulnerablePower(target, this.data.amount, false), this.data.amount);
     }
 
     @Override

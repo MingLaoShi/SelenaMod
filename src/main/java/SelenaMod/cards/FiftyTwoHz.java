@@ -3,24 +3,16 @@ package SelenaMod.cards;
 import SelenaMod.actions.PlayDiscardPailCardAction;
 import SelenaMod.actions.PlayDrawPailCardAction;
 import SelenaMod.actions.PlayHandCardAction;
-import SelenaMod.cardEffects.DamageEffect;
-import SelenaMod.effects.FiftyTwoHzWaitEffect;
 import SelenaMod.modifiers.NotTriggerYourselfModifier;
 import SelenaMod.utils.ModHelper;
 import basemod.helpers.CardModifierManager;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInstrumentPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.tempCards.Miracle;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import javassist.CannotCompileException;
-import javassist.expr.ExprEditor;
-import javassist.expr.MethodCall;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,7 +77,7 @@ public class FiftyTwoHz extends CustomSelenaCard{
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return findOtherFiftyTowHz(this)&&super.canUse(p,m);
+        return super.canUse(p, m) && (CardModifierManager.hasModifier(this, NotTriggerYourselfModifier.ID) || findOtherFiftyTowHz(this) && super.canUse(p, m));
     }
 
     public static boolean findOtherFiftyTowHz(AbstractCard c){

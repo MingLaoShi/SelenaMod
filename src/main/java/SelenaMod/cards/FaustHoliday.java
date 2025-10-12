@@ -17,7 +17,7 @@ public class FaustHoliday extends CustomSelenaCard {
     public static String ID = ModHelper.makeID(FaustHoliday.class.getSimpleName());
 
     public FaustHoliday() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
+        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
         this.setMagic(1);
         this.exhaust = true;
     }

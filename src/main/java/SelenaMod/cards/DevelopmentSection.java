@@ -13,13 +13,13 @@ public class DevelopmentSection extends CustomSelenaCard {
     public DevelopmentSection() {
         super(ID, 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
         this.setDamage(6);
-        this.setMagic(2);
+        this.setMagic(4);
     }
 
     @Override
     protected void upgradeMethod() {
         this.upgradeDamage(3);
-        this.upgradeMagicNumber(1);
+        this.upgradeMagicNumber(3);
     }
 
     @Override

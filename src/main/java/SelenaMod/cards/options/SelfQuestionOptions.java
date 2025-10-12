@@ -38,7 +38,7 @@ public class SelfQuestionOptions extends CustomSelenaCard {
         this.position = position;
         switch (position) {
             case 0:
-                this.setMagic(6);
+                this.setMagic(4);
                 break;
             case 1:
             case 2:
@@ -59,7 +59,7 @@ public class SelfQuestionOptions extends CustomSelenaCard {
     protected void upgradeMethod() {
         switch (this.position) {
             case 0:
-                this.upgradeMagicNumber(3);
+                this.upgradeMagicNumber(2);
                 break;
             case 2:
                 this.upgradeMagicNumber(1);

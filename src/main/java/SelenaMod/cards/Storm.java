@@ -2,7 +2,6 @@ package SelenaMod.cards;
 
 import SelenaMod.cardEffects.PrayerEffect;
 import SelenaMod.powers.OverridePower;
-import SelenaMod.powers.RemoveInvinciblePower;
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -14,7 +13,8 @@ public class Storm extends CustomSelenaCard {
     public Storm() {
         super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         this.exhaust = true;
-        this.setMagic(3);
+        this.setMagic(4);
+        this.setSecondMagic(12);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class Storm extends CustomSelenaCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addPowerToSelf(new InvinciblePower(abstractPlayer, 12));
-        addPowerToSelf(new RemoveInvinciblePower(abstractPlayer, this.upgraded ? 1 : 0));
+//        addPowerToSelf(new RemoveInvinciblePower(abstractPlayer, this.upgraded ? 1 : 0));
         addPowerToSelf(new OverridePower(abstractPlayer, this.magicNumber, new PrayerEffect(this.cardID, this.magicNumber)));
     }
 }

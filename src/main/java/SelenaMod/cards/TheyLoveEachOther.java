@@ -1,6 +1,8 @@
 package SelenaMod.cards;
 
+import SelenaMod.modifiers.RepeatModifier;
 import SelenaMod.utils.ModHelper;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -18,6 +20,7 @@ public class TheyLoveEachOther extends CustomSelenaCard {
     public TheyLoveEachOther() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         this.setMagic(3);
+        CardModifierManager.addModifier(this, new RepeatModifier());
     }
 
     @Override

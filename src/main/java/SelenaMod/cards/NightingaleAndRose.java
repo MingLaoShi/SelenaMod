@@ -5,7 +5,6 @@ import SelenaMod.utils.ModHelper;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,7 +13,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NightingaleAndRose extends CustomSelenaCard{
     public static String ID= ModHelper.makeID(NightingaleAndRose.class.getSimpleName());
@@ -31,7 +29,6 @@ public class NightingaleAndRose extends CustomSelenaCard{
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        addToBot(new LoseHPAction(abstractPlayer,abstractPlayer,this.secondMagicVar));
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
@@ -47,6 +44,7 @@ public class NightingaleAndRose extends CustomSelenaCard{
                 this.isDone=true;
             }
         });
+        addToBot(new DamageAction(abstractPlayer, new DamageInfo(abstractPlayer, this.secondMagicVar, DamageInfo.DamageType.HP_LOSS)));
         this.secondMagicVar++;
     }
 }

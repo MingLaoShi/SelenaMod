@@ -1,7 +1,9 @@
 package SelenaMod.cards;
 
 import SelenaMod.cards.options.SelfQuestionOptions;
+import SelenaMod.modifiers.RepeatModifier;
 import SelenaMod.utils.ModHelper;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,12 +16,13 @@ public class SelfQuestion extends CustomSelenaCard {
 
     public SelfQuestion() {
         super(ID, 3, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        this.setMagic(6);
+        this.setMagic(4);
+        CardModifierManager.addModifier(this, new RepeatModifier());
     }
 
     @Override
     protected void upgradeMethod() {
-        this.upgradeMagicNumber(3);
+        this.upgradeMagicNumber(2);
         this.upgradeDescription();
     }
 

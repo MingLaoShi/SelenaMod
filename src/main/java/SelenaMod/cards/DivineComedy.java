@@ -12,7 +12,7 @@ public class DivineComedy extends CustomSelenaCard {
 
     public DivineComedy() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        this.setMagic(1);
+        this.setMagic(2);
         this.exhaust = true;
     }
 

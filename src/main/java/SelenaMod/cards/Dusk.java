@@ -2,6 +2,7 @@ package SelenaMod.cards;
 
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.SlowPower;
 
@@ -23,6 +24,8 @@ public class Dusk extends CustomSelenaCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomBlockAction();
-        addPowerToEnemy(abstractMonster,new SlowPower(abstractPlayer, this.magicNumber));
+        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            addPowerToEnemy(m, new SlowPower(abstractPlayer, this.magicNumber));
+        }
     }
 }

@@ -15,6 +15,7 @@ public class ArcadiaRetreat extends CustomSelenaCard {
     public ArcadiaRetreat() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         this.setMagic(1);
+        this.setSecondMagic(1);
     }
 
     @Override
@@ -25,7 +26,7 @@ public class ArcadiaRetreat extends CustomSelenaCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        addToBot(new DamageAction(abstractPlayer, new DamageInfo(abstractPlayer, 5, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DamageAction(abstractPlayer, new DamageInfo(abstractPlayer, this.secondMagicVar, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.FIRE));
         addPowerToSelf(new OverridePower(abstractPlayer, this.magicNumber, new RareCardEffect(this.cardID, this.magicNumber)));
     }
 }
