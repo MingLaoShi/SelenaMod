@@ -277,5 +277,27 @@
     "DESCRIPTION": "获得已有的 selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果各1种。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "获得已有的 selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果各1种。",
     "FLAVOR": "没见过魔鬼的人却要描绘地狱"
+  },
+  "SelenaMod:LoopTrick": {
+    "NAME": "loop trick",
+    "DESCRIPTION": "打出上一回合打出过的所有牌。 消耗 抽牌堆、弃牌堆、手牌中除此卡以外的 !M! 张牌。 NL selenamod:反复 。 NL 第一次打出时这张牌获得 无法逃脱 ，若你的抽牌堆、弃牌堆、手牌只有 无法逃脱 牌，这局游戏失败。",
+    "FLAVOR": "如一叶落，即此世秋"
+  },
+  "SelenaMod:Compassion": {
+    "NAME": "慈悲",
+    "DESCRIPTION": "在你的回合内，你不会受到任何伤害。 NL selenamod:初见 ：失去 [E] ，下回合开始时将1张 *奇迹 加入手牌。",
+    "UPGRADE_DESCRIPTION": "在你的回合内，你不会受到任何伤害。 NL selenamod:初见 ：失去 [E] ，下回合开始时将1张 *奇迹+ 加入手牌。",
+    "FLAVOR": "NO DATE"
+  },
+  "SelenaMod:OneStepAway": {
+    "NAME": "一步之遥",
+    "DESCRIPTION": "为所有 *信 添加 消耗 。所有 *信 消耗 后，将一名生命值不超过 !M! 的敌人的生命减少至1，获得3层缠身。 NL selenamod:初见 ：添加2张 *信 到抽牌堆。",
+    "FLAVOR": "每每欲说还休，往往一步之遥"
+  },
+  "SelenaMod:Vortex": {
+    "NAME": "环流",
+    "DESCRIPTION": "选择获得1张 *Burning *Vow 或 *Dear *You 。",
+    "UPGRADE_DESCRIPTION": "选择获得1张 *Burning *Vow+ 或 *Dear *You+ 。",
+    "FLAVOR": "我们合奏，分享彼此爱的独有"
   }
 }

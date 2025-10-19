@@ -15,7 +15,7 @@ public class SelfQuestion extends CustomSelenaCard {
     public static String ID = ModHelper.makeID(SelfQuestion.class.getSimpleName());
 
     public SelfQuestion() {
-        super(ID, 3, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         this.setMagic(4);
         CardModifierManager.addModifier(this, new RepeatModifier());
     }

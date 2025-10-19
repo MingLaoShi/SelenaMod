@@ -35,7 +35,7 @@ import static com.megacrit.cardcrawl.core.Settings.language;
 @SpireInitializer
 public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywordsSubscriber, EditCharactersSubscriber,
         EditCardsSubscriber, EditRelicsSubscriber, PostInitializeSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber,
-        PostUpdateSubscriber {
+        PostUpdateSubscriber ,PostDungeonInitializeSubscriber{
 
     public static final Color SELENA_COLOR = new Color(0.8f, 0.8f, 1.0f, 1.0f);
     public static final String SELENA_ATTACK_512 = ModHelper.makeImgPath("512", "bg_attack_512");
@@ -134,7 +134,6 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
 
     @Override
     public void receivePostInitialize() {
-        saveHelper.values = new SaveHelper.SaveValue();
     }
 
     @Override
@@ -173,5 +172,10 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
                 }
             }
         }
+    }
+
+    @Override
+    public void receivePostDungeonInitialize() {
+        saveHelper.values = new SaveHelper.SaveValue();
     }
 }

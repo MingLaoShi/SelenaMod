@@ -196,4 +196,8 @@ public class ModHelper {
         // 正则：\\[.*?\\] 匹配 [开头 到 ]结尾 的最短内容
         return input.replaceAll("\\[.*?\\]", "");
     }
+
+    public static SaveHelper.SaveValue GetSaveValue(){
+        return SelenaMod.saveHelper.values;
+    }
 }

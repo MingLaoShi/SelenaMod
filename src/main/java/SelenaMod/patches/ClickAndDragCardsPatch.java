@@ -1,6 +1,7 @@
 package SelenaMod.patches;
 
 import SelenaMod.cards.Letter;
+import SelenaMod.cards.Premiere;
 import SelenaMod.modifiers.ToneModifier;
 import SelenaMod.modifiers.WhiteSpaceModifier;
 import SelenaMod.powers.OverridePower;
@@ -79,6 +80,9 @@ public class ClickAndDragCardsPatch {
 
         //总结target
         AbstractCard.CardTarget target = AbstractCard.CardTarget.NONE;
+        if(card instanceof Premiere){
+            target= AbstractCard.CardTarget.ENEMY;
+        }
         for (ToneAndSpaceData data : dataList) {
             target = ModHelper.adjustTarget(target, data.getTarget());
         }

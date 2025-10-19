@@ -228,5 +228,17 @@
     "DESCRIPTIONS": [
       "每在自己回合受到1次伤害，对一名随机敌人造成%s点生命值削减。"
     ]
+  },
+  "SelenaMod:CompassionPower":{
+    "NAME": "慈悲",
+    "DESCRIPTIONS": [
+      "在自己回合内不会受到任何伤害"
+    ]
+  },
+  "SelenaMod:AdditionCollectPower":{
+    "NAME": "收集",
+    "DESCRIPTIONS": [
+      "下回合开始时将%s张奇迹加入手牌"
+    ]
   }
 }

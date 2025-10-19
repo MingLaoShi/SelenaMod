@@ -3,22 +3,32 @@ package SelenaMod.cards;
 import SelenaMod.actions.PlayDiscardPailCardAction;
 import SelenaMod.actions.PlayDrawPailCardAction;
 import SelenaMod.actions.PlayHandCardAction;
+import SelenaMod.core.SelenaMod;
 import SelenaMod.modifiers.NotTriggerYourselfModifier;
 import SelenaMod.utils.ModHelper;
+import basemod.ReflectionHacks;
 import basemod.helpers.CardModifierManager;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
+import com.evacipated.cardcrawl.modthespire.lib.ByRef;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.tempCards.Miracle;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.FastCardObtainEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FiftyTwoHz extends CustomSelenaCard{
+public class FiftyTwoHz extends CustomSelenaCard implements OnObtainCard{
     public static String ID= ModHelper.makeID(FiftyTwoHz.class.getSimpleName());
 
     public FiftyTwoHz() {
@@ -87,4 +97,48 @@ public class FiftyTwoHz extends CustomSelenaCard{
         cards.addAll(AbstractDungeon.player.hand.group);
         return cards.stream().anyMatch(card -> card.cardID.equals(FiftyTwoHz.ID)&&card!=c);
     }
+
+    @Override
+    public void onObtainCard() {
+        if(ModHelper.GetSaveValue().GetFiftyTwoHz<1){
+            ModHelper.GetSaveValue().GetFiftyTwoHz++;
+        }
+    }
+
+    @SpirePatch(clz = AbstractRoom.class,method = "alterCardRarityProbabilities")
+    public static class AbstractRoomPatch{
+        @SpirePostfixPatch
+        public static void postfix(AbstractRoom __instance, @ByRef int[] ___rareCardChance){
+            if(ModHelper.GetSaveValue().GetFiftyTwoHz==0){
+                ___rareCardChance[0]*=3;
+            }
+        }
+    }
+
+    @SpirePatch(clz = AbstractDungeon.class,method = "getRewardCards")
+    public static class AbstractDungeonPatch{
+        @SpirePostfixPatch
+        public static ArrayList<AbstractCard> postfix(ArrayList<AbstractCard> ___result){
+            if(ModHelper.GetSaveValue().GetFiftyTwoHz==0){
+                ModHelper.logger.info("change rare card to FiftyTwoHz");
+                int index=-1;
+                for (int i = 0; i < ___result.size(); i++) {
+                    if(___result.get(i).rarity==CardRarity.RARE){
+                        index=i;
+                        break;
+                    }
+                }
+                if(index!=-1){
+                    AbstractCard newCard= CardLibrary.getCard(FiftyTwoHz.ID).makeCopy();
+                    if(___result.get(index).upgraded){
+                        newCard.upgrade();
+                    }
+                    ___result.set(index,newCard);
+                }
+            }
+            return ___result;
+        }
+    }
+
+
 }

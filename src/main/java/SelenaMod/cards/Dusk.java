@@ -10,7 +10,7 @@ public class Dusk extends CustomSelenaCard {
     public static String ID = ModHelper.makeID(Dusk.class.getSimpleName());
 
     public Dusk() {
-        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF_AND_ENEMY);
+        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL);
         this.setBlock(15);
         this.setMagic(1);
         this.exhaust = true;
@@ -25,7 +25,7 @@ public class Dusk extends CustomSelenaCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomBlockAction();
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            addPowerToEnemy(m, new SlowPower(abstractPlayer, this.magicNumber));
+            addPowerToEnemy(m, new SlowPower(m, this.magicNumber));
         }
     }
 }

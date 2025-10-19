@@ -35,5 +35,6 @@ public class SaveHelper implements CustomSavable<SaveHelper.SaveValue> {
     }
 
     public static class SaveValue {
+        public int GetFiftyTwoHz=-1;//-1未激活，0激活，1以结束
     }
 }
