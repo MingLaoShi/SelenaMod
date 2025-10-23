@@ -2,6 +2,7 @@ package SelenaMod.cards;
 
 import SelenaMod.interfaces.IFirstSight;
 import SelenaMod.modifiers.RepeatModifier;
+import SelenaMod.powers.AsFirstSightPower;
 import SelenaMod.utils.ModHelper;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -43,9 +44,9 @@ public class SoloPerformance extends CustomSelenaCard implements IFirstSight {
 
     @Override
     public void triggerWhenDrawn() {
-        if (!firstSight) {
+        if (AsFirstSightPower.isFirstSight(this)) {
             this.onFirstSight();
-            this.firstSight = true;
+            this.firstSight = false;
         }
     }
 

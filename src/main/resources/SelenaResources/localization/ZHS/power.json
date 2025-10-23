@@ -65,7 +65,7 @@
   "SelenaMod:QuestingPower": {
     "NAME": "寻觅",
     "DESCRIPTIONS": [
-      "下%s张牌不能打出攻击牌"
+      "下 #b%s 张牌不能打出攻击牌"
     ]
   },
   "SelenaMod:VigorEffect": {
@@ -77,7 +77,7 @@
   "SelenaMod:DivineComedyPower": {
     "NAME": "繁星谣",
     "DESCRIPTIONS": [
-      "直到下个回合开始前，每次受到伤害，获得%s层再生。"
+      "直到下个回合开始前，每次受到伤害，获得 #b%s 层再生。"
     ]
   },
   "SelenaMod:DivineComedyEffect": {
@@ -95,7 +95,7 @@
   "SelenaMod:KeepAppointmentPower":{
     "NAME": "赴约",
     "DESCRIPTIONS": [
-      "对%s造成%s点生命值削减%s次"
+      "对 #b%s 造成 #b%s 点生命值削减 #b%s 次"
     ]
   },
   "SelenaMod:NextEnergyEffect":{
@@ -107,7 +107,7 @@
   "SelenaMod:AsFirstSightPower":{
     "NAME": "如初见",
     "DESCRIPTIONS": [
-      "每回合初见效果可以再触发至多%s次"
+      "每回合初见效果可以再触发至多 #b%s 次"
     ]
   },
   "SelenaMod:ExhaustEffect":{
@@ -119,7 +119,7 @@
   "SelenaMod:EchoingPower":{
     "NAME": "ECHOING",
     "DESCRIPTIONS": [
-      "回合开始时，将上回合打出的最后%s张牌加入手牌"
+      "回合开始时，将上回合打出的最后 #b%s 张牌加入手牌"
     ]
   },
   "SelenaMod:WanderPower":{
@@ -127,7 +127,7 @@
     "DESCRIPTIONS": [
       "每回合开始时",
       "每回合结束时",
-      "对自己造成%s点生命值削减，获得%s层无实体，战斗结束后每触发一次恢复%s点生命值"
+      "对自己造成 #b%s 点生命值削减，获得 #b%s 层无实体，战斗结束后每触发一次恢复 #b%s 点生命值"
     ]
   },
   "SelenaMod:WildGooseLetterPower":{
@@ -184,19 +184,19 @@
   "SelenaMod:NextTurnReturnHandPower": {
     "NAME": "回到手牌",
     "DESCRIPTIONS": [
-      "下%s个回合开始时，%s回到手牌"
+      "下 #b%s 个回合开始时， #b%s 回到手牌"
     ]
   },
   "SelenaMod:NextTurnTempDexPower": {
     "NAME": "下回合临时敏捷",
     "DESCRIPTIONS": [
-      "下回合开始时获得%s点临时敏捷"
+      "下回合开始时获得 #b%s 点临时敏捷"
       ]
   },
   "SelenaMod:SilentHopePower":{
     "NAME": "希声",
     "DESCRIPTIONS": [
-      "每回合开始时，可以从弃牌堆或抽牌堆选择至多%s张信加入手牌"
+      "每回合开始时，可以从弃牌堆或抽牌堆选择至多 #b%s 张信加入手牌"
     ]
   },
   "SelenaMod:RebirthPower": {
@@ -208,25 +208,25 @@
   "SelenaMod:SkipNextDrawPower": {
     "NAME": "跳过抽牌",
     "DESCRIPTIONS": [
-      "跳过下%s次抽牌"
+      "跳过下 #b%s 次抽牌"
     ]
   },
   "SelenaMod:SeekingPower":{
     "NAME": "求索",
     "DESCRIPTIONS": [
-      "下%s张牌不能打出技能牌"
+      "下 #b%s 张牌不能打出技能牌"
     ]
   },
   "SelenaMod:Sonnet19Power":{
     "NAME": "Sonnet19",
     "DESCRIPTIONS": [
-      "下%s张打出的牌将要消耗时不会被消耗而是进入弃牌堆"
+      "下 #b%s 张打出的牌将要消耗时不会被消耗而是进入弃牌堆"
     ]
   },
   "SelenaMod:BitterJourneyPower":{
     "NAME": "苦旅",
     "DESCRIPTIONS": [
-      "每在自己回合受到1次伤害，对一名随机敌人造成%s点生命值削减。"
+      "每在自己回合受到1次伤害，对一名随机敌人造成 #b%s 点生命值削减。"
     ]
   },
   "SelenaMod:CompassionPower":{
@@ -238,7 +238,37 @@
   "SelenaMod:AdditionCollectPower":{
     "NAME": "收集",
     "DESCRIPTIONS": [
-      "下回合开始时将%s张奇迹加入手牌"
+      "下回合开始时将 #b%s 张奇迹加入手牌"
+    ]
+  },
+  "SelenaMod:DamageNextTurnPower": {
+    "NAME": "下回合伤害",
+    "DESCRIPTIONS": [
+      "回合结束时受到 #b%s 点伤害。"
+    ]
+  },
+  "SelenaMod:OneStepAwayPower": {
+    "NAME": "一步之遥",
+    "DESCRIPTIONS": [
+      "每回合开始时，令抽牌堆第三张及之后的卡牌在本回合耗能变为0且打出后摸 #b%s 张牌。"
+    ]
+  },
+  "SelenaMod:DearYouPower": {
+    "NAME": "Dear you",
+    "DESCRIPTIONS": [
+      "每回合开始时，消耗至多 #b%s 张牌，回复等量生命。无法再从牌组外获得除状态或诅咒以外的牌。"
+    ]
+  },
+  "SelenaMod:BurningVowPower": {
+    "NAME": "Burning Vow",
+    "DESCRIPTIONS": [
+      "每回合结束时，对自己造成 #b%s 点生命值削减，对所有敌人造成 #b%s 点伤害5次。不能获得格挡。"
+    ]
+  },
+  "SelenaMod:JoinTogetherPower": {
+    "NAME": "共赴",
+    "DESCRIPTIONS": [
+      "打出%s时，打出%s。"
     ]
   }
 }

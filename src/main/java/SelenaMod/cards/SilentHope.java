@@ -1,6 +1,7 @@
 package SelenaMod.cards;
 
 import SelenaMod.interfaces.IFirstSight;
+import SelenaMod.powers.AsFirstSightPower;
 import SelenaMod.powers.SilentHopePower;
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -29,7 +30,7 @@ public class SilentHope extends CustomSelenaCard implements IFirstSight {
 
     @Override
     public void triggerWhenDrawn() {
-        if(!firstSight){
+        if (AsFirstSightPower.isFirstSight(this)) {
             this.onFirstSight();
             this.firstSight=true;
         }

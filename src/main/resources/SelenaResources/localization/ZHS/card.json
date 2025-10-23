@@ -29,12 +29,12 @@
   },
   "SelenaMod:Minuet": {
     "NAME": "小步舞曲",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:转调 ：获得 !M! 点活力。",
+    "DESCRIPTION": "造成 !D! 点伤害，下回合开始时造成等量未被格挡的伤害。 NL selenamod:转调 ：获得 !M! 点活力。",
     "FLAVOR": "“该到小步舞曲了。”"
   },
   "SelenaMod:Aria": {
     "NAME": "咏叹调",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:转调 ：造成 !SelenaMod:SecondMagicVar! 点伤害 !M! 次。",
+    "DESCRIPTION": "造成 !D! 点伤害3次。 NL selenamod:转调 ：造成 !SelenaMod:SecondMagicVar! 点伤害 !M! 次。",
     "FLAVOR": "“现在是咏叹调的时间。”"
   },
   "SelenaMod:OffenseDefense": {
@@ -66,7 +66,7 @@
   },
   "SelenaMod:OutOfControl": {
     "NAME": "失控",
-    "DESCRIPTION": "不能被打出 。 NL 回合结束时若此牌在手牌且不处于” selenamod:塞壬 “，进入” selenamod:塞壬 “，否则消耗此牌。 NL selenamod:反复 。"
+    "DESCRIPTION": "不能被打出 。 NL 回合结束时若此牌在手牌且不处于” selenamod:塞壬 “，进入” selenamod:塞壬 “。 NL 虚无 。"
   },
   "SelenaMod:StrangerPath": {
     "NAME": "陌路",
@@ -92,8 +92,8 @@
   },
   "SelenaMod:DivineComedy": {
     "NAME": "繁星谣",
-    "DESCRIPTION": "直到下个回合，每次收到伤害时，获得1层 再生 。 消耗 NL selenamod:覆写 ：获得 !M! 层临时 力量 和临时 敏捷。",
-    "UPGRADE_DESCRIPTION": " 保留 。 NL 直到下个回合，每次收到伤害时，获得1层 再生 。 消耗 NL selenamod:覆写 ：获得 !M! 层临时 力量 和临时 敏捷。",
+    "DESCRIPTION": "直到下个回合，每次收到伤害时，获得 !SelenaMod:SecondMagicVar! 层 再生 。 消耗 NL selenamod:覆写 ：获得 !M! 层临时 力量 和临时 敏捷。",
+    "UPGRADE_DESCRIPTION": " 保留 。 NL 直到下个回合，每次收到伤害时，获得 !SelenaMod:SecondMagicVar! 层 再生 。 消耗 NL selenamod:覆写 ：获得 !M! 层临时 力量 和临时 敏捷。",
     "FLAVOR": "“漫天的繁星坠入了她的眼中。”"
   },
   "SelenaMod:PursuitDance": {
@@ -114,8 +114,8 @@
   },
   "SelenaMod:FaustHoliday": {
     "NAME": "法斯特假日",
-    "DESCRIPTION": "消耗抽牌堆中任意数量的状态牌与诅咒牌。 消耗 。 NL selenamod:转调 ：下回合获得1点能量。",
-    "UPGRADE_DESCRIPTION": "消耗抽牌堆与弃牌堆中任意数量的状态牌与诅咒牌。 消耗 。 NL selenamod:转调 ：下回合获得1点能量。",
+    "DESCRIPTION": "消耗任意数量的状态牌与诅咒牌。 消耗 。 NL selenamod:转调 ：下回合获得1点能量并额外抽1张牌。",
+    "UPGRADE_DESCRIPTION": "消耗任意数量的状态牌与诅咒牌，抽取等量牌。 消耗 。 NL selenamod:转调 ：下回合获得1点能量并额外抽1张牌。",
     "FLAVOR": "“Rome. By all means, Rome.”"
   },
   "SelenaMod:NaiveProphecy": {
@@ -173,11 +173,13 @@
   "SelenaMod:WildGooseLetter": {
     "NAME": "雁书",
     "DESCRIPTION": "所有初始为造成伤害的效果变为造成生命值削减。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 所有初始为造成伤害的效果变为造成生命值削减。",
     "FLAVOR": "鸿雁长飞光不度。"
   },
   "SelenaMod:ShortLetter": {
     "NAME": "尺素",
-    "DESCRIPTION": "所有初始为生命值削减的效果变为造成伤害",
+    "DESCRIPTION": "所有初始为生命值削减的效果变为造成伤害。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 所有初始为生命值削减的效果变为造成伤害。",
     "FLAVOR": "鱼龙潜跃水成文"
   },
   "SelenaMod:FormBond": {
@@ -199,8 +201,8 @@
   },
   "SelenaMod:Storm": {
     "NAME": "《暴风雨》",
-    "DESCRIPTION": "获得 !SelenaMod:SecondMagicVar! 层坚不可摧。 NL 消耗 。 NL selenamod:覆写 ：获得 !M! 层真言。",
-    "UPGRADE_DESCRIPTION": "获得 !SelenaMod:SecondMagicVar! 层坚不可摧。 NL 消耗 。 NL selenamod:覆写 ：获得 !M! 层真言。",
+    "DESCRIPTION": "拥有 !SelenaMod:SecondMagicVar! 层坚不可摧。 NL 消耗 。 NL selenamod:覆写 ：获得 !M! 层真言。",
+    "UPGRADE_DESCRIPTION": "拥有 !SelenaMod:SecondMagicVar! 层坚不可摧。 NL 消耗 。 NL selenamod:覆写 ：获得 !M! 层真言。",
     "FLAVOR": "苦难无法磨灭真正高贵的品格"
   },
   "SelenaMod:Premiere": {
@@ -285,19 +287,36 @@
   },
   "SelenaMod:Compassion": {
     "NAME": "慈悲",
-    "DESCRIPTION": "在你的回合内，你不会受到任何伤害。 NL selenamod:初见 ：失去 [E] ，下回合开始时将1张 *奇迹 加入手牌。",
-    "UPGRADE_DESCRIPTION": "在你的回合内，你不会受到任何伤害。 NL selenamod:初见 ：失去 [E] ，下回合开始时将1张 *奇迹+ 加入手牌。",
+    "DESCRIPTION": "在你的回合内，你不会受到任何伤害。 NL selenamod:初见 ：失去 [E] ，下回合开始时获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "在你的回合内，你不会受到任何伤害。 NL selenamod:初见 ：失去 [E] ，下回合开始时获得 [E] [E] 。",
     "FLAVOR": "NO DATE"
   },
   "SelenaMod:OneStepAway": {
     "NAME": "一步之遥",
-    "DESCRIPTION": "为所有 *信 添加 消耗 。所有 *信 消耗 后，将一名生命值不超过 !M! 的敌人的生命减少至1，获得3层缠身。 NL selenamod:初见 ：添加2张 *信 到抽牌堆。",
+    "DESCRIPTION": "每回合开始时，令抽牌堆里第三张及以后的牌在本回合内耗能变为0且打出后抽1张牌。 NL selenamod:初见 ：升级抽牌堆和手牌里所有的 *信 。",
+    "UPGRADE_DESCRIPTION": "每回合开始时，令抽牌堆里第三张及以后的牌在本回合内耗能变为0且打出后抽1张牌。 NL selenamod:初见 ：升级牌组里所有的 *信 。",
     "FLAVOR": "每每欲说还休，往往一步之遥"
   },
   "SelenaMod:Vortex": {
     "NAME": "环流",
-    "DESCRIPTION": "选择获得1张 *Burning *Vow 或 *Dear *You 。",
-    "UPGRADE_DESCRIPTION": "选择获得1张 *Burning *Vow+ 或 *Dear *You+ 。",
+    "DESCRIPTION": "选择获得1张 *βurning_Vow 或 *Ðear_You 。",
+    "UPGRADE_DESCRIPTION": "选择获得1张 *βurning_Vow+ 或 *Ðear_You+ 。",
     "FLAVOR": "我们合奏，分享彼此爱的独有"
+  },
+  "SelenaMod:DearYou": {
+    "NAME": "Dear You",
+    "DESCRIPTION": "每回合开始时， 消耗 至多 !M! 张牌，回复等量生命值，无法在从牌组外获得除状态或诅咒牌以外的牌。",
+    "FLAVOR": "“始于书信，敬于才华，合于性格，久于品德。”"
+  },
+  "SelenaMod:BurningVow": {
+    "NAME": "Burning Vow",
+    "DESCRIPTION": "每回合结束时，对自己造成 !M! 点生命值削减，对所有敌人造成 !SelenaMod:SecondMagicVar! 点伤害5次。无法在获得 格挡 。",
+    "FLAVOR": "“当爱拂晓时，烈阳也不过是颗平凡的星辰。”"
+  },
+  "SelenaMod:JoinTogether": {
+    "NAME": "共赴",
+    "DESCRIPTION": "选择手牌中两张牌平均其耗能，当打出其中一张后，打出另一张。",
+    "UPGRADE_DESCRIPTION": "选择牌组中两张牌平均其耗能，当打出其中一张后，打出另一张。",
+    "FLAVOR": "“伴我见此美景的人，是你，真好……”"
   }
 }

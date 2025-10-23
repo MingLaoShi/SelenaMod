@@ -14,4 +14,7 @@ public class SelenaEnums {
         @SpireEnum(name = "Selena_CARD")
         public static CardLibrary.LibraryType Selena_LIBRARY;
     }
+
+    @SpireEnum
+    public static AbstractCard.CardTags JOIN_TOGETHER;
 }

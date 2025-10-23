@@ -5,13 +5,17 @@ import SelenaMod.powers.TonePower;
 import SelenaMod.utils.ModHelper;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class FaustHoliday extends CustomSelenaCard {
     public static String ID = ModHelper.makeID(FaustHoliday.class.getSimpleName());
@@ -37,15 +41,23 @@ public class FaustHoliday extends CustomSelenaCard {
             @Override
             public void update() {
                 ArrayList<AbstractCard> cardList = new ArrayList<>();
-                cardList.addAll(AbstractDungeon.player.drawPile.group);
-                if (upgraded) {
-                    cardList.addAll(AbstractDungeon.player.discardPile.group);
+                List<CardGroup> groupList = new ArrayList<>();
+                groupList.add(AbstractDungeon.player.drawPile);
+                groupList.add(AbstractDungeon.player.hand);
+                groupList.add(AbstractDungeon.player.discardPile);
+                for (CardGroup g : groupList) {
+                    cardList.addAll(g.group);
                 }
 
                 addToTop(new SelectCardsAction(cardList, 999, "", true, card -> card.type == CardType.CURSE || card.type == CardType.STATUS, cards -> {
-                    for (AbstractCard card : cards) {
-                        addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.drawPile.contains(card) ? AbstractDungeon.player.drawPile : AbstractDungeon.player.discardPile));
+                    if (FaustHoliday.this.upgraded && !cards.isEmpty()) {
+                        addToTop(new DrawCardAction(cards.size()));
                     }
+                    for (AbstractCard card : cards) {
+                        Optional<CardGroup> group = groupList.stream().filter(g -> g.contains(card)).findFirst();
+                        group.ifPresent(cardGroup -> addToTop(new ExhaustSpecificCardAction(card, cardGroup)));
+                    }
+
                 }));
                 this.isDone = true;
             }

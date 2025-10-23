@@ -9,12 +9,13 @@ public class ShortLetter extends CustomSelenaCard {
     public static String ID = ModHelper.makeID(ShortLetter.class.getSimpleName());
 
     public ShortLetter() {
-        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 0, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
     }
 
     @Override
     protected void upgradeMethod() {
-        this.upgradeBaseCost(0);
+        this.isInnate = true;
+        this.upgradeDescription();
     }
 
     @Override

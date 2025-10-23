@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 
 public class NextEnergyEffect extends AbstractCardEffect {
@@ -23,7 +24,14 @@ public class NextEnergyEffect extends AbstractCardEffect {
 
     @Override
     public AbstractGameAction trigger(AbstractCreature target) {
-        return new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new EnergizedBluePower(AbstractDungeon.player, this.data.amount));
+        return new AbstractGameAction() {
+            @Override
+            public void update() {
+                addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new EnergizedBluePower(AbstractDungeon.player, NextEnergyEffect.this.data.amount)));
+                addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DrawCardNextTurnPower(AbstractDungeon.player, NextEnergyEffect.this.data.amount)));
+                this.isDone = true;
+            }
+        };
     }
 
     @Override

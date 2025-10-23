@@ -1,10 +1,10 @@
 package SelenaMod.effects;
 
-import SelenaMod.cardEffects.DamageEffect;
 import SelenaMod.cards.FiftyTwoHz;
 import SelenaMod.modifiers.NotTriggerYourselfModifier;
+import SelenaMod.modifiers.RepeatModifier;
+import SelenaMod.patches.UseCardActionPatch;
 import basemod.helpers.CardModifierManager;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInstrumentPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.MathHelper;
@@ -84,28 +83,8 @@ public class FiftyTwoHzWaitEffect extends AbstractGameEffect {
     }
 
 
-    @SpirePatch(clz = UseCardAction.class,method = "update")
-    public static class updatePatch{
-        @SpireInstrumentPatch
-        public static ExprEditor instrument(){
-            return new ExprEditor(){
-                @Override
-                public void edit(MethodCall m) throws CannotCompileException {
-                    if(m.getClassName().equals(CardGroup.class.getName())&&m.getMethodName().contains("moveTo")
-                    ){
-                        m.replace(String.format("{if(%s.replaceCondition($1)){" +
-                                "%s.replace($1,\"%s\");" +
-                                "}else{" +
-                                "$_ = $proceed($$);" +
-                                "}}", FiftyTwoHzWaitEffect.class.getName(), FiftyTwoHzWaitEffect.class.getName(),m.getMethodName()));
-                    }
-                }
-            };
-        }
-    }
-
     public static boolean replaceCondition(AbstractCard card){
-        if(card instanceof FiftyTwoHz&& !CardModifierManager.hasModifier(card, NotTriggerYourselfModifier.ID)&&FiftyTwoHz.findOtherFiftyTowHz(card)){
+        if (card instanceof FiftyTwoHz && !CardModifierManager.hasModifier(card, NotTriggerYourselfModifier.ID)) {
             return true;
         }else{
             CardModifierManager.removeModifiersById(card,NotTriggerYourselfModifier.ID,true);
@@ -118,8 +97,40 @@ public class FiftyTwoHzWaitEffect extends AbstractGameEffect {
         }
     }
 
+    public static boolean replaceCondition2(UseCardAction instance, AbstractCard card, String methodName) {
+        return CardModifierManager.hasModifier(card, RepeatModifier.ID) && UseCardActionPatch.Field.CARD_FROM.get(instance) == AbstractDungeon.player.hand
+                && !(methodName.equals("moveToExhaustPile") || methodName.equals("moveToHand") || methodName.equals("moveToDeck"));
+    }
+
     public static void replace(AbstractCard card,String methodName){
         AbstractDungeon.player.hand.removeCard(card);
         AbstractDungeon.effectList.add(new FiftyTwoHzWaitEffect(card,methodName));
+    }
+
+    public static void replace2(AbstractCard card) {
+        AbstractDungeon.player.hand.moveToDeck(card, true);
+    }
+
+    @SpirePatch(clz = UseCardAction.class, method = "update")
+    public static class updatePatch {
+        @SpireInstrumentPatch
+        public static ExprEditor instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(MethodCall m) throws CannotCompileException {
+                    if (m.getClassName().equals(CardGroup.class.getName()) && m.getMethodName().contains("moveTo")
+                    ) {
+                        m.replace(String.format("{if(%s.replaceCondition($1)){" +
+                                "%s.replace($1,\"%s\");" +
+                                "}else if(%s.replaceCondition2(this,$1,\"%s\")){" +
+                                "%s.replace2($1);" +
+                                "}" +
+                                "else{" +
+                                "$_ = $proceed($$);" +
+                                "}}", FiftyTwoHzWaitEffect.class.getName(), FiftyTwoHzWaitEffect.class.getName(), m.getMethodName(), FiftyTwoHzWaitEffect.class.getName(), m.getMethodName(), FiftyTwoHzWaitEffect.class.getName()));
+                    }
+                }
+            };
+        }
     }
 }

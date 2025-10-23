@@ -27,6 +27,10 @@ public abstract class CustomSelenaCard extends CustomCard {
         super(id, CardCrawlGame.languagePack.getCardStrings(id).NAME, ModHelper.makeCardImagePath(id), cost,
                 CardCrawlGame.languagePack.getCardStrings(id).DESCRIPTION, type,
                 ModHelper.getSelenaColor(), rarity, target);
+
+//        ReflectionHacks.setPrivate(this,AbstractCard.class,"textColor", Color.BLACK.cpy());
+//        ReflectionHacks.setPrivate(this,AbstractCard.class,"goldColor", Color.GREEN.cpy());
+
     }
 
     public CustomSelenaCard(String id, int cost, AbstractCard.CardType type, AbstractCard.CardColor color, AbstractCard.CardRarity rarity, AbstractCard.CardTarget target) {

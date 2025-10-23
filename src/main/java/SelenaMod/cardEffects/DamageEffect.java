@@ -23,8 +23,16 @@ public class DamageEffect extends AbstractCardEffect {
     }
 
     @Override
-    public AbstractGameAction trigger(AbstractCreature target) {
-        return new DamageAction(target, new DamageInfo(AbstractDungeon.player, card.damage, DamageInfo.DamageType.NORMAL));
+    public AbstractGameAction trigger(AbstractCreature tar) {
+        return new AbstractGameAction() {
+            @Override
+            public void update() {
+                for (int i = 0; i < DamageEffect.this.data.amount2; i++) {
+                    addToTop(new DamageAction(tar, new DamageInfo(AbstractDungeon.player, card.damage, DamageInfo.DamageType.NORMAL)));
+                }
+                this.isDone = true;
+            }
+        };
     }
 
     @Override

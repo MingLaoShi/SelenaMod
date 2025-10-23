@@ -10,12 +10,12 @@ public class NaiveProphecy extends CustomSelenaCard {
 
     public NaiveProphecy() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
-        this.setMagic(3);
+        this.setMagic(7);
     }
 
     @Override
     protected void upgradeMethod() {
-        this.upgradeMagicNumber(1);
+        this.upgradeMagicNumber(2);
     }
 
     @Override

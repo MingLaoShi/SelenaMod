@@ -76,6 +76,10 @@ public class NaiveProphecyAction extends AbstractGameAction {
                     }
                 }
             }
+            for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
+                AbstractDungeon.player.drawPile.moveToDiscardPile(c);
+                c.triggerOnScry();
+            }
 
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             this.isDone = true;

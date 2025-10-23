@@ -12,13 +12,13 @@ public class Seeking extends CustomSelenaCard {
 
     public Seeking() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        this.setDamage(9);
+        this.setDamage(13);
         this.setMagic(1);
     }
 
     @Override
     protected void upgradeMethod() {
-        this.upgradeDamage(4);
+        this.upgradeDamage(5);
     }
 
     @Override

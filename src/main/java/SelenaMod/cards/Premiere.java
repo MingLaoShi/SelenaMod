@@ -1,6 +1,5 @@
 package SelenaMod.cards;
 
-import SelenaMod.actions.PutToDeckAction;
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,7 +9,7 @@ public class Premiere extends Letter{
     public static String ID= ModHelper.makeID(Premiere.class.getSimpleName());
     public Premiere() {
         super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        this.setDamage(6);
+        this.setDamage(7);
 
     }
 

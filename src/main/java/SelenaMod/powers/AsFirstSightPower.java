@@ -61,4 +61,9 @@ public class AsFirstSightPower extends AbstractPower {
     public void atStartOfTurn() {
         drawnCards.clear();
     }
+
+    @Override
+    public void onInitialApplication() {
+        drawnCards.clear();
+    }
 }

@@ -10,7 +10,7 @@ public class StrangerPath extends CustomSelenaCard {
 
     public StrangerPath() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        this.setBlock(20);
+        this.setBlock(23);
         this.setMagic(2);
     }
 

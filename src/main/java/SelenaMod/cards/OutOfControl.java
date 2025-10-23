@@ -1,10 +1,7 @@
 package SelenaMod.cards;
 
-import SelenaMod.modifiers.RepeatModifier;
 import SelenaMod.powers.SirenPower;
 import SelenaMod.utils.ModHelper;
-import basemod.helpers.CardModifierManager;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -14,7 +11,7 @@ public class OutOfControl extends CustomSelenaCard {
 
     public OutOfControl() {
         super(ID, -2, CardType.STATUS, CardColor.COLORLESS, CardRarity.SPECIAL, CardTarget.NONE);
-        CardModifierManager.addModifier(this, new RepeatModifier());
+        this.isEthereal = true;
     }
 
     @Override
@@ -30,10 +27,16 @@ public class OutOfControl extends CustomSelenaCard {
 
     @Override
     public void triggerOnEndOfPlayerTurn() {
-        if (SirenPower.IsInSiren()) {
-            addToTop(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
-        } else {
+        super.triggerOnEndOfPlayerTurn();
+        if (!SirenPower.IsInSiren()) {
             this.addPowerToSelf(new SirenPower(AbstractDungeon.player));
         }
     }
+
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        return false;
+    }
+
+
 }

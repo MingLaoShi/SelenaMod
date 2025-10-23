@@ -12,7 +12,7 @@ public class Questing extends CustomSelenaCard {
 
     public Questing() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        this.setBlock(9);
+        this.setBlock(13);
         this.setMagic(1);
     }
 

@@ -57,9 +57,8 @@ public class Selena extends CustomPlayer {
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> deck = new ArrayList<>();
         //todo
+//        deck.add(Strike.ID);
         deck.add(Strike.ID);
-        deck.add(Strike.ID);
-        deck.add(Dodge.ID);
         deck.add(Dodge.ID);
         deck.add(Dodge.ID);
         deck.add(Dodge.ID);

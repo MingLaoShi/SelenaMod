@@ -1,8 +1,8 @@
 package SelenaMod.powers;
 
 import SelenaMod.actions.DrawOrDisCardToHandAction;
-import SelenaMod.cards.BunnyDeerAndYou;
 import SelenaMod.utils.ModHelper;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class NextTurnReturnHandPower extends AbstractPower {
+public class NextTurnReturnHandPower extends AbstractPower implements InvisiblePower {
     public static final String POWER_ID = ModHelper.makeID(NextTurnReturnHandPower.class.getSimpleName());
     private static final PowerStrings strings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 

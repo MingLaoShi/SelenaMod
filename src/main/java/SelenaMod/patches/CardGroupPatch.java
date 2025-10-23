@@ -14,7 +14,7 @@ public class CardGroupPatch {
     public static class moveToDiscardPilePatch {
         @SpirePrefixPatch
         public static SpireReturn<Void> prefix(CardGroup __instance, AbstractCard c) {
-            if (__instance == AbstractDungeon.player.hand && CardModifierManager.hasModifier(c, RepeatModifier.ID)) {
+            if (__instance == AbstractDungeon.player.hand && __instance.contains(c) && CardModifierManager.hasModifier(c, RepeatModifier.ID)) {
                 __instance.moveToDeck(c, false);
                 return SpireReturn.Return();
             } else {

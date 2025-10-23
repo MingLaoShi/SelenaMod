@@ -11,15 +11,15 @@ public class DivineComedy extends CustomSelenaCard {
     public static String ID = ModHelper.makeID(DivineComedy.class.getSimpleName());
 
     public DivineComedy() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         this.setMagic(2);
+        this.setSecondMagic(3);
         this.exhaust = true;
     }
 
     @Override
     protected void upgradeMethod() {
         this.upgradeMagicNumber(1);
-        this.selfRetain = true;
     }
 
     @Override
