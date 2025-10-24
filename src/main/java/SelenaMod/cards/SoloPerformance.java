@@ -1,11 +1,13 @@
 package SelenaMod.cards;
 
+import SelenaMod.effects.SpotEffect;
 import SelenaMod.interfaces.IFirstSight;
 import SelenaMod.modifiers.RepeatModifier;
 import SelenaMod.powers.AsFirstSightPower;
 import SelenaMod.utils.ModHelper;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -30,6 +32,7 @@ public class SoloPerformance extends CustomSelenaCard implements IFirstSight {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         if (activeFlag) {
+            addToBot(new VFXAction(new SpotEffect(abstractPlayer, abstractMonster), 1.0F));
             addToBot(new DamageAction(abstractMonster, new DamageInfo(abstractPlayer, this.magicNumber, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 //            addPowerToSelf(new TonePower(abstractPlayer, 1, new ExhaustCardEffect(this.cardID, 1)));
             activeFlag = false;
