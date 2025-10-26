@@ -1,28 +1,25 @@
 package SelenaMod.patches;
 
 import SelenaMod.core.SelenaMod;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 
 public class LoseHPActionPatch {
 
-    @SpirePatch(clz = LoseHPAction.class, method = "update")
-    public static class Patch {
+
+    @SpirePatch(clz = DamageAction.class, method = "update")
+    public static class updatePatch {
         private static int preDamageHp = 0;
 
-        @SpireInsertPatch(loc = 35)
-        public static void Postfix(LoseHPAction __instance) {
-            if (__instance.target != null) {
-                preDamageHp = __instance.target.currentHealth;
-//                SelenaMod.LOSE_HP_THIS_TURN=true;
-            }
-        }
-
-        @SpireInsertPatch(loc = 36)
-        public static void Postfix2(LoseHPAction __instance) {
-            if (__instance.target.currentHealth != preDamageHp) {
-                SelenaMod.LOSE_HP_THIS_TURN = true;
+        @SpirePostfixPatch
+        public static void postfix(DamageAction __instance) {
+            if (__instance.target != null && !__instance.target.isDeadOrEscaped()) {
+                if (!__instance.isDone) {
+                    preDamageHp = __instance.target.currentHealth;
+                } else {
+                    SelenaMod.LOSE_HP_THIS_TURN = __instance.target.currentHealth != preDamageHp;
+                }
             }
         }
     }

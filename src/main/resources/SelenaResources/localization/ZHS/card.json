@@ -38,9 +38,9 @@
     "FLAVOR": "“现在是咏叹调的时间。”"
   },
   "SelenaMod:OffenseDefense": {
-    "NAME": "攻防",
-    "DESCRIPTION": "造成 !D! 点伤害，获得 !B! 点 格挡 。 NL selenamod:留白 ：给予 !M! 层 易伤 。",
-    "FLAVOR": "她们彼此不肯退让一步。"
+    "NAME": "刻舟",
+    "DESCRIPTION": "造成 !D! 点伤害，给予所有敌人 !M! 层 易伤 。 NL 保留 。 NL 每次抽到时，对所有敌人造成 !SelenaMod:SecondMagicVar! 点伤害，获得 !B! 点 格挡 。",
+    "FLAVOR": "“我想要像盘旋的白鸽，在相遇时，再次降落在你的肩头。”"
   },
   "SelenaMod:Seeking": {
     "NAME": "求索",
@@ -49,7 +49,7 @@
   },
   "SelenaMod:Confrontation": {
     "NAME": "对峙",
-    "DESCRIPTION": "仅当手牌中没有其他攻击牌时才能打出，造成 !D! 点伤害。 NL selenamod:反复 。",
+    "DESCRIPTION": "仅当手牌中没有其他攻击牌时才能打出，造成 !D! 点伤害。",
     "FLAVOR": "她们不会再成为很好的朋友了。"
   },
   "SelenaMod:SoundOfStorm": {
@@ -125,9 +125,9 @@
   },
   "SelenaMod:TheyLoveEachOther": {
     "NAME": "他们彼此相爱",
-    "DESCRIPTION": "获得 !M! 点 力量 与-1点 敏捷，每次打出后数值互换。 NL selenamod:反复 。",
+    "DESCRIPTION": "获得 !M! 点 力量 与-1点 敏捷，每次打出后数值互换。",
     "EXTENDED_DESCRIPTION": [
-      "获得-1点 力量 与 !M! 点 敏捷，每次打出后数值互换。 NL selenamod:反复 。"
+      "获得-1点 力量 与 !M! 点 敏捷，每次打出后数值互换。"
     ],
     "FLAVOR": "Sie liebten sich beide, doch keiner，wolltes dem andern gestehn."
   },
@@ -138,8 +138,8 @@
   },
   "SelenaMod:SelfQuestion": {
     "NAME": "自问",
-    "DESCRIPTION": "选择：获得 !M! 点 力量；消耗一张随机的信，本次战斗耗能-1；下场战斗耗能-1； NL selenamod:反复 。",
-    "UPGRADE_DESCRIPTION": "选择：获得 !M! 点 力量；消耗一张随机的信，本次战斗耗能-1；下两场战斗耗能-1； NL selenamod:反复 。",
+    "DESCRIPTION": "选择：获得 !M! 点 力量；消耗一张随机的信，本次战斗耗能-1；下场战斗耗能-1；",
+    "UPGRADE_DESCRIPTION": "选择：获得 !M! 点 力量；消耗一张随机的信，本次战斗耗能-1；下两场战斗耗能-1；",
     "FLAVOR": "“但是爱人，请原谅我。但是爱人，请别难过。”",
     "EXTENDED_DESCRIPTION": [
       "获得 !M! 点 力量。",
@@ -196,7 +196,8 @@
   },
   "SelenaMod:SoloPerformance": {
     "NAME": "独演",
-    "DESCRIPTION": "当这张牌是抽牌堆唯一的牌才会自动打出并生效。造成 !M! 点生命值削减。 NL selenamod:反复 。 NL selenamod:初见 ： 消耗 1张手牌。",
+    "DESCRIPTION": "当这张牌是抽牌堆唯一的牌才会自动打出并生效。造成 !M! 点生命值削减。 NL selenamod:初见 ： 消耗 1张手牌。",
+    "UPGRADE_DESCRIPTION": "当这张牌是抽牌堆唯一的牌才会自动打出并生效。造成 !M! 点生命值削减。 NL selenamod:初见 ：抽1张牌， 消耗 1张手牌。",
     "FLAVOR": "“一切美好都才刚刚盛开，所有的浪漫都还来得及一步步发生。”"
   },
   "SelenaMod:Storm": {
@@ -282,7 +283,8 @@
   },
   "SelenaMod:LoopTrick": {
     "NAME": "loop trick",
-    "DESCRIPTION": "打出上一回合打出过的所有牌。 消耗 抽牌堆、弃牌堆、手牌中除此卡以外的 !M! 张牌。 NL selenamod:反复 。 NL 第一次打出时这张牌获得 无法逃脱 ，若你的抽牌堆、弃牌堆、手牌只有 无法逃脱 牌，这局游戏失败。",
+    "DESCRIPTION": "本回合你的所有牌耗能-1，打出后获得 selenamod:反复 。",
+    "UPGRADE_DESCRIPTION": "本回合你的所有牌耗能变为0，打出后获得 selenamod:反复 。",
     "FLAVOR": "如一叶落，即此世秋"
   },
   "SelenaMod:Compassion": {
@@ -315,8 +317,8 @@
   },
   "SelenaMod:JoinTogether": {
     "NAME": "共赴",
-    "DESCRIPTION": "选择手牌中两张牌平均其耗能，当打出其中一张后，打出另一张。",
-    "UPGRADE_DESCRIPTION": "选择牌组中两张牌平均其耗能，当打出其中一张后，打出另一张。",
+    "DESCRIPTION": "选择手牌中两张牌平均其耗能，当打出其中一张后，打出另一张。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "选择牌组中两张牌平均其耗能，当打出其中一张后，打出另一张。 NL 消耗 。",
     "FLAVOR": "“伴我见此美景的人，是你，真好……”"
   }
 }

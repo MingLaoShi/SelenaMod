@@ -22,7 +22,7 @@ public class JoinTogether extends CustomSelenaCard {
 
     public JoinTogether() {
         super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.NONE);
-
+        this.exhaust=true;
     }
 
     @Override

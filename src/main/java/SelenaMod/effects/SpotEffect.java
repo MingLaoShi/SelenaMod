@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
@@ -68,11 +69,11 @@ public class SpotEffect extends AbstractGameEffect {
         spriteBatch.draw(
                 Mask,
                 target.hb.cX - (target.hb.width),      // x 起点 = 锚点左移一半宽度
-                target.hb.y - 50.0F,                           // y 起点 = 正好脚下
+                target.hb.y - 50.0F * Settings.yScale,                           // y 起点 = 正好脚下
                 target.hb.width,                       // 旋转中心 X（相对贴图左下角）
                 0f,                                    // 旋转中心 Y（脚底）
                 target.hb.width * 2f,                  // 绘制宽度
-                Gdx.graphics.getHeight() + 50.0F,              // 绘制高度（你原逻辑保留）
+                Gdx.graphics.getHeight() + 50.0F * Settings.yScale,              // 绘制高度（你原逻辑保留）
                 1.0f,                                  // scaleX
                 1.0f,                                  // scaleY
                 0.0f,                                  // rotation

@@ -8,5 +8,10 @@
     "TEXT": [
       "选择一张"
     ]
+  },
+  "SelenaMod:RepeatModifier": {
+    "TEXT": [
+      " NL selenamod:反复 。"
+    ]
   }
 }

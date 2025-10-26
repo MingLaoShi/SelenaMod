@@ -4,24 +4,24 @@ import SelenaMod.utils.ModHelper;
 import basemod.abstracts.AbstractCardModifier;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
-public class ReduceCostModifier extends AbstractCardModifier {
-    public static String ID = ModHelper.makeID(ReduceCostModifier.class.getSimpleName());
+public class ReduceCostThisTurnModifier extends AbstractCardModifier {
+    public static String ID = ModHelper.makeID(ReduceCostThisTurnModifier.class.getSimpleName());
     public int amount;
     public int count;
     private int active = 0;
 
-    public ReduceCostModifier() {
+    public ReduceCostThisTurnModifier() {
         this(1, 1);
     }
 
-    public ReduceCostModifier(int amount, int count) {
+    public ReduceCostThisTurnModifier(int amount, int count) {
         this.amount = amount;
         this.count = count;
     }
 
     @Override
     public AbstractCardModifier makeCopy() {
-        ReduceCostModifier copy = new ReduceCostModifier();
+        ReduceCostThisTurnModifier copy = new ReduceCostThisTurnModifier();
         copy.count = this.count;
         copy.amount = this.amount;
         return copy;
@@ -71,5 +71,10 @@ public class ReduceCostModifier extends AbstractCardModifier {
         card.cost += this.active;
         card.costForTurn = card.cost;
         card.isCostModified = false;
+    }
+
+    @Override
+    public boolean removeAtEndOfTurn(AbstractCard card) {
+        return true;
     }
 }

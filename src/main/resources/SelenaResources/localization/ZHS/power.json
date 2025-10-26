@@ -270,5 +270,23 @@
     "DESCRIPTIONS": [
       "打出%s时，打出%s。"
     ]
+  },
+  "SelenaMod:LoopTrick1": {
+    "NAME": "loop trick",
+    "DESCRIPTIONS": [
+      "本回合所有牌耗能-%s"
+    ]
+  },
+  "SelenaMod:RepeatPower": {
+    "NAME": "反复",
+    "DESCRIPTIONS": [
+      "打出的牌在本场战斗获得反复。"
+    ]
+  },
+  "SelenaMod:LoopTrick2": {
+    "NAME": "loop trick",
+    "DESCRIPTIONS": [
+      "本回合所有牌耗能变为0"
+    ]
   }
 }

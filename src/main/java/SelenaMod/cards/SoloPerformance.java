@@ -9,6 +9,7 @@ import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -20,13 +21,13 @@ public class SoloPerformance extends CustomSelenaCard implements IFirstSight {
 
     public SoloPerformance() {
         super(ID, -2, CardType.ATTACK, CardRarity.RARE, CardTarget.NONE);
-        this.setMagic(50);
+        this.setMagic(200);
         CardModifierManager.addModifier(this,new RepeatModifier());
     }
 
     @Override
     protected void upgradeMethod() {
-        this.upgradeMagicNumber(10);
+        this.upgradeDescription();
     }
 
     @Override
@@ -55,6 +56,9 @@ public class SoloPerformance extends CustomSelenaCard implements IFirstSight {
 
     @Override
     public void onFirstSight() {
+        if (this.upgraded) {
+            addToBot(new DrawCardAction(1));
+        }
         addToBot(new ExhaustAction(1, false, false));
     }
 }

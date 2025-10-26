@@ -162,7 +162,7 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
     public void receivePostUpdate() {
         if (AbstractDungeon.currMapNode != null &&
                 AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.player != null) {
-            if (AbstractDungeon.actionManager.isEmpty()) {
+            if (AbstractDungeon.actionManager.isEmpty() && !AbstractDungeon.player.isEndingTurn) {
                 if (AbstractDungeon.player.drawPile.size() == 1) {
                     if (AbstractDungeon.player.drawPile.getTopCard() instanceof SoloPerformance) {
                         SoloPerformance soloPerformance = (SoloPerformance) AbstractDungeon.player.drawPile.getTopCard();
