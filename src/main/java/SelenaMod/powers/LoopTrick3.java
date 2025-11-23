@@ -45,7 +45,7 @@ public class LoopTrick3 extends AbstractPower implements InvisiblePower {
         } else {
             this.cardPlayCount.put(card, 1);
         }
-        if (this.cardPlayCount.get(card) >= 1) {
+        if (this.cardPlayCount.get(card) >= 4) {
             addToBot(new AbstractGameAction() {
                 @Override
                 public void update() {

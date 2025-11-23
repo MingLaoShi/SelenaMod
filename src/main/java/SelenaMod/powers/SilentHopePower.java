@@ -3,6 +3,7 @@ package SelenaMod.powers;
 import SelenaMod.actions.DrawOrDisCardToHandAction;
 import SelenaMod.cards.Letter;
 import SelenaMod.utils.ModHelper;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.MultiGroupSelectAction;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -40,7 +41,7 @@ public class SilentHopePower extends AbstractPower {
                 cards.addAll(AbstractDungeon.player.drawPile.group);
                 cards.addAll(AbstractDungeon.player.discardPile.group);
                 addToTop(new SelectCardsAction(cards,amount, CardCrawlGame.languagePack.getUIString(ModHelper.makeID("GridSelectTitle")).TEXT[0],
-                        true,c->c instanceof Letter, selectedCards->{
+                        false,c->c instanceof Letter, selectedCards->{
                     for(int i=selectedCards.size()-1;i>=0;i--){
                         AbstractCard card=selectedCards.get(i);
                         addToTop(new DrawOrDisCardToHandAction(card));

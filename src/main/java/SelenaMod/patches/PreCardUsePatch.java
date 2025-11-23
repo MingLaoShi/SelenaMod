@@ -38,7 +38,7 @@ public class PreCardUsePatch {
                 return false;
             });
             if(!newLines.isEmpty()){
-                AbstractDungeon.actionManager.addToTop(new LetterWaitAction(50000, c,newLines));
+                AbstractDungeon.actionManager.addToTop(new LetterWaitAction(2, c,newLines));
             }
 
         }

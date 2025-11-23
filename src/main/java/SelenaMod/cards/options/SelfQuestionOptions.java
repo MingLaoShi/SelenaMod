@@ -125,7 +125,7 @@ public class SelfQuestionOptions extends CustomSelenaCard {
 
                         for (AbstractCard card1 : AbstractDungeon.player.masterDeck.group) {
                             if (card1.uuid.equals(card.uuid)) {
-                                CardModifierManager.addModifier(card1, new ReduceCostModifier(1, SelfQuestionOptions.this.magicNumber));
+                                CardModifierManager.addModifier(card1, new ReduceCostModifier(1, SelfQuestionOptions.this.magicNumber+1));
                                 break;
                             }
                         }

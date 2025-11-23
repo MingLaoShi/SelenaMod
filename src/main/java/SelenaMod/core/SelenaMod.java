@@ -148,8 +148,8 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
             if (!modifierList.isEmpty()) {
                 for (AbstractCardModifier modifier : modifierList) {
                     if (modifier instanceof ReduceCostModifier) {
-                        ((ReduceCostModifier) modifier).amount--;
-                        if (((ReduceCostModifier) modifier).amount < 0) {
+                        ((ReduceCostModifier) modifier).count--;
+                        if (((ReduceCostModifier) modifier).count < 0) {
                             CardModifierManager.removeSpecificModifier(card, modifier, true);
                         }
                     }

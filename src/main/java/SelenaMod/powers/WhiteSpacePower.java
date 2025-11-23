@@ -51,7 +51,7 @@ public class WhiteSpacePower extends AbstractPower implements IPreUseCard {
 
     @Override
     public void onPreUseCard(AbstractCard card, AbstractMonster target) {
-        if (card.cardID.equals(Letter.ID) && this.canApply(card)) {
+        if (card instanceof Letter && this.canApply(card)) {
 //            ArrayList<DescriptionLine> lines= ReflectionHacks.getPrivate(card,AbstractCard.class,"description");
 //            ArrayList<DescriptionLine> originLines=new ArrayList<>(lines);
             ModHelper.addWhiteSpaceModifier(card, effect);

@@ -27,11 +27,11 @@ public class CompassionPower extends AbstractPower {
 
 
     @Override
-    public float atDamageReceive(float damage, DamageInfo.DamageType damageType) {
+    public int onLoseHp(int damageAmount) {
         if(!AbstractDungeon.actionManager.turnHasEnded){
             this.flash();
             return 0;
         }
-        return damage;
+        return damageAmount;
     }
 }

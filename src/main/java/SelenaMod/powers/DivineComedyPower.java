@@ -3,6 +3,7 @@ package SelenaMod.powers;
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -25,9 +26,17 @@ public class DivineComedyPower extends AbstractPower {
     public void updateDescription() {
         this.description = String.format(strings.DESCRIPTIONS[0], this.amount);
     }
+//
+//    @Override
+//    public int onLoseHp(int damageAmount) {
+//        if (damageAmount > 0) {
+//            addToBot(new ApplyPowerAction(this.owner, this.owner, new RegenPower(this.owner, this.amount)));
+//        }
+//        return super.onLoseHp(damageAmount);
+//    }
 
     @Override
-    public int onLoseHp(int damageAmount) {
+    public int onAttacked(DamageInfo info, int damageAmount) {
         if (damageAmount > 0) {
             addToBot(new ApplyPowerAction(this.owner, this.owner, new RegenPower(this.owner, this.amount)));
         }

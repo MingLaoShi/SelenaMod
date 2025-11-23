@@ -40,6 +40,7 @@ public class JoinTogether extends CustomSelenaCard {
                     cards.addAll(AbstractDungeon.player.drawPile.group);
                     cards.addAll(AbstractDungeon.player.hand.group.stream().map(AbstractCard::makeSameInstanceOf).collect(Collectors.toList()));
                     cards.addAll(AbstractDungeon.player.discardPile.group);
+                    cards.removeIf(c->c.cost==-1||c.hasTag(SelenaEnums.JOIN_TOGETHER));
                     addToTop(new SelectCardsAction(cards, 2, "", true, c -> !c.tags.contains(SelenaEnums.JOIN_TOGETHER), JoinTogether.this::callback));
                     this.isDone = true;
                 }
