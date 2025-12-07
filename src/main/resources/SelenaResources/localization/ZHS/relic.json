@@ -5,5 +5,12 @@
     "DESCRIPTIONS": [
       "每回合限一次，当你不因本效果抽牌时，额外抽一张。打出信后获得3点活力。"
     ]
+  },
+  "SelenaMod:GeometricShards": {
+    "NAME": "几何体碎片",
+    "FLAVOR": "Th1s !5 th3 Int3rn4t10n4l Sp4c3 St4t10n, 191519.",
+    "DESCRIPTIONS": [
+      "每回合开始时获得1点能量，战斗开始时进入 #y塞壬 。"
+    ]
   }
 }

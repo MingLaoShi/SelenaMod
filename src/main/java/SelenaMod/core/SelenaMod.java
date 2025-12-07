@@ -5,6 +5,8 @@ import SelenaMod.actions.PlayDrawPailCardAction;
 import SelenaMod.cards.*;
 import SelenaMod.character.Selena;
 import SelenaMod.modifiers.ReduceCostModifier;
+import SelenaMod.patches.ReturnRandomRelicPatch;
+import SelenaMod.relics.GeometricShards;
 import SelenaMod.relics.PaperAndPen;
 import SelenaMod.utils.EffectsDynamicVariableManager;
 import SelenaMod.utils.ModHelper;
@@ -26,6 +28,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.relics.PandorasBox;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import org.apache.commons.lang3.StringUtils;
@@ -115,6 +118,8 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
     @Override
     public void receiveEditRelics() {
         BaseMod.addRelicToCustomPool(new PaperAndPen(), ModHelper.getSelenaColor());
+        BaseMod.addRelicToCustomPool(new GeometricShards(), ModHelper.getSelenaColor());
+        ReturnRandomRelicPatch.replaceRelicMap.put(PandorasBox.ID, GeometricShards.ID);
     }
 
     @Override
