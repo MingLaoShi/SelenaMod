@@ -320,5 +320,37 @@
     "DESCRIPTION": "选择手牌中两张牌平均其耗能，当打出其中一张后，打出另一张。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "选择牌组中两张牌平均其耗能，当打出其中一张后，打出另一张。 NL 消耗 。",
     "FLAVOR": "“伴我见此美景的人，是你，真好……”"
+  },
+  "SelenaMod:WhiteBird": {
+    "NAME": "白鸟",
+    "DESCRIPTION": " 固有 ， 消耗 ， 虚无 。 NL 造成 !D! 点伤害。 NL 除第一回合外每次抽到时获得1层飞行。",
+    "FLAVOR": "“飞过河滩，挥一挥一去不回还”"
+  },
+  "SelenaMod:Fantasia": {
+    "NAME": "幻想曲",
+    "DESCRIPTION": "造成 !D! 点伤害， 预见 等同于造成伤害数量的牌。 NL selenamod:转调 ：本回合 保留 所有手牌。",
+    "FLAVOR": "“开始幻想曲！”"
+  },
+  "SelenaMod:Moon": {
+    "NAME": "月",
+    "DESCRIPTION": "获得 !M! 金币。 NL 消耗 。 NL 抽到时，下回合开始时获得 [E] 。",
+    "FLAVOR": "熙熙阿堵物，明明白玉盘"
+  },
+  "SelenaMod:Casablanca": {
+    "NAME": "卡萨布兰卡 ",
+    "DESCRIPTION": " 固有 。 NL 获得等同于本回合造成伤害数的 格挡 （ !B! ）。若这是你弃牌堆唯一一张牌， 消耗 之， 预见 !M! 。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 获得等同于本回合造成伤害数的2倍 格挡 （ !B! ）。若这是你弃牌堆唯一一张牌， 消耗 之， 预见 !M! 。",
+    "FLAVOR": "熙熙阿堵物，明明白玉盘"
+  },
+  "SelenaMod:Papaya": {
+    "NAME": "木瓜 ",
+    "DESCRIPTION": "将抽牌堆 !M! 张牌送入弃牌堆，从弃牌堆选择等量牌以任意顺序放回抽牌堆。",
+    "FLAVOR": "“天穹的星落入人间的雾，我把春天送给了我的春天。”"
+  },
+  "SelenaMod:LoveWithoutObstacle": {
+    "NAME": "爱无坦途",
+    "DESCRIPTION": "给予所有敌人 !M! 层荆棘，你每打出1张获得 !SelenaMod:SecondMagicVar! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "给予所有人 !M! 层荆棘，你每打出1张获得 !SelenaMod:SecondMagicVar! 点 格挡 。",
+    "FLAVOR": "而我已所无惧"
   }
 }

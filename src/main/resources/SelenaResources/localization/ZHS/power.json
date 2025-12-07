@@ -288,5 +288,11 @@
     "DESCRIPTIONS": [
       "本回合所有牌耗能变为0"
     ]
+  },
+  "SelenaMod:RetainEffect":{
+    "NAME": "保留",
+    "DESCRIPTIONS": [
+      "本回合保留所有手牌。"
+    ]
   }
 }

@@ -1,6 +1,7 @@
 package SelenaMod.core;
 
 import SelenaMod.actions.PlayDrawPailCardAction;
+import SelenaMod.cards.Casablanca;
 import SelenaMod.cards.CustomSelenaCard;
 import SelenaMod.cards.SoloPerformance;
 import SelenaMod.character.Selena;
@@ -19,6 +20,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -55,6 +58,8 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
     public static SaveHelper saveHelper;
 
     public static boolean LOSE_HP_THIS_TURN = false;
+
+    public static int DAMAGED_THIS_TURN=0;
 
     public SelenaMod() {
         BaseMod.subscribe(this);
@@ -139,6 +144,7 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
     @Override
     public void receiveOnPlayerTurnStart() {
         LOSE_HP_THIS_TURN = false;
+        DAMAGED_THIS_TURN=0;
     }
 
     @Override
@@ -168,6 +174,13 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
                         SoloPerformance soloPerformance = (SoloPerformance) AbstractDungeon.player.drawPile.getTopCard();
                         soloPerformance.activeFlag = true;
                         AbstractDungeon.actionManager.addToBottom(new PlayDrawPailCardAction(AbstractDungeon.player.drawPile.getTopCard(), null));
+                    }
+                }
+                if(AbstractDungeon.player.discardPile.size()==1){
+                    if(AbstractDungeon.player.discardPile.getTopCard() instanceof Casablanca){
+                        Casablanca casablanca=(Casablanca) AbstractDungeon.player.discardPile.getTopCard();
+                        AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(casablanca,AbstractDungeon.player.discardPile));
+                        AbstractDungeon.actionManager.addToBottom(new ScryAction(casablanca.magicNumber));
                     }
                 }
             }

@@ -6,7 +6,8 @@
   },
   "SelenaMod:GridSelectTitle": {
     "TEXT": [
-      "选择一张"
+      "选择一张",
+      "返回抽牌堆"
     ]
   },
   "SelenaMod:RepeatModifier": {
