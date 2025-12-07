@@ -17,4 +17,6 @@ public class SelenaEnums {
 
     @SpireEnum
     public static AbstractCard.CardTags JOIN_TOGETHER;
+    @SpireEnum
+    public static AbstractCard.CardTags HAS_TONE_POWER;
 }

@@ -3,6 +3,7 @@ package SelenaMod.cards;
 import SelenaMod.cardEffects.ScryEffect;
 import SelenaMod.powers.WhiteSpacePower;
 import SelenaMod.utils.ModHelper;
+import SelenaMod.utils.SelenaEnums;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -13,6 +14,7 @@ public class Overture extends CustomSelenaCard {
     public Overture() {
         super(ID, 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
         this.setNums(6, -1, 3);
+        this.tags.add(SelenaEnums.HAS_TONE_POWER);
     }
 
     @Override

@@ -4,6 +4,7 @@ import SelenaMod.cardEffects.DamageAllEffect;
 import SelenaMod.cardEffects.DamageEffect;
 import SelenaMod.powers.OverridePower;
 import SelenaMod.utils.ModHelper;
+import SelenaMod.utils.SelenaEnums;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -15,6 +16,7 @@ public class Finale extends CustomSelenaCard {
         super(ID, 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
         this.setDamage(6);
         this.setMagic(6);
+        this.tags.add(SelenaEnums.HAS_TONE_POWER);
     }
 
     @Override

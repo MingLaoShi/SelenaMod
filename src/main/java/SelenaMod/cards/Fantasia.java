@@ -1,9 +1,9 @@
 package SelenaMod.cards;
 
 import SelenaMod.cardEffects.RetainEffect;
-import SelenaMod.powers.AsFirstSightPower;
 import SelenaMod.powers.TonePower;
 import SelenaMod.utils.ModHelper;
+import SelenaMod.utils.SelenaEnums;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.DamageCallbackAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
@@ -17,6 +17,7 @@ public class Fantasia extends CustomSelenaCard{
     public Fantasia() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         this.setDamage(6);
+        this.tags.add(SelenaEnums.HAS_TONE_POWER);
     }
 
     @Override

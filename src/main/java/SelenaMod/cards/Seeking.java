@@ -3,6 +3,7 @@ package SelenaMod.cards;
 import SelenaMod.cardEffects.DrawEffect;
 import SelenaMod.powers.WhiteSpacePower;
 import SelenaMod.utils.ModHelper;
+import SelenaMod.utils.SelenaEnums;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -14,6 +15,7 @@ public class Seeking extends CustomSelenaCard {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         this.setDamage(13);
         this.setMagic(1);
+        this.tags.add(SelenaEnums.HAS_TONE_POWER);
     }
 
     @Override

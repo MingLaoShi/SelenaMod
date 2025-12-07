@@ -3,6 +3,7 @@ package SelenaMod.cards;
 import SelenaMod.cardEffects.DexterityEffect;
 import SelenaMod.powers.TonePower;
 import SelenaMod.utils.ModHelper;
+import SelenaMod.utils.SelenaEnums;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
@@ -17,6 +18,8 @@ public class Lament extends CustomSelenaCard {
         this.setDamage(2);
         this.setMagic(1);
         this.cardsToPreview = new OutOfControl();
+        this.tags.add(SelenaEnums.HAS_TONE_POWER);
+
     }
 
     @Override

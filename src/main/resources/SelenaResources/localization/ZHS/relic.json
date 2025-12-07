@@ -12,5 +12,12 @@
     "DESCRIPTIONS": [
       "每回合开始时获得1点能量，战斗开始时进入 #y塞壬 。"
     ]
+  },
+  "SelenaMod:FriendABrush":{
+    "NAME": "友人A的画笔",
+    "FLAVOR": "“人生得一知己足矣，斯世当以同怀视之”",
+    "DESCRIPTIONS": [
+      "所有带有 #y留白 、 #y转调 和 #y覆写 效果的攻击牌造成伤害+3。"
+    ]
   }
 }
