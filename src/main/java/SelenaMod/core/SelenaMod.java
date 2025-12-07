@@ -9,6 +9,7 @@ import SelenaMod.patches.ReturnRandomRelicPatch;
 import SelenaMod.relics.FriendABrush;
 import SelenaMod.relics.GeometricShards;
 import SelenaMod.relics.PaperAndPen;
+import SelenaMod.relics.PaperPenHeart;
 import SelenaMod.utils.EffectsDynamicVariableManager;
 import SelenaMod.utils.ModHelper;
 import SelenaMod.utils.SaveHelper;
@@ -124,6 +125,7 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
         ReturnRandomRelicPatch.replaceRelicMap.put(PandorasBox.ID, GeometricShards.ID);
         BaseMod.addRelicToCustomPool(new FriendABrush(), ModHelper.getSelenaColor());
         ReturnRandomRelicPatch.replaceRelicMap.put(StrikeDummy.ID, FriendABrush.ID);
+        BaseMod.addRelicToCustomPool(new PaperPenHeart(), ModHelper.getSelenaColor());
     }
 
     @Override
