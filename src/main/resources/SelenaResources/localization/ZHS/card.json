@@ -352,5 +352,15 @@
     "DESCRIPTION": "给予所有敌人 !M! 层荆棘，你每打出1张获得 !SelenaMod:SecondMagicVar! 点 格挡 。",
     "UPGRADE_DESCRIPTION": "给予所有人 !M! 层荆棘，你每打出1张获得 !SelenaMod:SecondMagicVar! 点 格挡 。",
     "FLAVOR": "而我已所无惧"
+  },
+  "SelenaMod:FlowerTree": {
+    "NAME": "花辞树",
+    "DESCRIPTION": "造成 !D! 点伤害。清除场上所有 格挡 ，否则获得 !B! 点 格挡 。 NL 回合结束时自动打出并 消耗 。",
+    "FLAVOR": "“What can I hold you with?”"
+  },
+  "SelenaMod:Idealism": {
+    "NAME": "理想主义",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 这张牌不会被 消耗 。",
+    "FLAVOR": "“What can I hold you with?”"
   }
 }

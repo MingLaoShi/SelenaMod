@@ -11,12 +11,16 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ModHelper {
     public static String MOD_ID = "SelenaMod";
@@ -199,5 +203,16 @@ public class ModHelper {
 
     public static SaveHelper.SaveValue GetSaveValue(){
         return SelenaMod.saveHelper.values;
+    }
+
+    public static List<AbstractCreature> GetAllCreatures(boolean onlyAlive){
+        List<AbstractCreature> creatureList=new ArrayList<>();
+        creatureList.add(AbstractDungeon.player);
+        for(AbstractMonster m:AbstractDungeon.getCurrRoom().monsters.monsters){
+            if(!onlyAlive||!m.isDeadOrEscaped()){
+                creatureList.add(m);
+            }
+        }
+        return creatureList;
     }
 }
