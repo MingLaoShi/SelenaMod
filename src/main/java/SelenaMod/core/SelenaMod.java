@@ -1,9 +1,8 @@
 package SelenaMod.core;
 
+import SelenaMod.actions.AskForRemoveIdealismAction;
 import SelenaMod.actions.PlayDrawPailCardAction;
-import SelenaMod.cards.Casablanca;
-import SelenaMod.cards.CustomSelenaCard;
-import SelenaMod.cards.SoloPerformance;
+import SelenaMod.cards.*;
 import SelenaMod.character.Selena;
 import SelenaMod.modifiers.ReduceCostModifier;
 import SelenaMod.relics.PaperAndPen;
@@ -28,17 +27,19 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import org.apache.commons.lang3.StringUtils;
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.megacrit.cardcrawl.core.Settings.language;
 
 @SpireInitializer
 public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywordsSubscriber, EditCharactersSubscriber,
         EditCardsSubscriber, EditRelicsSubscriber, PostInitializeSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber,
-        PostUpdateSubscriber ,PostDungeonInitializeSubscriber{
+        PostUpdateSubscriber, PostDungeonInitializeSubscriber, StartActSubscriber {
 
     public static final Color SELENA_COLOR = new Color(0.8f, 0.8f, 1.0f, 1.0f);
     public static final String SELENA_ATTACK_512 = ModHelper.makeImgPath("512", "bg_attack_512");
@@ -147,8 +148,7 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
         DAMAGED_THIS_TURN=0;
     }
 
-    @Override
-    public void receivePostBattle(AbstractRoom abstractRoom) {
+    private static void updateSelfQuestion() {
         for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
             List<AbstractCardModifier> modifierList = CardModifierManager.getModifiers(card, ReduceCostModifier.ID);
             if (!modifierList.isEmpty()) {
@@ -161,6 +161,25 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
                     }
                 }
             }
+        }
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom abstractRoom) {
+        updateSelfQuestion();
+        updateIdealism();
+    }
+
+    private void updateIdealism() {
+        boolean hasIdealism = false;
+        for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
+            if (card.cardID.equals(Idealism.ID)) {
+                hasIdealism = true;
+                break;
+            }
+        }
+        if (hasIdealism) {
+            AbstractDungeon.actionManager.addToTop(new AskForRemoveIdealismAction());
         }
     }
 
@@ -190,5 +209,28 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
     @Override
     public void receivePostDungeonInitialize() {
         saveHelper.values = new SaveHelper.SaveValue();
+    }
+
+    @Override
+    public void receiveStartAct() {
+        if (AbstractDungeon.id.equals("TheEnding")) {
+            List<AbstractCard> cardList = AbstractDungeon.player.masterDeck.group.stream().filter(c -> c.cardID.equals(Idealism.ID))
+                    .collect(Collectors.toList());
+            int index = 0;
+            int total = cardList.size();
+            for (AbstractCard card : cardList) {
+                card.untip();
+                card.unhover();
+                AbstractCard hero = new Heroism();
+                hero.drawScale = hero.targetDrawScale = 0.7F;
+                if (card.upgraded) {
+                    hero.upgrade();
+                }
+                float xOffset = AbstractCard.IMG_WIDTH * 0.35F;
+                AbstractDungeon.topLevelEffects.add(new ShowCardAndObtainEffect(hero,
+                        Settings.WIDTH / 2.0F - xOffset * (total - index), Settings.HEIGHT / 2.0F));
+                AbstractDungeon.player.masterDeck.removeCard(card);
+            }
+        }
     }
 }

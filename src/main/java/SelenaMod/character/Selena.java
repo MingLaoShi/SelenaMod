@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
@@ -168,4 +169,13 @@ public class Selena extends CustomPlayer {
         return Vampires.DESCRIPTIONS[1];
     }
 
+
+    @Override
+    public ArrayList<AbstractCard> getCardPool(ArrayList<AbstractCard> tmpPool) {
+        ArrayList<AbstractCard> pool = super.getCardPool(tmpPool);
+        if (!AbstractDungeon.id.equals("Exordium")) {
+            pool.removeIf(c -> c.cardID.equals(Idealism.ID));
+        }
+        return pool;
+    }
 }

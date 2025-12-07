@@ -361,6 +361,20 @@
   "SelenaMod:Idealism": {
     "NAME": "理想主义",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 这张牌不会被 消耗 。",
-    "FLAVOR": "“What can I hold you with?”"
+    "FLAVOR": "“对于理想主义者，哪里都是坟墓。”"
+  },
+  "SelenaMod:IdealismOptions": {
+    "NAME": "理想主义",
+    "DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "移除所有理想主义",
+      "取消"
+    ]
+  },
+  "SelenaMod:Heroism": {
+    "NAME": "英雄主义",
+    "DESCRIPTION": " 固有 。 NL 赢得战斗胜利。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 赢得全部胜利。",
+    "FLAVOR": "“谁能尊重纯真的信念，他将战胜地狱和死亡”"
   }
 }
