@@ -386,5 +386,11 @@
     "NAME": "悲歌",
     "DESCRIPTION": "造成 !D! 点伤害5次。如果处于 selenamod:塞壬 状态，这张牌的基础伤害提高4点。 NL selenamod:转调 ：获得 !M! 点 力量 。",
     "FLAVOR": "“二十余年如一梦，此身虽在堪惊。”"
+  },
+  "SelenaMod:TokyoLoveStory": {
+    "NAME": "东京爱情故事",
+    "DESCRIPTION": "将1张 *奇迹 加入手牌。 NL selenamod:初见 ： 消耗 这张牌，当前所有手牌放回抽牌堆，然后将抽满手牌。",
+    "UPGRADE_DESCRIPTION": "将1张 *奇迹+ 加入手牌。 NL selenamod:初见 ： 消耗 这张牌，当前所有手牌放回抽牌堆，然后将抽满手牌。",
+    "FLAVOR": "“あの日、あの时、あの场所で、君に会えなかったら、仆らはいつまでも见知らぬ二人のまま。”"
   }
 }
