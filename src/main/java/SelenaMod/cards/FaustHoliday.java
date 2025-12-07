@@ -63,6 +63,6 @@ public class FaustHoliday extends CustomSelenaCard {
             }
         });
 
-        addPowerToSelf(new TonePower(abstractPlayer, 1, new NextEnergyEffect(this.cardID, 1)));
+        addTonePower(new TonePower(abstractPlayer, 1, new NextEnergyEffect(this.cardID, 1)),abstractMonster);
     }
 }

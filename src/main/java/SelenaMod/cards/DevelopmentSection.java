@@ -25,6 +25,6 @@ public class DevelopmentSection extends CustomSelenaCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.FIRE);
-        addPowerToSelf(new TonePower(abstractPlayer, this.magicNumber, new BlockEffect(this.cardID, this.magicNumber)));
+        addTonePower(new TonePower(abstractPlayer, this.magicNumber, new BlockEffect(this.cardID, this.magicNumber)),abstractMonster);
     }
 }

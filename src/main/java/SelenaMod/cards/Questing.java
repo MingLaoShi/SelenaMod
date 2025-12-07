@@ -25,6 +25,6 @@ public class Questing extends CustomSelenaCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomBlockAction();
         addPowerToSelf(new SelenaMod.powers.QuestingPower(abstractPlayer, 1));
-        addPowerToSelf(new WhiteSpacePower(abstractPlayer, 1, new DrawEffect(QUESTING_SEEKING_ID, 1)));
+        addTonePower(new WhiteSpacePower(abstractPlayer, 1, new DrawEffect(QUESTING_SEEKING_ID, 1)),abstractMonster);
     }
 }

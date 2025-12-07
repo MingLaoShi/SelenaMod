@@ -26,6 +26,6 @@ public class Unfinished extends CustomSelenaCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        addPowerToSelf(new TonePower(abstractPlayer, this.secondMagicVar, new DamageEffect(this.cardID, this.secondMagicVar, 2)));
+        addTonePower(new TonePower(abstractPlayer, this.secondMagicVar, new DamageEffect(this.cardID, this.secondMagicVar, 2)),abstractMonster);
     }
 }

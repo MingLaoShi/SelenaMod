@@ -32,7 +32,7 @@ public class Minuet extends CustomSelenaCard {
         addToBot(new DamageCallbackAction(abstractMonster, new DamageInfo(abstractPlayer, this.damage), AbstractGameAction.AttackEffect.SLASH_DIAGONAL, i -> {
             this.callback(i, abstractMonster);
         }));
-        addPowerToSelf(new TonePower(abstractPlayer, this.magicNumber, new VigorEffect(this.cardID, this.magicNumber)));
+        addTonePower(new TonePower(abstractPlayer, this.magicNumber, new VigorEffect(this.cardID, this.magicNumber)),abstractMonster);
     }
 
     private void callback(Integer integer, AbstractMonster m) {

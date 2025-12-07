@@ -300,5 +300,11 @@
     "DESCRIPTIONS": [
       "获得%s点力量"
     ]
+  },
+  "SelenaMod:SpringBreezePower": {
+    "NAME": "春风",
+    "DESCRIPTIONS": [
+      "留白，转调，覆写效果改为即时生效。"
+    ]
   }
 }

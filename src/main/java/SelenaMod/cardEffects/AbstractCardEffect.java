@@ -11,6 +11,8 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Objects;
+
 public abstract class AbstractCardEffect implements DynamicEffectVar,Cloneable {
     public ToneAndSpaceData data;
     //用来计算powers数值的
@@ -32,7 +34,8 @@ public abstract class AbstractCardEffect implements DynamicEffectVar,Cloneable {
 
 
     public void calcCardDamage(AbstractMonster mo) {
-        card.calculateCardDamage(mo);
+        if(Objects.nonNull(mo))
+            card.calculateCardDamage(mo);
     }
 
 

@@ -1,5 +1,10 @@
 package SelenaMod.cards;
 
+import SelenaMod.cardEffects.AbstractCardEffect;
+import SelenaMod.powers.OverridePower;
+import SelenaMod.powers.SpringBreezePower;
+import SelenaMod.powers.TonePower;
+import SelenaMod.powers.WhiteSpacePower;
 import SelenaMod.utils.ModHelper;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -13,6 +18,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import java.util.Objects;
 
 public abstract class CustomSelenaCard extends CustomCard {
     public boolean firstSight = true;
@@ -84,6 +91,29 @@ public abstract class CustomSelenaCard extends CustomCard {
 
     protected void addPowerToSelf(AbstractPower power) {
         addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, power));
+    }
+
+    protected void addTonePower(AbstractPower power, AbstractMonster targetMonster) {
+        if (AbstractDungeon.player.hasPower(SpringBreezePower.POWER_ID)) {
+            AbstractCardEffect effect = null;
+            if (power instanceof TonePower) {
+                TonePower tonePower = (TonePower) power;
+                effect = tonePower.effect;
+            } else if (power instanceof WhiteSpacePower) {
+                WhiteSpacePower whiteSpacePower = (WhiteSpacePower) power;
+                effect = whiteSpacePower.effect;
+            } else if (power instanceof OverridePower) {
+                OverridePower overridePower = (OverridePower) power;
+                effect = overridePower.effect;
+            }
+            if (Objects.nonNull(effect)) {
+
+                effect.calcCardDamage(targetMonster);
+                addToBot(effect.trigger(targetMonster));
+            }
+        } else {
+            addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, power));
+        }
     }
 
     protected void addPowerToEnemy(AbstractMonster target, AbstractPower power) {

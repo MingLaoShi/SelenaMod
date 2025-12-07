@@ -27,7 +27,7 @@ public class Fantasia extends CustomSelenaCard{
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.addToBot(new DamageCallbackAction(abstractMonster,new DamageInfo(abstractPlayer,this.damage), AbstractGameAction.AttackEffect.LIGHTNING,this::callback));
-        addPowerToSelf(new TonePower(AbstractDungeon.player,1,new RetainEffect(this.cardID,1)));
+        addTonePower(new TonePower(AbstractDungeon.player,1,new RetainEffect(this.cardID,1)),abstractMonster);
     }
 
     private void callback(Integer integer) {

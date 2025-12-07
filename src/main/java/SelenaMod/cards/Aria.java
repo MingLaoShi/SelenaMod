@@ -28,6 +28,6 @@ public class Aria extends CustomSelenaCard {
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        addPowerToSelf(new TonePower(abstractPlayer, this.magicNumber, new DamageEffect(this.cardID, this.secondMagicVar, this.magicNumber)));
+        addTonePower(new TonePower(abstractPlayer, this.magicNumber, new DamageEffect(this.cardID, this.secondMagicVar, this.magicNumber)),abstractMonster);
     }
 }

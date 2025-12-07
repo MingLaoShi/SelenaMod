@@ -27,6 +27,6 @@ public class ArcadiaRetreat extends CustomSelenaCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addToBot(new DamageAction(abstractPlayer, new DamageInfo(abstractPlayer, this.secondMagicVar, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.FIRE));
-        addPowerToSelf(new OverridePower(abstractPlayer, this.magicNumber, new RareCardEffect(this.cardID, this.magicNumber)));
+        addTonePower(new OverridePower(abstractPlayer, this.magicNumber, new RareCardEffect(this.cardID, this.magicNumber)),abstractMonster);
     }
 }

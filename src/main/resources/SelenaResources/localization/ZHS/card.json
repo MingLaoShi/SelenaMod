@@ -398,5 +398,11 @@
     "DESCRIPTION": "从抽牌堆随机将不同稀有度的牌各1张加入手牌。（没有则不获得）",
     "UPGRADE_DESCRIPTION": "从抽牌堆随机将不同稀有度的牌各1张加入手牌。（没有则随机印牌）",
     "FLAVOR": "“刻瑞斯，最丰饶的女神，我是天上的彩虹，我是天后的使官。”"
+  },
+  "SelenaMod:SpringBreeze": {
+    "NAME": "春风",
+    "DESCRIPTION": " selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果改为即时生效。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果改为即时生效。",
+    "FLAVOR": "“绽放原来是件不必等待的事，我已见到了我的花期。”"
   }
 }

@@ -42,6 +42,6 @@ public class Storm extends CustomSelenaCard {
             }
         });
 //        addPowerToSelf(new RemoveInvinciblePower(abstractPlayer, this.upgraded ? 1 : 0));
-        addPowerToSelf(new OverridePower(abstractPlayer, this.magicNumber, new PrayerEffect(this.cardID, this.magicNumber)));
+        addTonePower(new OverridePower(abstractPlayer, this.magicNumber, new PrayerEffect(this.cardID, this.magicNumber)),abstractMonster);
     }
 }

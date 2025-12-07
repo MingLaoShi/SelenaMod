@@ -38,6 +38,6 @@ public class AsFirstSight extends CustomSelenaCard implements IFirstSight {
 
     @Override
     public void onFirstSight() {
-        addPowerToSelf(new WhiteSpacePower(AbstractDungeon.player, -1, new ExhaustEffect(this.cardID)));
+        addTonePower(new WhiteSpacePower(AbstractDungeon.player, -1, new ExhaustEffect(this.cardID)),null);
     }
 }

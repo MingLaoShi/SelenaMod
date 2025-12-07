@@ -35,6 +35,6 @@ public class Lament extends CustomSelenaCard {
         } else {
             addToBot(new MakeTempCardInDrawPileAction(new OutOfControl(), 1, true, true));
         }
-        addPowerToSelf(new TonePower(abstractPlayer, this.magicNumber, new DexterityEffect(this.cardID, this.magicNumber)));
+        addTonePower(new TonePower(abstractPlayer, this.magicNumber, new DexterityEffect(this.cardID, this.magicNumber)),abstractMonster);
     }
 }

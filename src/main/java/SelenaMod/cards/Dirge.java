@@ -30,7 +30,7 @@ public class Dirge extends CustomSelenaCard {
             addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         }
 
-        addPowerToSelf(new TonePower(abstractPlayer, this.magicNumber, new StrengthEffect(this.cardID, this.magicNumber)));
+        addTonePower(new TonePower(abstractPlayer, this.magicNumber, new StrengthEffect(this.cardID, this.magicNumber)),abstractMonster);
     }
 
     @Override

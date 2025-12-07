@@ -24,6 +24,6 @@ public class Rebirth extends CustomSelenaCard{
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addPowerToSelf(new RebirthPower(abstractPlayer));
         addToBot(new RemoveSpecificPowerAction(abstractPlayer,abstractPlayer, SirenPower.POWER_ID));
-        addPowerToSelf(new OverridePower(abstractPlayer, 1,new ExhaustEffect(this.cardID)));
+        addTonePower(new OverridePower(abstractPlayer, 1,new ExhaustEffect(this.cardID)),abstractMonster);
     }
 }

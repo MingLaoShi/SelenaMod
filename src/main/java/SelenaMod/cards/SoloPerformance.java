@@ -35,7 +35,7 @@ public class SoloPerformance extends CustomSelenaCard implements IFirstSight {
         if (activeFlag) {
             addToBot(new VFXAction(new SpotEffect(abstractPlayer, abstractMonster), 1.0F));
             addToBot(new DamageAction(abstractMonster, new DamageInfo(abstractPlayer, this.magicNumber, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-//            addPowerToSelf(new TonePower(abstractPlayer, 1, new ExhaustCardEffect(this.cardID, 1)));
+//            addTonePower(new TonePower(abstractPlayer, 1, new ExhaustCardEffect(this.cardID, 1)));
             activeFlag = false;
         }
 
