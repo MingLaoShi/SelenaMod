@@ -376,5 +376,11 @@
     "DESCRIPTION": " 固有 。 NL 赢得战斗胜利。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 赢得全部胜利。",
     "FLAVOR": "“谁能尊重纯真的信念，他将战胜地狱和死亡”"
+  },
+  "SelenaMod:Unfinished": {
+    "NAME": "未竟",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 。 NL selenamod:转调 ：造成 !SelenaMod:SecondMagicVar! 点伤害2次。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 赢得全部胜利。",
+    "FLAVOR": "Facta fugis, facienda petis"
   }
 }
