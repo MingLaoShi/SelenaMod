@@ -380,7 +380,11 @@
   "SelenaMod:Unfinished": {
     "NAME": "未竟",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 。 NL selenamod:转调 ：造成 !SelenaMod:SecondMagicVar! 点伤害2次。",
-    "UPGRADE_DESCRIPTION": " 固有 。 NL 赢得全部胜利。",
     "FLAVOR": "Facta fugis, facienda petis"
+  },
+  "SelenaMod:Dirge": {
+    "NAME": "悲歌",
+    "DESCRIPTION": "造成 !D! 点伤害5次。如果处于 selenamod:塞壬 状态，这张牌的基础伤害提高4点。 NL selenamod:转调 ：获得 !M! 点 力量 。",
+    "FLAVOR": "“二十余年如一梦，此身虽在堪惊。”"
   }
 }

@@ -294,5 +294,11 @@
     "DESCRIPTIONS": [
       "本回合保留所有手牌。"
     ]
+  },
+  "SelenaMod:StrengthEffect":{
+    "NAME": "力量",
+    "DESCRIPTIONS": [
+      "获得%s点力量"
+    ]
   }
 }
