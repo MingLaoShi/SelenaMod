@@ -39,12 +39,12 @@
   },
   "SelenaMod:OffenseDefense": {
     "NAME": "刻舟",
-    "DESCRIPTION": "造成 !D! 点伤害，给予所有敌人 !M! 层 易伤 。 NL 保留 。 NL 每次抽到时，对所有敌人造成 !SelenaMod:SecondMagicVar! 点伤害，获得 !B! 点 格挡 。",
+    "DESCRIPTION": "造成 !D! 点伤害，给予所有敌人1层 易伤 。 NL 保留 。 NL 每次抽到时，对所有敌人造成 !SelenaMod:SecondMagicVar! 点伤害，获得 !M! 点 格挡 。",
     "FLAVOR": "“我想要像盘旋的白鸽，在相遇时，再次降落在你的肩头。”"
   },
   "SelenaMod:Seeking": {
     "NAME": "求索",
-    "DESCRIPTION": "造成 !D! 点伤害，下1张牌不能打出技能牌。 NL selenamod:留白 ：抽 !M! 张牌。",
+    "DESCRIPTION": "造成 !D! 点伤害，下1张牌不能打出技能牌。 NL selenamod:转调 ：抽 !M! 张牌。",
     "FLAVOR": "她仰望繁星。"
   },
   "SelenaMod:Confrontation": {
@@ -87,7 +87,7 @@
   },
   "SelenaMod:Questing": {
     "NAME": "寻觅",
-    "DESCRIPTION": "获得 !B! 点 格挡 ，下1张牌不能打出攻击牌。 NL selenamod:留白 ：抽 !M! 张牌。",
+    "DESCRIPTION": "获得 !B! 点 格挡 ，下1张牌不能打出攻击牌。 NL selenamod:转调 ：抽 !M! 张牌。",
     "FLAVOR": "他凝视大地"
   },
   "SelenaMod:DivineComedy": {
@@ -125,7 +125,7 @@
   },
   "SelenaMod:TheyLoveEachOther": {
     "NAME": "他们彼此相爱",
-    "DESCRIPTION": "获得 !M! 点 力量 与-1点 敏捷，每次打出后数值互换。",
+    "DESCRIPTION": "获得 !M! 点 力量 与-1点 敏捷，每次打出后数值互换且下回合开始时失去 [E] 。",
     "EXTENDED_DESCRIPTION": [
       "获得-1点 力量 与 !M! 点 敏捷，每次打出后数值互换。"
     ],
@@ -295,8 +295,8 @@
   },
   "SelenaMod:OneStepAway": {
     "NAME": "一步之遥",
-    "DESCRIPTION": "每回合开始时，令抽牌堆里第三张及以后的牌在本回合内耗能变为0且打出后抽1张牌。 NL selenamod:初见 ：升级抽牌堆和手牌里所有的 *信 。",
-    "UPGRADE_DESCRIPTION": "每回合开始时，令抽牌堆里第三张及以后的牌在本回合内耗能变为0且打出后抽1张牌。 NL selenamod:初见 ：升级牌组里所有的 *信 。",
+    "DESCRIPTION": "每回合开始时，令抽牌堆里第三张及以后的牌在本回合内耗能变为0。 NL selenamod:初见 ：升级抽牌堆和手牌里所有的 *信 。",
+    "UPGRADE_DESCRIPTION": "每回合开始时，令抽牌堆里第三张及以后的牌在本回合内耗能变为0。 NL selenamod:初见 ：升级牌组里所有的 *信 。",
     "FLAVOR": "每每欲说还休，往往一步之遥"
   },
   "SelenaMod:Vortex": {
@@ -338,8 +338,8 @@
   },
   "SelenaMod:Casablanca": {
     "NAME": "卡萨布兰卡 ",
-    "DESCRIPTION": " 固有 。 NL 获得等同于本回合造成伤害数的 格挡 （ !B! ）。若这是你弃牌堆唯一一张牌， 消耗 之， 预见 !M! 。",
-    "UPGRADE_DESCRIPTION": " 固有 。 NL 获得等同于本回合造成伤害数的2倍 格挡 （ !B! ）。若这是你弃牌堆唯一一张牌， 消耗 之， 预见 !M! 。",
+    "DESCRIPTION": "获得等同于本回合造成伤害数一半的 格挡 （ !B! ）。若这是你弃牌堆唯一一张牌， 消耗 之， 预见 !M! 。",
+    "UPGRADE_DESCRIPTION": " 保留 。 NL 获得等同于本回合造成伤害数一半的 格挡 （ !B! ）。若这是你弃牌堆唯一一张牌， 消耗 之， 预见 !M! 。",
     "FLAVOR": "熙熙阿堵物，明明白玉盘"
   },
   "SelenaMod:Papaya": {

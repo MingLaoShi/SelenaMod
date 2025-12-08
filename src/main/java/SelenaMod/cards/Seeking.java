@@ -1,6 +1,7 @@
 package SelenaMod.cards;
 
 import SelenaMod.cardEffects.DrawEffect;
+import SelenaMod.powers.TonePower;
 import SelenaMod.powers.WhiteSpacePower;
 import SelenaMod.utils.ModHelper;
 import SelenaMod.utils.SelenaEnums;
@@ -13,19 +14,19 @@ public class Seeking extends CustomSelenaCard {
 
     public Seeking() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        this.setDamage(13);
+        this.setDamage(9);
         this.setMagic(1);
         this.tags.add(SelenaEnums.HAS_TONE_POWER);
     }
 
     @Override
     protected void upgradeMethod() {
-        this.upgradeDamage(5);
+        this.upgradeDamage(4);
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        addTonePower(new WhiteSpacePower(abstractPlayer, this.magicNumber, new DrawEffect(Questing.QUESTING_SEEKING_ID, this.magicNumber)),abstractMonster);
+        addTonePower(new TonePower(abstractPlayer, this.magicNumber, new DrawEffect(Questing.QUESTING_SEEKING_ID, this.magicNumber)), abstractMonster);
     }
 }

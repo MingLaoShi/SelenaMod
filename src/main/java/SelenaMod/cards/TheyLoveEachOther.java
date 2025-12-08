@@ -1,6 +1,7 @@
 package SelenaMod.cards;
 
 import SelenaMod.modifiers.RepeatModifier;
+import SelenaMod.powers.LoseEnergyNextTurnPower;
 import SelenaMod.utils.ModHelper;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -45,6 +46,7 @@ public class TheyLoveEachOther extends CustomSelenaCard {
                 this.isDone = true;
             }
         });
+        addPowerToSelf(new LoseEnergyNextTurnPower(abstractPlayer, 1));
     }
 
     @Override

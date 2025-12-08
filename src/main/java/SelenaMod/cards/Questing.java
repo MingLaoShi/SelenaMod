@@ -1,6 +1,7 @@
 package SelenaMod.cards;
 
 import SelenaMod.cardEffects.DrawEffect;
+import SelenaMod.powers.TonePower;
 import SelenaMod.powers.WhiteSpacePower;
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,7 +13,7 @@ public class Questing extends CustomSelenaCard {
 
     public Questing() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        this.setBlock(13);
+        this.setBlock(9);
         this.setMagic(1);
     }
 
@@ -25,6 +26,6 @@ public class Questing extends CustomSelenaCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addCustomBlockAction();
         addPowerToSelf(new SelenaMod.powers.QuestingPower(abstractPlayer, 1));
-        addTonePower(new WhiteSpacePower(abstractPlayer, 1, new DrawEffect(QUESTING_SEEKING_ID, 1)),abstractMonster);
+        addTonePower(new TonePower(abstractPlayer, 1, new DrawEffect(QUESTING_SEEKING_ID, 1)), abstractMonster);
     }
 }

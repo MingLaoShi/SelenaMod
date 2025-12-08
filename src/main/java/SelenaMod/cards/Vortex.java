@@ -11,7 +11,7 @@ public class Vortex extends CustomSelenaCard{
     public static String ID= ModHelper.makeID("Vortex");
     public static AbstractCard[] PREVIEW_CARDS = {new BurningVow(), new DearYou()};
     public Vortex() {
-        super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         for (AbstractCard card : PREVIEW_CARDS) {
             MultiCardPreview.add(this, card.makeCopy());
         }

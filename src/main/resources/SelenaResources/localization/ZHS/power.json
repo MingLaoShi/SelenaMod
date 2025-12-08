@@ -306,5 +306,11 @@
     "DESCRIPTIONS": [
       "留白，转调，覆写效果改为即时生效。"
     ]
+  },
+  "SelenaMod:LoseEnergyNextTurnPower": {
+    "NAME": "下回合失去能量",
+    "DESCRIPTIONS": [
+      "下回合开始时失去1点能量。"
+    ]
   }
 }

@@ -18,7 +18,8 @@ public class Sacrifice extends CustomSelenaCard {
 
     @Override
     protected void upgradeMethod() {
-        this.upgradeMagicNumber(1);
+//        this.upgradeMagicNumber(1);
+        this.upgradeDescription();
     }
 
 

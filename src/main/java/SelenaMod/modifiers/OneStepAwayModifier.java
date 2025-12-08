@@ -35,8 +35,4 @@ public class OneStepAwayModifier extends AbstractCardModifier {
         card.setCostForTurn(0);
     }
 
-    @Override
-    public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
-        addToBot(new DrawCardAction(1));
-    }
 }

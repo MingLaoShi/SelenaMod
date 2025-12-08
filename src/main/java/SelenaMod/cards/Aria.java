@@ -13,7 +13,7 @@ public class Aria extends CustomSelenaCard {
 
     public Aria() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        this.setDamage(3);
+        this.setDamage(2);
         this.setMagic(1);
         this.setSecondMagic(4);
         this.tags.add(SelenaEnums.HAS_TONE_POWER);
