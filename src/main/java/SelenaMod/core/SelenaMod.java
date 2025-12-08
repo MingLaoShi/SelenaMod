@@ -6,10 +6,7 @@ import SelenaMod.cards.*;
 import SelenaMod.character.Selena;
 import SelenaMod.modifiers.ReduceCostModifier;
 import SelenaMod.patches.ReturnRandomRelicPatch;
-import SelenaMod.relics.FriendABrush;
-import SelenaMod.relics.GeometricShards;
-import SelenaMod.relics.PaperAndPen;
-import SelenaMod.relics.PaperPenHeart;
+import SelenaMod.relics.*;
 import SelenaMod.utils.EffectsDynamicVariableManager;
 import SelenaMod.utils.ModHelper;
 import SelenaMod.utils.SaveHelper;
@@ -18,6 +15,7 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -126,6 +124,7 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
         BaseMod.addRelicToCustomPool(new FriendABrush(), ModHelper.getSelenaColor());
         ReturnRandomRelicPatch.replaceRelicMap.put(StrikeDummy.ID, FriendABrush.ID);
         BaseMod.addRelicToCustomPool(new PaperPenHeart(), ModHelper.getSelenaColor());
+        BaseMod.addRelic(new Hamlet(), RelicType.SHARED);
     }
 
     @Override

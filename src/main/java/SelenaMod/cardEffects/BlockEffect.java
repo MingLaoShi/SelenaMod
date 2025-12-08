@@ -18,6 +18,7 @@ public class BlockEffect extends AbstractCardEffect {
         this.data.setDescription(toneStrings.DESCRIPTIONS[0]);
         this.data.setTarget(toneStrings.DESCRIPTIONS.length > 1 ? toneStrings.DESCRIPTIONS[1] : "");
         card.baseBlock = data.amount;
+        card.block = card.baseBlock;
     }
 
     @Override

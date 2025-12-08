@@ -34,8 +34,8 @@ public abstract class AbstractCardEffect implements DynamicEffectVar,Cloneable {
 
 
     public void calcCardDamage(AbstractMonster mo) {
-        if(Objects.nonNull(mo))
-            card.calculateCardDamage(mo);
+//        if(Objects.nonNull(mo))
+        card.calculateCardDamage(mo);
     }
 
 

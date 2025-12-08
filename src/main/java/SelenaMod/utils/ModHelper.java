@@ -116,16 +116,18 @@ public class ModHelper {
     }
 
 
-    public static void addToneModifier(AbstractCard card, AbstractCardEffect effect) {
+    public static void addToneModifier(AbstractCard card, AbstractCardEffect effect, AbstractMonster target) {
         ArrayList<AbstractCardModifier> modifier = CardModifierManager.getModifiers(card, ToneModifier.ID);
         if (modifier.isEmpty()) {
             ToneModifier toneModifier = new ToneModifier();
             toneModifier.addTone(effect);
             CardModifierManager.addModifier(card, toneModifier);
+            card.calculateCardDamage(target);
             card.initializeDescription();
         } else {
             ToneModifier toneModifier = (ToneModifier) modifier.get(0);
             toneModifier.addTone(effect);
+            card.calculateCardDamage(target);
             card.initializeDescription();
         }
         effect.initializeCardEffect(card);

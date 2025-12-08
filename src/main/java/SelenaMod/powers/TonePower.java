@@ -75,7 +75,7 @@ public class TonePower extends AbstractPower implements IPreUseCard {
         if (card instanceof Letter && this == AdjustApplyInstance(card)) {
 //            ArrayList<DescriptionLine> lines= ReflectionHacks.getPrivate(card,AbstractCard.class,"description");
 //            ArrayList<DescriptionLine> originLines=new ArrayList<>(lines);
-            ModHelper.addToneModifier(card, effect);
+            ModHelper.addToneModifier(card, effect, target);
             this.flash();
 //            card.flash();
 //            card.calculateCardDamage(target);
