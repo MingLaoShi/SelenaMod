@@ -6,6 +6,9 @@ import SelenaMod.cards.*;
 import SelenaMod.character.Selena;
 import SelenaMod.modifiers.ReduceCostModifier;
 import SelenaMod.patches.ReturnRandomRelicPatch;
+import SelenaMod.potions.DeveloperFluid;
+import SelenaMod.potions.LoopLiquid;
+import SelenaMod.potions.RedTideSample;
 import SelenaMod.relics.*;
 import SelenaMod.utils.EffectsDynamicVariableManager;
 import SelenaMod.utils.ModHelper;
@@ -150,6 +153,9 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
 
     @Override
     public void receivePostInitialize() {
+        BaseMod.addPotion(LoopLiquid.class, LoopLiquid.liquidColor, LoopLiquid.hybridColor, LoopLiquid.spotsColor, LoopLiquid.ID);
+        BaseMod.addPotion(DeveloperFluid.class, DeveloperFluid.liquidColor, DeveloperFluid.hybridColor, DeveloperFluid.spotsColor, DeveloperFluid.ID);
+        BaseMod.addPotion(RedTideSample.class, RedTideSample.liquidColor, RedTideSample.hybridColor, RedTideSample.spotsColor, RedTideSample.ID);
     }
 
     @Override

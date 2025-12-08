@@ -1,2 +1,23 @@
 {
+  "SelenaMod:LoopLiquid": {
+    "NAME": "循环液",
+    "DESCRIPTIONS": [
+      "恢复10点生命值。",
+      "恢复20点生命值。"
+    ]
+  },
+  "SelenaMod:DeveloperFluid": {
+    "NAME": "显影液",
+    "DESCRIPTIONS": [
+      "将1张52HZ加入手牌。",
+      "将2张52HZ加入手牌。"
+    ]
+  },
+  "SelenaMod:RedTideSample": {
+    "NAME": "红潮样本",
+    "DESCRIPTIONS": [
+      "获得30点格挡，获得一张失控。",
+      "获得60点格挡，获得两张失控。"
+    ]
+  }
 }
