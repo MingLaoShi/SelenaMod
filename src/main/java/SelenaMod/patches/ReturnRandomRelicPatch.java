@@ -14,20 +14,13 @@ public class ReturnRandomRelicPatch {
     public static class InitializeRelicListPatch {
         @SpirePostfixPatch
         public static void Postfix(AbstractDungeon __instance) {
-            for (int i = 0; i < AbstractDungeon.commonRelicPool.size(); i++) {
-                if (replaceRelicMap.containsKey(AbstractDungeon.commonRelicPool.get(i))) {
-                    AbstractDungeon.commonRelicPool.set(i, replaceRelicMap.get(AbstractDungeon.commonRelicPool.get(i)));
-                }
-            }
-            for (int i = 0; i < AbstractDungeon.uncommonRelicPool.size(); i++) {
-                if (replaceRelicMap.containsKey(AbstractDungeon.uncommonRelicPool.get(i))) {
-                    AbstractDungeon.uncommonRelicPool.set(i, replaceRelicMap.get(AbstractDungeon.uncommonRelicPool.get(i)));
-                }
-            }
-            for (int i = 0; i < AbstractDungeon.rareRelicPool.size(); i++) {
-                if (replaceRelicMap.containsKey(AbstractDungeon.rareRelicPool.get(i))) {
-                    AbstractDungeon.rareRelicPool.set(i, replaceRelicMap.get(AbstractDungeon.rareRelicPool.get(i)));
-                }
+            // 从所有遗物池中移除replaceRelicMap的key（原遗物ID）
+            for (String originalRelicId : replaceRelicMap.keySet()) {
+                AbstractDungeon.commonRelicPool.remove(originalRelicId);
+                AbstractDungeon.uncommonRelicPool.remove(originalRelicId);
+                AbstractDungeon.rareRelicPool.remove(originalRelicId);
+                AbstractDungeon.bossRelicPool.remove(originalRelicId);
+                AbstractDungeon.shopRelicPool.remove(originalRelicId);
             }
         }
     }
