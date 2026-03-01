@@ -64,6 +64,9 @@ public class FiftyTwoHzWaitEffect extends AbstractGameEffect {
                             group.moveToExhaustPile(card);
                             CardCrawlGame.dungeon.checkForPactAchievement();
                             break;
+                        case "moveToDeckTop":
+                            group.moveToDeck(card, false);
+                            break;
                     }
                     this.isDone=true;
                 }
@@ -104,11 +107,17 @@ public class FiftyTwoHzWaitEffect extends AbstractGameEffect {
 
     public static void replace(AbstractCard card,String methodName){
         AbstractDungeon.player.hand.removeCard(card);
-        AbstractDungeon.effectList.add(new FiftyTwoHzWaitEffect(card,methodName));
+        if (CardModifierManager.hasModifier(card, RepeatModifier.ID) &&
+                !methodName.equals("moveToExhaustPile")) {
+            AbstractDungeon.effectList.add(new FiftyTwoHzWaitEffect(card, "moveToDeckTop"));
+        } else {
+            AbstractDungeon.effectList.add(new FiftyTwoHzWaitEffect(card, methodName));
+
+        }
     }
 
     public static void replace2(AbstractCard card) {
-        AbstractDungeon.player.hand.moveToDeck(card, true);
+        AbstractDungeon.player.hand.moveToDeck(card, false);
     }
 
     @SpirePatch(clz = UseCardAction.class, method = "update")
