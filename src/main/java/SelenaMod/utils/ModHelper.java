@@ -4,9 +4,11 @@ import SelenaMod.cardEffects.AbstractCardEffect;
 import SelenaMod.core.SelenaMod;
 import SelenaMod.modifiers.ToneModifier;
 import SelenaMod.modifiers.WhiteSpaceModifier;
+import basemod.ReflectionHacks;
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,19 +16,25 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ModHelper {
     public static String MOD_ID = "SelenaMod";
     public static String MOD_PRE = "SelenaMod";
     public static String RESOURCES_FOLDER_PATH = "SelenaResources";
     public static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+    public static final Map<String, String> FLAVOR2 = new HashMap<>();
 
     public static final Logger logger = LogManager.getLogger(SelenaMod.class.getName());
 
@@ -216,5 +224,18 @@ public class ModHelper {
             }
         }
         return creatureList;
+    }
+
+    public static float GetPowerTipHeight(PowerTip tip) {
+        return ReflectionHacks.privateStaticMethod(TipHelper.class, "getPowerTipHeight", PowerTip.class).invoke(new Object[]{tip});
+    }
+
+    private static ReflectionHacks.RMethod RenderPowerTips = null;
+
+    public static void RenderPowerTips(float x, float y, SpriteBatch sb, ArrayList<PowerTip> tips) {
+        if (RenderPowerTips == null) {
+            RenderPowerTips = ReflectionHacks.privateStaticMethod(TipHelper.class, "renderPowerTips", float.class, float.class, SpriteBatch.class, ArrayList.class);
+        }
+        RenderPowerTips.invoke(null, x, y, sb, tips);
     }
 }

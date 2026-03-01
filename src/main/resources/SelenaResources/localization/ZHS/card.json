@@ -10,7 +10,7 @@
   "SelenaMod:Overture": {
     "NAME": "序曲",
     "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:留白 ： 预见 !M! 。",
-    "FLAVOR": "“序曲已了，该进入正篇了。”"
+    "FLAVOR2": "“序曲已了，该进入正篇了。”"
   },
   "SelenaMod:Letter": {
     "NAME": "信",
@@ -19,50 +19,50 @@
   "SelenaMod:DevelopmentSection": {
     "NAME": "展开部",
     "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:转调 ：获得 !M! 点 格挡 。",
-    "FLAVOR": "“展开部，起！”"
+    "FLAVOR2": "“展开部，起！”"
   },
   "SelenaMod:Finale": {
     "NAME": "终章",
     "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:覆写 ：造成 !M! 点伤害。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:覆写 ：对所有敌人造成 !M! 点伤害。",
-    "FLAVOR": "“谢幕的终章！”"
+    "FLAVOR2": "“谢幕的终章！”"
   },
   "SelenaMod:Minuet": {
     "NAME": "小步舞曲",
     "DESCRIPTION": "造成 !D! 点伤害，下回合开始时造成等量未被格挡的伤害。 NL selenamod:转调 ：获得 !M! 点活力。",
-    "FLAVOR": "“该到小步舞曲了。”"
+    "FLAVOR2": "“该到小步舞曲了。”"
   },
   "SelenaMod:Aria": {
     "NAME": "咏叹调",
     "DESCRIPTION": "造成 !D! 点伤害3次。 NL selenamod:转调 ：造成 !SelenaMod:SecondMagicVar! 点伤害 !M! 次。",
-    "FLAVOR": "“现在是咏叹调的时间。”"
+    "FLAVOR2": "“现在是咏叹调的时间。”"
   },
   "SelenaMod:OffenseDefense": {
     "NAME": "刻舟",
     "DESCRIPTION": "造成 !D! 点伤害，给予所有敌人1层 易伤 。 NL 保留 。 NL 每次抽到时，对所有敌人造成 !SelenaMod:SecondMagicVar! 点伤害，获得 !M! 点 格挡 。",
-    "FLAVOR": "“无论时间的大钟如何流转，表盘上都只有一个刻度——现在。”"
+    "FLAVOR2": "“无论时间的大钟如何流转，表盘上都只有一个刻度——现在。”"
   },
   "SelenaMod:Seeking": {
     "NAME": "求索",
     "DESCRIPTION": "造成 !D! 点伤害，下1张牌不能打出技能牌。 NL selenamod:转调 ：抽 !M! 张牌。",
-    "FLAVOR": "她仰望繁星。"
+    "FLAVOR2": "她仰望繁星。"
   },
   "SelenaMod:Confrontation": {
     "NAME": "对峙",
     "DESCRIPTION": "仅当手牌中没有其他攻击牌时才能打出，造成 !D! 点伤害。",
-    "FLAVOR": "她们不会再成为很好的朋友了。"
+    "FLAVOR2": "她们不会再成为很好的朋友了。"
   },
   "SelenaMod:SoundOfStorm": {
     "NAME": "“岚音”",
     "DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:初见 ：获得 混乱 ，进入 selenamod:塞壬 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL selenamod:初见 ：进入 selenamod:塞壬 。",
-    "FLAVOR": "渺渺雾岚，悠悠乐音"
+    "FLAVOR2": "渺渺雾岚，悠悠乐音"
   },
   "SelenaMod:Lament": {
     "NAME": "哀唱",
     "DESCRIPTION": "造成 !D! 点伤害5次。 NL 将1张 *失控 加入抽牌堆。 NL selenamod:转调 ：获得 !M! 点 敏捷 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害5次。 NL 将1张 *失控 加入弃牌堆。 NL selenamod:转调 ：获得 !M! 点 敏捷 。",
-    "FLAVOR": "“如怨如慕，如泣如诉。”"
+    "FLAVOR2": "“如怨如慕，如泣如诉。”"
   },
   "SelenaMod:OutOfControl": {
     "NAME": "失控",
@@ -71,57 +71,57 @@
   "SelenaMod:StrangerPath": {
     "NAME": "陌路",
     "DESCRIPTION": "获得 !B! 点 格挡 ，获得 !M! 层 易伤 。 NL 消耗 。",
-    "FLAVOR": "“初次见面。”"
+    "FLAVOR2": "“初次见面。”"
   },
   "SelenaMod:IncomingLetter": {
     "NAME": "来信",
     "DESCRIPTION": "无法被打出 。 NL 每回合 *信 第一次加入手牌时，这张牌从抽牌堆加入手牌并抽 !M! 张牌。",
     "UPGRADE_DESCRIPTION": "无法被打出 。 NL selenamod:初见 ：将 !M! 张 *信 加入手牌，然后 消耗 此牌。",
-    "FLAVOR": "“亲爱的陌生人……”"
+    "FLAVOR2": "“亲爱的陌生人……”"
   },
   "SelenaMod:ArcadiaRetreat": {
     "NAME": "《阿卡狄亚大撤退》",
     "DESCRIPTION": "对自己造成 !SelenaMod:SecondMagicVar! 点 selenamod:生命值削减 。 NL selenamod:覆写 ：将 !M! 张随机稀有牌加入手牌。这张牌直到下次打出前耗能变为0。",
     "UPGRADE_DESCRIPTION": "对自己造成 !SelenaMod:SecondMagicVar! 点 selenamod:生命值削减 。 NL selenamod:覆写 ：从 !M! 张随机稀有牌中选择1张加入手牌。这张牌直到下次打出前耗能变为0。",
-    "FLAVOR": "此前她是一名著名的歌剧家，现在她是一名最普通的构造体"
+    "FLAVOR2": "此前她是一名著名的歌剧家，现在她是一名最普通的构造体"
   },
   "SelenaMod:Questing": {
     "NAME": "寻觅",
     "DESCRIPTION": "获得 !B! 点 格挡 ，下1张牌不能打出攻击牌。 NL selenamod:转调 ：抽 !M! 张牌。",
-    "FLAVOR": "他凝视大地"
+    "FLAVOR2": "他凝视大地"
   },
   "SelenaMod:DivineComedy": {
     "NAME": "繁星谣",
     "DESCRIPTION": "直到下个回合，每次收到伤害时，获得 !SelenaMod:SecondMagicVar! 层 再生 。 消耗 NL selenamod:覆写 ：获得 !M! 层临时 力量 和临时 敏捷。",
     "UPGRADE_DESCRIPTION": " 保留 。 NL 直到下个回合，每次收到伤害时，获得 !SelenaMod:SecondMagicVar! 层 再生 。 消耗 NL selenamod:覆写 ：获得 !M! 层临时 力量 和临时 敏捷。",
-    "FLAVOR": "“漫天的繁星坠入了她的眼中。”"
+    "FLAVOR2": "“漫天的繁星坠入了她的眼中。”"
   },
   "SelenaMod:PursuitDance": {
     "NAME": "逐舞",
     "DESCRIPTION": "对所有敌人造成 !M! 点 selenamod:生命值削减 ，若本回合已经造成过 selenamod:生命值削减 ，恢复 !M! 点生命。 NL 消耗 。 NL selenamod:初见 ：对自己造成1点 selenamod:生命值削减 。",
-    "FLAVOR": "“今宵剩把银釭照，犹恐相逢是梦中。”"
+    "FLAVOR2": "“今宵剩把银釭照，犹恐相逢是梦中。”"
   },
   "SelenaMod:KeepAppointment": {
     "NAME": "赴约",
     "DESCRIPTION": "5-X回合后，造成 !M! 点 selenamod:生命值削减 X次。 NL 虚无 。 NL 消耗 。 NL selenamod:初见 ：将1张 *奇迹 加入手牌。",
     "UPGRADE_DESCRIPTION": "5-X回合后，造成 !M! 点 selenamod:生命值削减 X次。 NL 虚无 。 NL 消耗 。 NL selenamod:初见 ：将1张 *奇迹+ 加入手牌。",
-    "FLAVOR": "我的心比双脚更先到达。"
+    "FLAVOR2": "我的心比双脚更先到达。"
   },
   "SelenaMod:PhantomMelody": {
     "NAME": "幻奏",
     "DESCRIPTION": "获得1层 缓冲 。 NL 保留 。 消耗 。 NL selenamod:初见 ：获得 !M! 层 残影 。",
-    "FLAVOR": "幻乐崩影，无声独奏"
+    "FLAVOR2": "幻乐崩影，无声独奏"
   },
   "SelenaMod:FaustHoliday": {
     "NAME": "法斯特假日",
     "DESCRIPTION": "消耗任意数量的状态牌与诅咒牌。 消耗 。 NL selenamod:转调 ：下回合获得1点能量并额外抽1张牌。",
     "UPGRADE_DESCRIPTION": "消耗任意数量的状态牌与诅咒牌，抽取等量牌。 消耗 。 NL selenamod:转调 ：下回合获得1点能量并额外抽1张牌。",
-    "FLAVOR": "“Rome. By all means, Rome.”"
+    "FLAVOR2": "“Rome. By all means, Rome.”"
   },
   "SelenaMod:NaiveProphecy": {
     "NAME": "天真的预言",
     "DESCRIPTION": " 预见 !M! 。 NL 打出其中未被丢弃的初始牌。",
-    "FLAVOR": "从人性见神性"
+    "FLAVOR2": "从人性见神性"
   },
   "SelenaMod:TheyLoveEachOther": {
     "NAME": "他们彼此相爱",
@@ -129,18 +129,18 @@
     "EXTENDED_DESCRIPTION": [
       "获得-1点 力量 与 !M! 点 敏捷，每次打出后数值互换。"
     ],
-    "FLAVOR": "Sie liebten sich beide, doch keiner，wolltes dem andern gestehn."
+    "FLAVOR2": "Sie liebten sich beide, doch keiner，wolltes dem andern gestehn."
   },
   "SelenaMod:Dusk": {
     "NAME": "黄昏",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 给予所有敌人 !M! 层 缓慢 。 NL 消耗 。",
-    "FLAVOR": "“即将发生什么前的短暂光阴，总是最动人。”"
+    "FLAVOR2": "“即将发生什么前的短暂光阴，总是最动人。”"
   },
   "SelenaMod:SelfQuestion": {
     "NAME": "自问",
     "DESCRIPTION": "选择：获得 !M! 点 力量；消耗一张随机的信，本次战斗耗能-1；下场战斗耗能-1；",
     "UPGRADE_DESCRIPTION": "选择：获得 !M! 点 力量；消耗一张随机的信，本次战斗耗能-1；下两场战斗耗能-1；",
-    "FLAVOR": "“但是爱人，请原谅我。但是爱人，请别难过。”",
+    "FLAVOR2": "“但是爱人，请原谅我。但是爱人，请别难过。”",
     "EXTENDED_DESCRIPTION": [
       "获得 !M! 点 力量。",
       "消耗一张随机的信，本次战斗耗能-1",
@@ -151,217 +151,217 @@
     "NAME": "牺牲",
     "DESCRIPTION": "获得 !B! 点 格挡 !M! 次，将1张 *失控 加入抽牌堆。这张卡造成的伤害变为两倍。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 !M! 次，将1张 *失控 加入抽牌堆。这张卡造成的伤害变为三倍。",
-    "FLAVOR": "连痛苦与死亡不能再令她恐惧"
+    "FLAVOR2": "连痛苦与死亡不能再令她恐惧"
   },
   "SelenaMod:AsFirstSight": {
     "NAME": "如初见",
     "DESCRIPTION": "每回合 selenamod:初见 效果可以再触发至多 !M! 次。 NL selenamod:初见 ： selenamod:留白 ： 消耗 。",
-    "FLAVOR": "“她最好永远天真，为她所爱的人。”"
+    "FLAVOR2": "“她最好永远天真，为她所爱的人。”"
   },
   "SelenaMod:Echoing": {
     "NAME": "ECHOING",
     "DESCRIPTION": "回合开始时，将上回合打出的最后 !M! 张牌加入手牌。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 回合开始时，将上回合打出的最后 !M! 张牌加入手牌。",
-    "FLAVOR": "“念念不忘，必有回响。”"
+    "FLAVOR2": "“念念不忘，必有回响。”"
   },
   "SelenaMod:Wander": {
     "NAME": "流浪",
     "DESCRIPTION": "每回合开始时对自己造成10点 selenamod:生命值削减 ，获得1层 无实体 。战斗结束后，每触发一次恢复 !M! 点生命。",
     "UPGRADE_DESCRIPTION": "每回合结束时对自己造成10点 selenamod:生命值削减 ，获得1层 无实体 。战斗结束后，每触发一次恢复 !M! 点生命。",
-    "FLAVOR": "苦难本身并没有意义。"
+    "FLAVOR2": "苦难本身并没有意义。"
   },
   "SelenaMod:WildGooseLetter": {
     "NAME": "雁书",
     "DESCRIPTION": "所有初始为造成伤害的效果变为造成 selenamod:生命值削减 。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 所有初始为造成伤害的效果变为造成 selenamod:生命值削减 。",
-    "FLAVOR": "鸿雁长飞光不度。"
+    "FLAVOR2": "鸿雁长飞光不度。"
   },
   "SelenaMod:ShortLetter": {
     "NAME": "尺素",
     "DESCRIPTION": "所有初始为 selenamod:生命值削减 的效果变为造成伤害。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 所有初始为 selenamod:生命值削减 的效果变为造成伤害。",
-    "FLAVOR": "鱼龙潜跃水成文"
+    "FLAVOR2": "鱼龙潜跃水成文"
   },
   "SelenaMod:FormBond": {
     "NAME": "结缘",
     "DESCRIPTION": "下个回合，攻击牌会打出两次",
     "UPGRADE_DESCRIPTION": "下个回合，所有牌会打出两次",
-    "FLAVOR": "“两姓联姻，一堂缔约，良缘永结，匹配同称。”"
+    "FLAVOR2": "“两姓联姻，一堂缔约，良缘永结，匹配同称。”"
   },
   "SelenaMod:Bewitch": {
     "NAME": "蛊惑",
     "DESCRIPTION": "进入 “ selenamod:塞壬 ”，将 !M! 张 *疯狂 加入手牌。",
     "UPGRADE_DESCRIPTION": "进入 “ selenamod:塞壬 ”，将 !M! 张 *疯狂+ 加入手牌。",
-    "FLAVOR": "她有一万种理由沉沦。"
+    "FLAVOR2": "她有一万种理由沉沦。"
   },
   "SelenaMod:SoloPerformance": {
     "NAME": "独演",
     "DESCRIPTION": "当这张牌是抽牌堆唯一的牌才会自动打出并生效。造成 !M! 点 selenamod:生命值削减 。 NL selenamod:初见 ： 消耗 1张手牌。",
     "UPGRADE_DESCRIPTION": "当这张牌是抽牌堆唯一的牌才会自动打出并生效。造成 !M! 点 selenamod:生命值削减 。 NL selenamod:初见 ：抽1张牌， 消耗 1张手牌。",
-    "FLAVOR": "“一切美好都才刚刚盛开，所有的浪漫都还来得及一步步发生。”"
+    "FLAVOR2": "“一切美好都才刚刚盛开，所有的浪漫都还来得及一步步发生。”"
   },
   "SelenaMod:Storm": {
     "NAME": "《暴风雨》",
     "DESCRIPTION": "拥有 !SelenaMod:SecondMagicVar! 层坚不可摧。 NL 消耗 。 NL selenamod:覆写 ：获得 !M! 层真言。",
     "UPGRADE_DESCRIPTION": "拥有 !SelenaMod:SecondMagicVar! 层坚不可摧。 NL 消耗 。 NL selenamod:覆写 ：获得 !M! 层真言。",
-    "FLAVOR": "苦难无法磨灭真正高贵的品格"
+    "FLAVOR2": "苦难无法磨灭真正高贵的品格"
   },
   "SelenaMod:Premiere": {
     "NAME": "首演",
     "DESCRIPTION": "造成 !D! 点伤害，这张牌在规则上也视为 *信 。",
-    "FLAVOR": "“即便你我从未相见，但是这一刻，你无疑是离我内心最近的那一个人。”"
+    "FLAVOR2": "“即便你我从未相见，但是这一刻，你无疑是离我内心最近的那一个人。”"
   },
   "SelenaMod:NightingaleAndRose": {
     "NAME": "夜莺与玫瑰",
     "DESCRIPTION": "从抽牌堆或弃牌堆中选择至多 !M! 张牌加入手牌，对自己造成 !SelenaMod:SecondMagicVar! 点 selenamod:生命值削减 ，每次打出后本场战斗失去生命值+1。",
-    "FLAVOR": "月色婉转，荆棘灼烧"
+    "FLAVOR2": "月色婉转，荆棘灼烧"
   },
   "SelenaMod:Correspondence": {
     "NAME": "鸿爪",
     "DESCRIPTION": "抽 !M! 张牌，本场战斗每打出2张 *信 数值+2。 NL 保留 ， 消耗 。",
-    "FLAVOR": "春安，夏祺，秋绥，冬禧"
+    "FLAVOR2": "春安，夏祺，秋绥，冬禧"
   },
   "SelenaMod:Cadenza": {
     "NAME": "华彩乐段",
     "DESCRIPTION": "对所有敌人造成 !D! 点伤害。若你有任意种 selenamod:留白 ， selenamod:转调 或 selenamod:覆写 状态，清除所有上述状态，每清除一种额外造成一次伤害。",
-    "FLAVOR": "“感谢您欣赏 华彩乐段。”"
+    "FLAVOR2": "“感谢您欣赏 华彩乐段。”"
   },
   "SelenaMod:BunnyDeerAndYou": {
     "NAME": "小兔、小鹿与你",
     "DESCRIPTION": " 固有 。 NL 获得 !M! 层 活力 ，下回合开始时获得 !B! 点临时 敏捷 ，第二个回合开始时将此牌加入手牌。每次打出后数值+ !SelenaMod:SecondMagicVar! 直到战斗结束。",
-    "FLAVOR": "前天、昨天与今天"
+    "FLAVOR2": "前天、昨天与今天"
   },
   "SelenaMod:Fireworks": {
     "NAME": "烟花",
     "DESCRIPTION": "选择一张手牌，随机获得一张拥有相同关键词的同类型牌，下次打出前耗能为0。 NL 消耗 ， 虚无 。",
     "UPGRADE_DESCRIPTION": "选择一张手牌，随机获得一张升级后的拥有相同关键词的同类型牌，下次打出前耗能为0。 NL 消耗 ， 虚无 。",
-    "FLAVOR": "“幼稚！伊利斯，你幼稚！”"
+    "FLAVOR2": "“幼稚！伊利斯，你幼稚！”"
   },
   "SelenaMod:SilentHope": {
     "NAME": "“希声”",
     "DESCRIPTION": "每回合开始时，从弃牌堆或抽牌堆中选择 !M! 张 *信 加入手牌。 NL selenamod:初见 ：获得 !SelenaMod:SecondMagicVar! 层 人工制品 。",
-    "FLAVOR": "“大音希声，大象无形”"
+    "FLAVOR2": "“大音希声，大象无形”"
   },
   "SelenaMod:Rebirth": {
     "NAME": "新生",
     "DESCRIPTION": "不会再进入“ selenamod:塞壬 ”。 NL selenamod:覆写 ： 消耗 。",
     "UPGRADE_DESCRIPTION": "不会再进入“ selenamod:塞壬 ”。",
-    "FLAVOR": "“我想要的……只是见到你。”"
+    "FLAVOR2": "“我想要的……只是见到你。”"
   },
   "SelenaMod:FiftyTwoHz": {
     "NAME": "52hz",
     "DESCRIPTION": "仅当拥有另一张 *52hz 才能一起打出，获得1张 *奇迹 ，造成 !D! 点伤害，获得 !B! 点 格挡 。 NL 消耗 ， 虚无 。",
     "UPGRADE_DESCRIPTION": "仅当拥有另一张 *52hz 才能一起打出，获得1张 *奇迹+ ，造成 !D! 点伤害，获得 !B! 点 格挡 。 NL 消耗 ， 虚无 。",
-    "FLAVOR": "斯人若彩虹，遇上方知有"
+    "FLAVOR2": "斯人若彩虹，遇上方知有"
   },
   "SelenaMod:WeiGu": {
     "NAME": "维谷",
     "DESCRIPTION": "造成 !D! 点伤害， 保留 所有手牌，跳过下次抽牌。",
-    "FLAVOR": "她是否想过，在那些宏大叙事里，自己也只是不起眼的句号而已？"
+    "FLAVOR2": "她是否想过，在那些宏大叙事里，自己也只是不起眼的句号而已？"
   },
   "SelenaMod:Sonnet19": {
     "NAME": "Sonnet19",
     "DESCRIPTION": "下 !M! 次打出的牌 消耗 时，那些牌不会被消耗而是进入弃牌堆。 NL 保留 ，消耗 。",
-    "FLAVOR": "“在我的诗歌中，我的爱友将永葆芳华”"
+    "FLAVOR2": "“在我的诗歌中，我的爱友将永葆芳华”"
   },
   "SelenaMod:Sonnet18": {
     "NAME": "Sonnet18",
     "DESCRIPTION": "将 !M! 张手牌变化为稀有度更高的随机牌。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "将 !M! 张手牌变化为稀有度更高的随机牌并升级。 NL 消耗 。",
-    "FLAVOR": "“我可否将你比作一个夏日？”"
+    "FLAVOR2": "“我可否将你比作一个夏日？”"
   },
   "SelenaMod:BitterJourney": {
     "NAME": "苦旅",
     "DESCRIPTION": "每对自己造成1次 selenamod:生命值削减 ，就对1名随机敌人造成 !M! 点 selenamod:生命值削减 。",
-    "FLAVOR": "Per aspera ad astra"
+    "FLAVOR2": "Per aspera ad astra"
   },
   "SelenaMod:SacredSong": {
     "NAME": "神曲",
     "DESCRIPTION": "获得已有的 selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果各1种。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "获得已有的 selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果各1种。",
-    "FLAVOR": "没见过魔鬼的人却要描绘地狱"
+    "FLAVOR2": "没见过魔鬼的人却要描绘地狱"
   },
   "SelenaMod:LoopTrick": {
     "NAME": "loop trick",
     "DESCRIPTION": "本回合你的所有牌耗能-1，打出后获得 selenamod:反复 。",
     "UPGRADE_DESCRIPTION": "本回合你的所有牌耗能变为0，打出后获得 selenamod:反复 。",
-    "FLAVOR": "如一叶落，即此世秋"
+    "FLAVOR2": "如一叶落，即此世秋"
   },
   "SelenaMod:Compassion": {
     "NAME": "慈悲",
     "DESCRIPTION": "在你的回合内，你不会受到任何伤害。 NL selenamod:初见 ：失去 [E] ，下回合开始时获得 [E] 。",
     "UPGRADE_DESCRIPTION": "在你的回合内，你不会受到任何伤害。 NL selenamod:初见 ：失去 [E] ，下回合开始时获得 [E] [E] 。",
-    "FLAVOR": "NO DATE"
+    "FLAVOR2": "NO DATE"
   },
   "SelenaMod:OneStepAway": {
     "NAME": "一步之遥",
     "DESCRIPTION": "每回合开始时，令抽牌堆里第三张及以后的牌在本回合内耗能变为0。 NL selenamod:初见 ：升级抽牌堆和手牌里所有的 *信 。",
     "UPGRADE_DESCRIPTION": "每回合开始时，令抽牌堆里第三张及以后的牌在本回合内耗能变为0。 NL selenamod:初见 ：升级牌组里所有的 *信 。",
-    "FLAVOR": "每每欲说还休，往往一步之遥"
+    "FLAVOR2": "每每欲说还休，往往一步之遥"
   },
   "SelenaMod:Vortex": {
     "NAME": "环流",
     "DESCRIPTION": "选择获得1张 *βurning_Vow 或 *Ðear_You 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "选择获得1张 *βurning_Vow+ 或 *Ðear_You+ 。 NL 消耗 。",
-    "FLAVOR": "我们合奏，分享彼此爱的独有"
+    "FLAVOR2": "我们合奏，分享彼此爱的独有"
   },
   "SelenaMod:DearYou": {
     "NAME": "Dear You",
     "DESCRIPTION": "每回合开始时， 消耗 至多 !M! 张牌，回复两倍数量的生命值，无法在从牌组外获得除状态或诅咒牌以外的牌。",
-    "FLAVOR": "“始于书信，敬于才华，合于性格，久于品德。”"
+    "FLAVOR2": "“始于书信，敬于才华，合于性格，久于品德。”"
   },
   "SelenaMod:BurningVow": {
     "NAME": "Burning Vow",
     "DESCRIPTION": "每回合结束时，对自己造成 !M! 点 selenamod:生命值削减 ，对所有敌人造成 !SelenaMod:SecondMagicVar! 点伤害5次。无法在获得 格挡 。",
-    "FLAVOR": "“当爱拂晓时，烈阳也不过是颗平凡的星辰。”"
+    "FLAVOR2": "“当爱拂晓时，烈阳也不过是颗平凡的星辰。”"
   },
   "SelenaMod:JoinTogether": {
     "NAME": "共赴",
     "DESCRIPTION": "选择手牌中两张牌平均其耗能，当打出其中一张后，打出另一张。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "选择牌组中两张牌平均其耗能，当打出其中一张后，打出另一张。 NL 消耗 。",
-    "FLAVOR": "“伴我见此美景的人，是你，真好……”"
+    "FLAVOR2": "“伴我见此美景的人，是你，真好……”"
   },
   "SelenaMod:WhiteBird": {
     "NAME": "白鸟",
     "DESCRIPTION": " 固有 ， 消耗 ， 虚无 。 NL 造成 !D! 点伤害。 NL 除第一回合外每次抽到时获得1层飞行。",
-    "FLAVOR": "“飞过河滩，挥一挥一去不回还”"
+    "FLAVOR2": "“飞过河滩，挥一挥一去不回还”"
   },
   "SelenaMod:Fantasia": {
     "NAME": "幻想曲",
     "DESCRIPTION": "造成 !D! 点伤害， 预见 等同于造成伤害数量的牌。 NL selenamod:转调 ：本回合 保留 所有手牌。",
-    "FLAVOR": "“开始幻想曲！”"
+    "FLAVOR2": "“开始幻想曲！”"
   },
   "SelenaMod:Moon": {
     "NAME": "月",
     "DESCRIPTION": "获得 !M! 金币。 NL 消耗 。 NL 抽到时，下回合开始时获得 [E] 。",
-    "FLAVOR": "熙熙阿堵物，明明白玉盘"
+    "FLAVOR2": "熙熙阿堵物，明明白玉盘"
   },
   "SelenaMod:Casablanca": {
     "NAME": "卡萨布兰卡 ",
     "DESCRIPTION": "获得等同于本回合造成伤害数一半的 格挡 （ !B! ）。若这是你弃牌堆唯一一张牌， 消耗 之， 预见 !M! 。",
     "UPGRADE_DESCRIPTION": " 保留 。 NL 获得等同于本回合造成伤害数一半的 格挡 （ !B! ）。若这是你弃牌堆唯一一张牌， 消耗 之， 预见 !M! 。",
-    "FLAVOR": "这世界有那么多红潮，红潮里有那么多怪物，我却遇见了你……"
+    "FLAVOR2": "这世界有那么多红潮，红潮里有那么多怪物，我却遇见了你……"
   },
   "SelenaMod:Papaya": {
     "NAME": "木瓜 ",
     "DESCRIPTION": "将抽牌堆 !M! 张牌送入弃牌堆，从弃牌堆选择等量牌以任意顺序放回抽牌堆。",
-    "FLAVOR": "“天穹的星落入人间的雾，我把春天送给了我的春天。”"
+    "FLAVOR2": "“天穹的星落入人间的雾，我把春天送给了我的春天。”"
   },
   "SelenaMod:LoveWithoutObstacle": {
     "NAME": "爱无坦途",
     "DESCRIPTION": "给予所有敌人 !M! 层荆棘，你每打出1张获得 !SelenaMod:SecondMagicVar! 点 格挡 。",
     "UPGRADE_DESCRIPTION": "给予所有人 !M! 层荆棘，你每打出1张获得 !SelenaMod:SecondMagicVar! 点 格挡 。",
-    "FLAVOR": "而我已所无惧"
+    "FLAVOR2": "而我已所无惧"
   },
   "SelenaMod:FlowerTree": {
     "NAME": "花辞树",
     "DESCRIPTION": "造成 !D! 点伤害。清除场上所有 格挡 ，否则获得 !B! 点 格挡 。 NL 回合结束时自动打出。 NL 消耗 。",
-    "FLAVOR": "“What can I hold you with?”"
+    "FLAVOR2": "“What can I hold you with?”"
   },
   "SelenaMod:Idealism": {
     "NAME": "理想主义",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 这张牌不会被 消耗 。",
-    "FLAVOR": "“对于理想主义者，哪里都是坟墓。”"
+    "FLAVOR2": "“对于理想主义者，哪里都是坟墓。”"
   },
   "SelenaMod:IdealismOptions": {
     "NAME": "理想主义",
@@ -375,46 +375,46 @@
     "NAME": "英雄主义",
     "DESCRIPTION": " 固有 。 NL 赢得战斗胜利。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 赢得全部胜利。",
-    "FLAVOR": "“谁能尊重纯真的信念，他将战胜地狱和死亡”"
+    "FLAVOR2": "“谁能尊重纯真的信念，他将战胜地狱和死亡”"
   },
   "SelenaMod:Unfinished": {
     "NAME": "未竟",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 。 NL selenamod:转调 ：造成 !SelenaMod:SecondMagicVar! 点伤害2次。",
-    "FLAVOR": "Facta fugis, facienda petis"
+    "FLAVOR2": "Facta fugis, facienda petis"
   },
   "SelenaMod:Dirge": {
     "NAME": "悲歌",
     "DESCRIPTION": "造成 !D! 点伤害5次。如果处于 selenamod:塞壬 状态，这张牌的基础伤害提高4点。 NL selenamod:转调 ：获得 !M! 点 力量 。",
-    "FLAVOR": "“二十余年如一梦，此身虽在堪惊。”"
+    "FLAVOR2": "“二十余年如一梦，此身虽在堪惊。”"
   },
   "SelenaMod:TokyoLoveStory": {
     "NAME": "东京爱情故事",
     "DESCRIPTION": "将1张 *奇迹 加入手牌。 NL selenamod:初见 ： 消耗 这张牌，当前所有手牌放回抽牌堆，然后将抽满手牌。",
     "UPGRADE_DESCRIPTION": "将1张 *奇迹+ 加入手牌。 NL selenamod:初见 ： 消耗 这张牌，当前所有手牌放回抽牌堆，然后将抽满手牌。",
-    "FLAVOR": "“あの日、あの时、あの场所で、君に会えなかったら、仆らはいつまでも见知らぬ二人のまま。”"
+    "FLAVOR2": "“あの日、あの时、あの场所で、君に会えなかったら、仆らはいつまでも见知らぬ二人のまま。”"
   },
   "SelenaMod:Rainbow": {
     "NAME": "彩虹",
     "DESCRIPTION": "从抽牌堆随机将不同稀有度的牌各1张加入手牌。（没有则不获得）",
     "UPGRADE_DESCRIPTION": "从抽牌堆随机将不同稀有度的牌各1张加入手牌。（没有则随机印牌）",
-    "FLAVOR": "“刻瑞斯，最丰饶的女神，我是天上的彩虹，我是天后的使官。”"
+    "FLAVOR2": "“刻瑞斯，最丰饶的女神，我是天上的彩虹，我是天后的使官。”"
   },
   "SelenaMod:SpringBreeze": {
     "NAME": "春风",
     "DESCRIPTION": " selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果改为即时生效。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果改为即时生效。",
-    "FLAVOR": "“绽放原来是件不必等待的事，我已见到了我的花期。”"
+    "FLAVOR2": "“绽放原来是件不必等待的事，我已见到了我的花期。”"
   },
   "SelenaMod:WipeTears": {
     "NAME": "揾泪",
     "DESCRIPTION": "获得等同于你已损失生命值数量的 格挡 （ !B! ）。 NL 虚无 ， 消耗 。",
     "UPGRADE_DESCRIPTION": "获得等同于你已损失生命值数量的 格挡 （ !B! ）。 NL 虚无 ， 消耗 。 NL selenamod:初见 ：给予所有敌人 !M! 层易伤。",
-    "FLAVOR": "“我扶着剑儿，倚着马儿，不自主的流下几点英雄泪!”"
+    "FLAVOR2": "“我扶着剑儿，倚着马儿，不自主的流下几点英雄泪!”"
   },
   "SelenaMod:OneLastCaress": {
     "NAME": "one last caress",
     "DESCRIPTION": "造成 !M! 点 selenamod:生命值削减 ，令其本回合失去 !SelenaMod:SecondMagicVar! 点 力量 。 NL 只能以生命值最低的角色为目标。 NL 保留 。 虚无 。 消耗 。",
-    "FLAVOR": "“第一次到卢浮宫的时候，并没有什么特别的感受。独属于我的蒙娜丽莎，我早已经邂逅。”",
+    "FLAVOR2": "“第一次到卢浮宫的时候，并没有什么特别的感受。独属于我的蒙娜丽莎，我早已经邂逅。”",
     "EXTENDED_DESCRIPTION": [
       "只能对生命值最低的角色使用"
     ]
@@ -423,24 +423,24 @@
     "NAME": "为明天",
     "DESCRIPTION": "对所有敌人造成 !D! 点伤害，将 !M! 张 *奇迹 加入抽牌堆底部。",
     "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害，将 !M! 张 *奇迹+ 加入抽牌堆底部。",
-    "FLAVOR": "“为了这希望，要使人练敏了感觉来更深切地感到自己的苦痛，叫起灵魂来目睹他自己的腐烂的尸骸。”"
+    "FLAVOR2": "“为了这希望，要使人练敏了感觉来更深切地感到自己的苦痛，叫起灵魂来目睹他自己的腐烂的尸骸。”"
   },
   "SelenaMod:Telepathy": {
     "NAME": "灵犀",
     "DESCRIPTION": "猜测抽牌堆顶第1张牌的牌名，猜测正确则获得之，并令其在本回合下次打出前耗能变为0，然后你可重复此流程。",
     "UPGRADE_DESCRIPTION": " 保留 。 NL 猜测抽牌堆顶第一张牌的牌名，猜测正确则获得之，并令其在本回合下次打出前耗能变为0，然后你可重复此流程。",
-    "FLAVOR": "“人唯一无法舍弃的，就是被他者理解的渴望。”"
+    "FLAVOR2": "“人唯一无法舍弃的，就是被他者理解的渴望。”"
   },
   "SelenaMod:SeekFire": {
     "NAME": "求火",
     "DESCRIPTION": "造成 !D! 点伤害 !M! 次，若这张牌没有斩杀，在本局游戏中伤害增加 !SelenaMod:SecondMagicVar! ，否则伤害次数在本场战斗中增加 !SelenaMod:SecondMagicVar! 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次，若这张牌没有斩杀，在本局游戏中伤害增加 !SelenaMod:SecondMagicVar! ，否则伤害次数在本场战斗中增加 !SelenaMod:SecondMagicVar! 。 NL 消耗 ， 保留 。",
-    "FLAVOR": "“你若是能明白一个人在爱恋中的感觉，便能明白用空言来遏制这份灼热，是多么滑稽。”"
+    "FLAVOR2": "“你若是能明白一个人在爱恋中的感觉，便能明白用空言来遏制这份灼热，是多么滑稽。”"
   },
   "SelenaMod:PeonyPavilion": {
     "NAME": "“牡丹亭”",
     "DESCRIPTION": "获得 !M! 层 残影 ，若此时处于 selenamod:塞壬 ，改为获得4点 敏捷 和1层幽魂形态。 NL 消耗 。 NL selenamod:覆写 ：退出 selenamod:塞壬 ，将生命调整至进入 selenamod:塞壬 时，移除所有负面状态。 消耗 。",
     "UPGRADE_DESCRIPTION": "获得 !M! 层 残影 ，若此时处于 selenamod:塞壬 ，改为获得4点 敏捷 和1层幽魂形态。 NL 消耗 ， 保留 。 NL selenamod:覆写 ：退出 selenamod:塞壬 ，将生命调整至进入 selenamod:塞壬 时，移除所有负面状态。 消耗 。",
-    "FLAVOR": "“你若是能明白一个人在爱恋中的感觉，便能明白用空言来遏制这份灼热，是多么滑稽。”"
+    "FLAVOR2": "“你若是能明白一个人在爱恋中的感觉，便能明白用空言来遏制这份灼热，是多么滑稽。”"
   }
 }

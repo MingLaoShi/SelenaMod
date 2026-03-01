@@ -36,6 +36,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static com.megacrit.cardcrawl.core.Settings.language;
@@ -146,6 +147,17 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
         BaseMod.loadCustomStringsFile(EventStrings.class, ModHelper.makeLocalizationPath(lang, "event"));
         BaseMod.loadCustomStringsFile(PotionStrings.class, ModHelper.makeLocalizationPath(lang, "potion"));
 
+        //加载flavor2
+        String jsonString = Gdx.files.internal(ModHelper.makeLocalizationPath(lang, "card")).readString(String.valueOf(StandardCharsets.UTF_8));
+        Map<String, Map<String, String>> cardMap = ModHelper.gson.fromJson(jsonString, Map.class);
+        for (Map.Entry<String, Map<String, String>> entry : cardMap.entrySet()) {
+            String cardId = entry.getKey();
+            Map<String, String> cardText = entry.getValue();
+            if (cardText.containsKey("FLAVOR2")) {
+                ModHelper.FLAVOR2.put(cardId, cardText.get("FLAVOR2"));
+                ModHelper.logger.info("add flavor2 for cardId:{},{}", cardId, cardText.get("FLAVOR2"));
+            }
+        }
     }
 
     @Override

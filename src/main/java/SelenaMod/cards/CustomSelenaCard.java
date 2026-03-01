@@ -6,6 +6,7 @@ import SelenaMod.powers.SpringBreezePower;
 import SelenaMod.powers.TonePower;
 import SelenaMod.powers.WhiteSpacePower;
 import SelenaMod.utils.ModHelper;
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -16,10 +17,14 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public abstract class CustomSelenaCard extends CustomCard {
@@ -28,15 +33,25 @@ public abstract class CustomSelenaCard extends CustomCard {
     public int secondMagicVar=0;
     public boolean isSecondMagicModified = false;
 
+    private String flavor2 = null;
+    private ArrayList<PowerTip> flavorTip = new ArrayList<>();
+
     public CustomSelenaCard(String id, String name, String img, int cost, String rawDescription, AbstractCard.CardType type, AbstractCard.CardColor color, AbstractCard.CardRarity rarity, AbstractCard.CardTarget target) {
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
+        this.flavor2 = ModHelper.FLAVOR2.get(id);
+        if (StringUtils.isNotEmpty(flavor2)) {
+            flavorTip.add(new PowerTip("@STSLIB:FLAVOR@", this.flavor2));
+        }
     }
 
     public CustomSelenaCard(String id, int cost, AbstractCard.CardType type, AbstractCard.CardRarity rarity, AbstractCard.CardTarget target) {
         super(id, CardCrawlGame.languagePack.getCardStrings(id).NAME, ModHelper.makeCardImagePath(id), cost,
                 CardCrawlGame.languagePack.getCardStrings(id).DESCRIPTION, type,
                 ModHelper.getSelenaColor(), rarity, target);
-
+        this.flavor2 = ModHelper.FLAVOR2.get(id);
+        if (StringUtils.isNotEmpty(flavor2)) {
+            flavorTip.add(new PowerTip("@STSLIB:FLAVOR@", this.flavor2));
+        }
 //        ReflectionHacks.setPrivate(this,AbstractCard.class,"textColor", Color.BLACK.cpy());
 //        ReflectionHacks.setPrivate(this,AbstractCard.class,"goldColor", Color.GREEN.cpy());
 
@@ -46,6 +61,10 @@ public abstract class CustomSelenaCard extends CustomCard {
         super(id, CardCrawlGame.languagePack.getCardStrings(id).NAME, ModHelper.makeCardImagePath(id), cost,
                 CardCrawlGame.languagePack.getCardStrings(id).DESCRIPTION, type,
                 color, rarity, target);
+        this.flavor2 = ModHelper.FLAVOR2.get(id);
+        if (StringUtils.isNotEmpty(flavor2)) {
+            flavorTip.add(new PowerTip("@STSLIB:FLAVOR@", this.flavor2));
+        }
     }
 
     @Override
@@ -149,5 +168,26 @@ public abstract class CustomSelenaCard extends CustomCard {
     @Override
     public void renderCardTip(SpriteBatch sb) {
         super.renderCardTip(sb);
+        this.renderFlavor2(sb);
+    }
+
+    private void renderFlavor2(SpriteBatch sb) {
+        if (!this.flavorTip.isEmpty() && !Settings.hideCards && this.getRenderTip()) {
+//        if(!this.flavorTip.isEmpty()){
+            float height = ModHelper.GetPowerTipHeight(this.flavorTip.get(0));
+            if (this.current_x > Settings.WIDTH * 0.75F) {
+                ModHelper.RenderPowerTips(this.current_x - AbstractCard.IMG_WIDTH * this.drawScale / 2.0F - 12.0F * Settings.scale - 320.0F * Settings.scale,
+                        this.current_y + AbstractCard.IMG_HEIGHT * this.drawScale / 2.0F + height + 80.0F * Settings.scale, sb, flavorTip);
+            } else {
+                ModHelper.RenderPowerTips(this.current_x + AbstractCard.IMG_WIDTH * this.drawScale / 2.0F + 12.0F * Settings.scale,
+                        this.current_y + AbstractCard.IMG_HEIGHT * this.drawScale / 2.0F + height + 80.0F * Settings.scale, sb, flavorTip);
+            }
+
+        }
+
+    }
+
+    private boolean getRenderTip() {
+        return ReflectionHacks.getPrivate(this, AbstractCard.class, "renderTip");
     }
 }
