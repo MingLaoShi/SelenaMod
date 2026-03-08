@@ -11,6 +11,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -237,5 +238,13 @@ public class ModHelper {
             RenderPowerTips = ReflectionHacks.privateStaticMethod(TipHelper.class, "renderPowerTips", float.class, float.class, SpriteBatch.class, ArrayList.class);
         }
         RenderPowerTips.invoke(null, x, y, sb, tips);
+    }
+
+    public static String makeMusicFilePatch(String musicName, String type) {
+        return RESOURCES_FOLDER_PATH + "/music/" + musicName + "." + type;
+    }
+
+    public static void AddTalkAction(String str) {
+        AbstractDungeon.actionManager.addToTop(new TalkAction(true, str, 0.1F, 1.0F));
     }
 }

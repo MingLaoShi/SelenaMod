@@ -37,5 +37,6 @@ public class SaveHelper implements CustomSavable<SaveHelper.SaveValue> {
     public static class SaveValue {
         public int GetFiftyTwoHz=-1;//-1未激活，0激活，1以结束
         public int TelepathyWrongGuessCount = 0;
+        public int FistPlayFiftyTwoHz = 0;//0未打出，1打出过
     }
 }

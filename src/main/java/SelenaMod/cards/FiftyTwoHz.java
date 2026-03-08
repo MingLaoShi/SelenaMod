@@ -4,8 +4,11 @@ import SelenaMod.actions.PlayDiscardPailCardAction;
 import SelenaMod.actions.PlayDrawPailCardAction;
 import SelenaMod.actions.PlayHandCardAction;
 import SelenaMod.effects.FiftyTwoHzEffect;
+import SelenaMod.effects.FiftyTwoHzMusicEffect;
+import SelenaMod.effects.PlayTempMusicEffect;
 import SelenaMod.modifiers.NotTriggerYourselfModifier;
 import SelenaMod.utils.ModHelper;
+import SelenaMod.utils.PlayMusicHelper;
 import basemod.helpers.CardModifierManager;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
@@ -47,6 +50,7 @@ public class FiftyTwoHz extends CustomSelenaCard implements OnObtainCard{
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         AbstractDungeon.effectList.add(new FiftyTwoHzEffect());
+        AbstractDungeon.effectList.add(new FiftyTwoHzMusicEffect());
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(),this.magicNumber));
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.LIGHTNING);
         addCustomBlockAction();
@@ -138,5 +142,11 @@ public class FiftyTwoHz extends CustomSelenaCard implements OnObtainCard{
         }
     }
 
-
+    @Override
+    public void triggerOnEndOfPlayerTurn() {
+        super.triggerOnEndOfPlayerTurn();
+        if (this.isEthereal) {
+            AbstractDungeon.effectList.add(new PlayTempMusicEffect(PlayMusicHelper.Music.MUSIC_52HZ, PlayTempMusicEffect.TALK_STRINGS.TEXT[1]));
+        }
+    }
 }

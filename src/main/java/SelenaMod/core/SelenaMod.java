@@ -256,6 +256,7 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
                 AbstractDungeon.topLevelEffects.add(new ShowCardAndObtainEffect(hero,
                         Settings.WIDTH / 2.0F - xOffset * (total - index), Settings.HEIGHT / 2.0F));
                 AbstractDungeon.player.masterDeck.removeCard(card);
+                PlayMusicHelper.PlayMusic(PlayMusicHelper.Music.TEARLESS_NIGHTS);
             }
         }
     }
