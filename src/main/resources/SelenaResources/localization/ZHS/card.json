@@ -30,7 +30,8 @@
   "SelenaMod:Minuet": {
     "NAME": "小步舞曲",
     "DESCRIPTION": "造成 !D! 点伤害，下回合开始时造成等量未被格挡的伤害。 NL selenamod:转调 ：获得 !M! 点活力。",
-    "FLAVOR2": "“该到小步舞曲了。”"
+    "FLAVOR2": "“该到小步舞曲了。”",
+    "FLAVOR": "pixivID：120709544 NL 作者：クラゲ"
   },
   "SelenaMod:Aria": {
     "NAME": "咏叹调",
