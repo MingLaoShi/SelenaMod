@@ -2,8 +2,10 @@ package SelenaMod.cards;
 
 import SelenaMod.actions.RainbowAction;
 import SelenaMod.utils.ModHelper;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.RainbowCardEffect;
 
 public class Rainbow extends CustomSelenaCard {
     public static String ID = ModHelper.makeID("Rainbow");
@@ -19,6 +21,8 @@ public class Rainbow extends CustomSelenaCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        addToBot(new VFXAction(new RainbowCardEffect()));
+
         addToBot(new RainbowAction(this.upgraded));
     }
 }

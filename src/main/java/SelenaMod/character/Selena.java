@@ -5,6 +5,7 @@ import SelenaMod.cards.*;
 import SelenaMod.core.SelenaMod;
 import SelenaMod.relics.PaperAndPen;
 import SelenaMod.utils.ModHelper;
+import SelenaMod.utils.PlayMusicHelper;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -18,6 +19,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import java.util.ArrayList;
@@ -177,5 +179,16 @@ public class Selena extends CustomPlayer {
             pool.removeIf(c -> c.cardID.equals(Idealism.ID));
         }
         return pool;
+    }
+
+
+    @Override
+    public void preBattlePrep() {
+        super.preBattlePrep();
+        if (this.masterDeck.findCardById(Vortex.ID) != null) {
+            PlayMusicHelper.PlayTempMusic(PlayMusicHelper.Music.CIRCULATION, true);
+        } else if (AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss) {
+            PlayMusicHelper.PlayMusic(PlayMusicHelper.Music.CHIVAL);
+        }
     }
 }

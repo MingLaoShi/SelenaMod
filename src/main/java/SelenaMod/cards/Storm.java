@@ -3,13 +3,17 @@ package SelenaMod.cards;
 import SelenaMod.cardEffects.PrayerEffect;
 import SelenaMod.powers.OverridePower;
 import SelenaMod.utils.ModHelper;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.InvinciblePower;
+import com.megacrit.cardcrawl.vfx.combat.BlizzardEffect;
+import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 
 public class Storm extends CustomSelenaCard {
     public static String ID = ModHelper.makeID(Storm.class.getSimpleName());
@@ -28,6 +32,11 @@ public class Storm extends CustomSelenaCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        AbstractDungeon.effectList.add(new BlizzardEffect(24, true));
+        for (int i = 0; i < 5; i++) {
+            addToBot(new VFXAction(new WhirlwindEffect(Color.WHITE, true), 0.0F));
+
+        }
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {

@@ -1,5 +1,6 @@
 package SelenaMod.cards;
 
+import SelenaMod.effects.PlayTempMusicEffect;
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -21,6 +22,7 @@ public class Idealism extends CustomSelenaCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        ModHelper.AddTalkAction(PlayTempMusicEffect.TALK_STRINGS.TEXT[4]);
         addCustomDamageAction(abstractMonster, AbstractGameAction.AttackEffect.FIRE);
     }
 

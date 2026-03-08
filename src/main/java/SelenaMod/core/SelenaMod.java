@@ -44,7 +44,7 @@ import static com.megacrit.cardcrawl.core.Settings.language;
 @SpireInitializer
 public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywordsSubscriber, EditCharactersSubscriber,
         EditCardsSubscriber, EditRelicsSubscriber, PostInitializeSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber,
-        PostUpdateSubscriber, PostDungeonInitializeSubscriber, StartActSubscriber {
+        PostUpdateSubscriber, PostDungeonInitializeSubscriber, StartActSubscriber, AddAudioSubscriber {
 
     public static final Color SELENA_COLOR = new Color(0.8f, 0.8f, 1.0f, 1.0f);
     public static final String SELENA_ATTACK_512 = ModHelper.makeImgPath("512", "bg_attack_512");
@@ -165,6 +165,8 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
         BaseMod.addPotion(LoopLiquid.class, LoopLiquid.liquidColor, LoopLiquid.hybridColor, LoopLiquid.spotsColor, LoopLiquid.ID);
         BaseMod.addPotion(DeveloperFluid.class, DeveloperFluid.liquidColor, DeveloperFluid.hybridColor, DeveloperFluid.spotsColor, DeveloperFluid.ID);
         BaseMod.addPotion(RedTideSample.class, RedTideSample.liquidColor, RedTideSample.hybridColor, RedTideSample.spotsColor, RedTideSample.ID);
+
+
     }
 
     @Override
@@ -259,5 +261,11 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
                 PlayMusicHelper.PlayMusic(PlayMusicHelper.Music.TEARLESS_NIGHTS);
             }
         }
+    }
+
+    @Override
+    public void receiveAddAudio() {
+        BaseMod.addAudio(PlayMusicHelper.Music.CHROMATIC_AMNESIA.name(), PlayMusicHelper.Music.CHROMATIC_AMNESIA.getFilename());
+        BaseMod.addAudio(PlayMusicHelper.Music.CHIVAL.name(), PlayMusicHelper.Music.CHIVAL.getFilename());
     }
 }

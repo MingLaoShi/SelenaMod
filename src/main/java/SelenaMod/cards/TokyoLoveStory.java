@@ -1,8 +1,10 @@
 package SelenaMod.cards;
 
 import SelenaMod.actions.ReDrawAction;
+import SelenaMod.effects.PlayTempMusicEffect;
 import SelenaMod.powers.AsFirstSightPower;
 import SelenaMod.utils.ModHelper;
+import SelenaMod.utils.PlayMusicHelper;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.tempCards.Miracle;
@@ -35,6 +37,8 @@ public class TokyoLoveStory extends CustomSelenaCard {
             this.firstSight = false;
             addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
             addToBot(new ReDrawAction());
+            // 播放音乐《告白》，直到音乐结束、战斗结束或其它音乐开始播放
+            AbstractDungeon.effectList.add(new PlayTempMusicEffect(PlayMusicHelper.Music.CONFESSION, null));
         }
     }
 }

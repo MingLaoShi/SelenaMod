@@ -32,5 +32,6 @@ public class NextFormBondPower extends AbstractPower {
         this.flash();
         addToBot(new ApplyPowerAction(this.owner, this.owner, new FormBondPower(this.owner, this.powertype)));
         addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+//        AbstractDungeon.effectList.add(new PlayTempMusicEffect(PlayMusicHelper.Music.MUSIC_52HZ, PlayTempMusicEffect.TALK_STRINGS.TEXT[0]))
     }
 }

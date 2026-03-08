@@ -1,12 +1,15 @@
 package SelenaMod.cards;
 
+import SelenaMod.effects.PlayTempMusicEffect;
 import SelenaMod.modifiers.RepeatModifier;
 import SelenaMod.powers.LoseEnergyNextTurnPower;
 import SelenaMod.utils.ModHelper;
+import SelenaMod.utils.PlayMusicHelper;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
@@ -31,6 +34,9 @@ public class TheyLoveEachOther extends CustomSelenaCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        if (isFirstInThisBattle()) {
+            AbstractDungeon.effectList.add(new PlayTempMusicEffect(PlayMusicHelper.Music.SIE_LIEBTEN_SICH_BEIDE, null));
+        }
         if (this.changeEffect) {
             addPowerToSelf(new StrengthPower(abstractPlayer, -1));
             addPowerToSelf(new DexterityPower(abstractPlayer, this.magicNumber));
@@ -57,5 +63,9 @@ public class TheyLoveEachOther extends CustomSelenaCard {
             this.rawDescription = CARD_STRINGS.DESCRIPTION;
         }
         super.initializeDescription();
+    }
+
+    private boolean isFirstInThisBattle() {
+        return AbstractDungeon.actionManager.cardsPlayedThisCombat.stream().noneMatch(c -> c.cardID.equals(ID));
     }
 }

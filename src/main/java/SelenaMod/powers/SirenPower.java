@@ -2,6 +2,8 @@ package SelenaMod.powers;
 
 import SelenaMod.cards.Letter;
 import SelenaMod.utils.ModHelper;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -12,9 +14,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
+import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,6 +29,9 @@ public class SirenPower extends AbstractPower {
     private static final PowerStrings strings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
     public int hpOnEnter = -1;
+    private float particleTimer = 0.0F;
+    private float particleTimer2 = 0.0F;
+
     public SirenPower(AbstractCreature owner) {
         this.ID = POWER_ID;
         this.owner = owner;
@@ -64,6 +72,24 @@ public class SirenPower extends AbstractPower {
             } else {
                 addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, GameActionManager.turn, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
             }
+        }
+    }
+
+    @Override
+    public void update(int slot) {
+        super.update(slot);
+        if (!Settings.DISABLE_EFFECTS) {
+            this.particleTimer -= Gdx.graphics.getDeltaTime();
+            if (this.particleTimer < 0.0F) {
+                this.particleTimer = 0.05F;
+                AbstractDungeon.effectsQueue.add(new WrathParticleEffect());
+            }
+        }
+
+        this.particleTimer2 -= Gdx.graphics.getDeltaTime();
+        if (this.particleTimer2 < 0.0F) {
+            this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
+            AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Wrath"));
         }
     }
 }

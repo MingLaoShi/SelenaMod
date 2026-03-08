@@ -1,8 +1,11 @@
 package SelenaMod.cards;
 
+import SelenaMod.effects.PlayTempMusicEffect;
 import SelenaMod.powers.EchoingPower;
 import SelenaMod.utils.ModHelper;
+import SelenaMod.utils.PlayMusicHelper;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Echoing extends CustomSelenaCard {
@@ -21,6 +24,13 @@ public class Echoing extends CustomSelenaCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        if (isFirstInThisBattle()) {
+            AbstractDungeon.effectList.add(new PlayTempMusicEffect(PlayMusicHelper.Music.ECHOING, null));
+        }
         addPowerToSelf(new EchoingPower(abstractPlayer, this.magicNumber));
+    }
+
+    private boolean isFirstInThisBattle() {
+        return AbstractDungeon.actionManager.cardsPlayedThisCombat.stream().noneMatch(c -> c.cardID.equals(ID));
     }
 }

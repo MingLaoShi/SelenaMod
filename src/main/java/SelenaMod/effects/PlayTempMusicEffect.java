@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import org.apache.commons.lang3.StringUtils;
 
 public class PlayTempMusicEffect extends AbstractGameEffect {
     public static UIStrings TALK_STRINGS = CardCrawlGame.languagePack.getUIString(ModHelper.makeID("Talk"));
@@ -29,7 +30,8 @@ public class PlayTempMusicEffect extends AbstractGameEffect {
         if (this.duration < 0) {
             this.isDone = true;
             PlayMusicHelper.PlayTempMusic(music, false);
-            ModHelper.AddTalkAction(talk);
+            if (StringUtils.isNotEmpty(talk))
+                ModHelper.AddTalkAction(talk);
         }
 
     }

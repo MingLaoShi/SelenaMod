@@ -4,11 +4,19 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class PlayMusicHelper {
     private static String MP3 = "mp3";
+
+    public static boolean contains(String key) {
+        if (ALL_MUSIC_PATHS.isEmpty()) {
+            for (Music music : Music.values()) {
+                ALL_MUSIC_PATHS.add(music.getFilename());
+            }
+        }
+        return ALL_MUSIC_PATHS.contains(key);
+    }
 
     public enum Music {
         MUSIC_52HZ(ModHelper.makeMusicFilePatch("52Hz", MP3)),
@@ -36,15 +44,8 @@ public class PlayMusicHelper {
         }
     }
 
-    public static final List<String> ALL_MUSIC_PATHS;
+    public static final List<String> ALL_MUSIC_PATHS = new ArrayList<>();
 
-    static {
-        List<String> paths = new ArrayList<>();
-        for (Music music : Music.values()) {
-            paths.add(music.getFilename());
-        }
-        ALL_MUSIC_PATHS = Collections.unmodifiableList(paths);
-    }
 
     public static void PlayMusic(Music music) {
         AbstractDungeon.getCurrRoom().playBgmInstantly(music.filename);
