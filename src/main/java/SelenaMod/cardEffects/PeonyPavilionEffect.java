@@ -1,13 +1,16 @@
 package SelenaMod.cardEffects;
 
 import SelenaMod.actions.PeonyPavilionAction;
+import SelenaMod.cards.Letter;
 import SelenaMod.utils.ModHelper;
 import basemod.cardmods.ExhaustMod;
 import basemod.helpers.CardModifierManager;
+import com.badlogic.gdx.Gdx;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
 public class PeonyPavilionEffect extends AbstractCardEffect {
@@ -53,5 +56,19 @@ public class PeonyPavilionEffect extends AbstractCardEffect {
     @Override
     public void initializeCardEffect(AbstractCard card) {
         CardModifierManager.addModifier(card, new ExhaustMod());
+        AbstractDungeon.actionManager.addToTop(new AbstractGameAction() {
+            @Override
+            public void update() {
+                if (card instanceof Letter) {
+                    Letter letter = (Letter) card;
+                    letter.textureReplaceDuration -= Gdx.graphics.getDeltaTime();
+                    if (letter.textureReplaceDuration <= 0.0F) {
+                        letter.textureReplaceDuration = 0.0F;
+                        this.isDone = true;
+                    }
+                }
+
+            }
+        });
     }
 }
