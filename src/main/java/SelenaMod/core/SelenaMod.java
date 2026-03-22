@@ -13,6 +13,7 @@ import SelenaMod.relics.*;
 import SelenaMod.utils.*;
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.ReflectionHacks;
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
 import basemod.helpers.RelicType;
@@ -23,6 +24,8 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
+import com.megacrit.cardcrawl.audio.MusicMaster;
+import com.megacrit.cardcrawl.audio.TempMusic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -35,6 +38,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import org.apache.commons.lang3.StringUtils;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -196,6 +200,14 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
     public void receivePostBattle(AbstractRoom abstractRoom) {
         updateSelfQuestion();
         updateIdealism();
+        updateMusic();
+    }
+
+    private void updateMusic() {
+        ArrayList<TempMusic> tempTrack = ReflectionHacks.getPrivate(CardCrawlGame.music, MusicMaster.class, "tempTrack");
+        if (!tempTrack.isEmpty() && PlayMusicHelper.contains(tempTrack.get(0).key)) {
+            PlayMusicHelper.PlayLastTempMusic();
+        }
     }
 
     private void updateIdealism() {

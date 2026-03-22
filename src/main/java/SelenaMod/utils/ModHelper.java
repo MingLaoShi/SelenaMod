@@ -245,6 +245,6 @@ public class ModHelper {
     }
 
     public static void AddTalkAction(String str) {
-        AbstractDungeon.actionManager.addToTop(new TalkAction(true, str, 0.1F, 1.0F));
+        AbstractDungeon.actionManager.addToTop(new TalkAction(true, str, 0.1F, Math.max(str.length() * 0.1F, 1.0F)));
     }
 }

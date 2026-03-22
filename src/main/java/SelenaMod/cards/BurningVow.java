@@ -31,6 +31,6 @@ public class BurningVow extends CustomSelenaCard {
     }
 
     private boolean isFirstInThisBattle() {
-        return AbstractDungeon.actionManager.cardsPlayedThisCombat.stream().noneMatch(c -> c.cardID.equals(ID));
+        return AbstractDungeon.actionManager.cardsPlayedThisCombat.stream().noneMatch(c -> c.cardID.equals(ID) && c != this);
     }
 }

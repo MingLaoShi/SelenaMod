@@ -8,7 +8,6 @@ import SelenaMod.effects.FiftyTwoHzMusicEffect;
 import SelenaMod.effects.PlayTempMusicEffect;
 import SelenaMod.modifiers.NotTriggerYourselfModifier;
 import SelenaMod.utils.ModHelper;
-import SelenaMod.utils.PlayMusicHelper;
 import basemod.helpers.CardModifierManager;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
@@ -146,7 +145,8 @@ public class FiftyTwoHz extends CustomSelenaCard implements OnObtainCard{
     public void triggerOnEndOfPlayerTurn() {
         super.triggerOnEndOfPlayerTurn();
         if (this.isEthereal) {
-            AbstractDungeon.effectList.add(new PlayTempMusicEffect(PlayMusicHelper.Music.MUSIC_52HZ, PlayTempMusicEffect.TALK_STRINGS.TEXT[1]));
+//            AbstractDungeon.effectList.add(new PlayTempMusicEffect(PlayMusicHelper.Music.MUSIC_52HZ, PlayTempMusicEffect.TALK_STRINGS.TEXT[1]));
+            ModHelper.AddTalkAction(PlayTempMusicEffect.TALK_STRINGS.TEXT[1]);
         }
     }
 }

@@ -67,7 +67,8 @@
   },
   "SelenaMod:OutOfControl": {
     "NAME": "失控",
-    "DESCRIPTION": "不能被打出 。 NL 回合结束时若此牌在手牌且不处于” selenamod:塞壬 “，进入” selenamod:塞壬 “。 NL 虚无 。"
+    "DESCRIPTION": "不能被打出 。 NL 回合结束时若此牌在手牌且不处于” selenamod:塞壬 “，进入” selenamod:塞壬 “。 NL 虚无 。",
+    "FLAVOR": "pixivID：107162306\n作者：anko-"
   },
   "SelenaMod:StrangerPath": {
     "NAME": "陌路",
