@@ -20,7 +20,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 public class LoopTrick extends CustomSelenaCard {
     public static String ID= ModHelper.makeID("LoopTrick");
     public LoopTrick() {
-        super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 4, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
 //        this.setMagic(10);
 //        CardModifierManager.addModifier(this,new RepeatModifier());
     }
@@ -35,7 +35,7 @@ public class LoopTrick extends CustomSelenaCard {
         if (!upgraded) {
             addPowerToSelf(new LoopTrick1(abstractPlayer, 1));
         } else {
-            addPowerToSelf(new LoopTrick2(abstractPlayer));
+            addPowerToSelf(new LoopTrick2(abstractPlayer, 1));
         }
         addPowerToSelf(new RepeatPower(abstractPlayer));
         addPowerToSelf(new LoopTrick3(abstractPlayer));

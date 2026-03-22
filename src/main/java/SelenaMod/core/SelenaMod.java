@@ -4,6 +4,7 @@ import SelenaMod.actions.AskForRemoveIdealismAction;
 import SelenaMod.actions.PlayDrawPailCardAction;
 import SelenaMod.cards.*;
 import SelenaMod.character.Selena;
+import SelenaMod.modifiers.IncreaseCostThisTurnModifier;
 import SelenaMod.modifiers.ReduceCostModifier;
 import SelenaMod.patches.ReturnRandomRelicPatch;
 import SelenaMod.potions.DeveloperFluid;
@@ -27,10 +28,12 @@ import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.audio.MusicMaster;
 import com.megacrit.cardcrawl.audio.TempMusic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.PandorasBox;
 import com.megacrit.cardcrawl.relics.StrikeDummy;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -48,7 +51,7 @@ import static com.megacrit.cardcrawl.core.Settings.language;
 @SpireInitializer
 public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywordsSubscriber, EditCharactersSubscriber,
         EditCardsSubscriber, EditRelicsSubscriber, PostInitializeSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber,
-        PostUpdateSubscriber, PostDungeonInitializeSubscriber, StartActSubscriber, AddAudioSubscriber {
+        PostUpdateSubscriber, PostDungeonInitializeSubscriber, StartActSubscriber, AddAudioSubscriber, PreMonsterTurnSubscriber {
 
     public static final Color SELENA_COLOR = new Color(0.8f, 0.8f, 1.0f, 1.0f);
     public static final String SELENA_ATTACK_512 = ModHelper.makeImgPath("512", "bg_attack_512");
@@ -279,5 +282,20 @@ public class SelenaMod implements ISubscriber, EditStringsSubscriber, EditKeywor
     public void receiveAddAudio() {
         BaseMod.addAudio(PlayMusicHelper.Music.CHROMATIC_AMNESIA.name(), PlayMusicHelper.Music.CHROMATIC_AMNESIA.getFilename());
         BaseMod.addAudio(PlayMusicHelper.Music.CHIVAL.name(), PlayMusicHelper.Music.CHIVAL.getFilename());
+    }
+
+    @Override
+    public boolean receivePreMonsterTurn(AbstractMonster abstractMonster) {
+        List<CardGroup> groups = new ArrayList<>();
+        groups.add(AbstractDungeon.player.drawPile);
+        groups.add(AbstractDungeon.player.discardPile);
+        groups.add(AbstractDungeon.player.hand);
+        groups.add(AbstractDungeon.player.exhaustPile);
+        for (CardGroup g : groups) {
+            for (AbstractCard card : g.group) {
+                CardModifierManager.removeModifiersById(card, IncreaseCostThisTurnModifier.ID, true);
+            }
+        }
+        return true;
     }
 }

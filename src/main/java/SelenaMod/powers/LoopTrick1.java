@@ -4,6 +4,7 @@ import SelenaMod.modifiers.ReduceCostThisTurnModifier;
 import SelenaMod.utils.ModHelper;
 import basemod.helpers.CardModifierManager;
 import com.evacipated.cardcrawl.mod.stslib.patches.bothInterfaces.OnCreateCardInterface;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -36,6 +37,11 @@ public class LoopTrick1 extends AbstractPower implements OnCreateCardInterface {
         if (isPlayer) {
             addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
         }
+    }
+
+    @Override
+    public void onAfterCardPlayed(AbstractCard usedCard) {
+        addToBot(new DrawCardAction(this.amount));
     }
 
     @Override

@@ -1,6 +1,7 @@
 package SelenaMod.cards;
 
 import SelenaMod.effects.PlayTempMusicEffect;
+import SelenaMod.modifiers.IncreaseCostThisTurnModifier;
 import SelenaMod.modifiers.RepeatModifier;
 import SelenaMod.powers.LoseEnergyNextTurnPower;
 import SelenaMod.utils.ModHelper;
@@ -49,6 +50,7 @@ public class TheyLoveEachOther extends CustomSelenaCard {
             public void update() {
                 changeEffect = !changeEffect;
                 TheyLoveEachOther.this.initializeDescription();
+                CardModifierManager.addModifier(TheyLoveEachOther.this, new IncreaseCostThisTurnModifier());
                 this.isDone = true;
             }
         });

@@ -127,7 +127,7 @@
   },
   "SelenaMod:TheyLoveEachOther": {
     "NAME": "他们彼此相爱",
-    "DESCRIPTION": "获得 !M! 点 力量 与-1点 敏捷，每次打出后数值互换且下回合开始时失去 [E] 。",
+    "DESCRIPTION": "获得 !M! 点 力量 与-1点 敏捷，每次打出后数值互换且下回合开始时失去 [E] 。直到下回合结束时这张牌耗能+1。",
     "EXTENDED_DESCRIPTION": [
       "获得-1点 力量 与 !M! 点 敏捷，每次打出后数值互换。"
     ],
@@ -285,9 +285,9 @@
   },
   "SelenaMod:LoopTrick": {
     "NAME": "loop trick",
-    "DESCRIPTION": "本回合你的所有牌耗能-1，打出后获得 selenamod:反复 。",
-    "UPGRADE_DESCRIPTION": "本回合你的所有牌耗能变为0，打出后获得 selenamod:反复 。",
-    "FLAVOR2": "如一叶落，即此世秋"
+    "DESCRIPTION": "本回合你的所有牌耗能-1，打出牌后抽1张牌。其打出后获得 selenamod:反复 。",
+    "UPGRADE_DESCRIPTION": "本回合你的所有牌耗能变为0，打出牌后抽1张牌。其打出后获得 selenamod:反复 。",
+    "FLAVOR2": "“人类之时间不是循环转动的，而是直线前进的。这就是为什么人类不可能幸福的缘故。因为幸福是对重复的渴望。”"
   },
   "SelenaMod:Compassion": {
     "NAME": "慈悲",
