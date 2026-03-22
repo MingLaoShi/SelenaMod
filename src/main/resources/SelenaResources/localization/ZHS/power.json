@@ -318,5 +318,11 @@
     "DESCRIPTIONS": [
       "退出 selenamod:塞壬 ，将生命调整至进入 selenamod:塞壬 时，移除所有负面状态。"
     ]
+  },
+  "SelenaMod:BewitchPower": {
+    "NAME": "蛊惑",
+    "DESCRIPTIONS": [
+      "每回合开始时，令%s张手牌耗能变为0。"
+    ]
   }
 }

@@ -1,5 +1,7 @@
 package SelenaMod.cards;
 
+import SelenaMod.actions.SpringBreezeAction;
+import SelenaMod.powers.AsFirstSightPower;
 import SelenaMod.powers.SpringBreezePower;
 import SelenaMod.utils.ModHelper;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -21,5 +23,13 @@ public class SpringBreeze extends CustomSelenaCard{
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addPowerToSelf(new SpringBreezePower(abstractPlayer));
+    }
+
+    @Override
+    public void triggerWhenDrawn() {
+        if (AsFirstSightPower.isFirstSight(this)) {
+            this.firstSight = false;
+            addToBot(new SpringBreezeAction());
+        }
     }
 }

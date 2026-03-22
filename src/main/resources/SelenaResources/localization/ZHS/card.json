@@ -192,8 +192,8 @@
   },
   "SelenaMod:Bewitch": {
     "NAME": "蛊惑",
-    "DESCRIPTION": "进入 “ selenamod:塞壬 ”，将 !M! 张 *疯狂 加入手牌。",
-    "UPGRADE_DESCRIPTION": "进入 “ selenamod:塞壬 ”，将 !M! 张 *疯狂+ 加入手牌。",
+    "DESCRIPTION": "进入 “ selenamod:塞壬 ”，每回合开始时令 !M! 张牌耗能变为0。",
+    "UPGRADE_DESCRIPTION": "进入 “ selenamod:塞壬 ”，每回合开始时令 !M! 张牌耗能变为0。",
     "FLAVOR2": "她有一万种理由沉沦。"
   },
   "SelenaMod:SoloPerformance": {
@@ -279,8 +279,8 @@
   },
   "SelenaMod:SacredSong": {
     "NAME": "神曲",
-    "DESCRIPTION": "获得已有的 selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果各1种。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "获得已有的 selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果各1种。",
+    "DESCRIPTION": "获得随机的 selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果各1种。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得随机的 selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果各1种。",
     "FLAVOR2": "没见过魔鬼的人却要描绘地狱"
   },
   "SelenaMod:LoopTrick": {
@@ -291,8 +291,8 @@
   },
   "SelenaMod:Compassion": {
     "NAME": "慈悲",
-    "DESCRIPTION": "在你的回合内，你不会受到任何伤害。 NL selenamod:初见 ：失去 [E] ，下回合开始时获得 [E] 。",
-    "UPGRADE_DESCRIPTION": "在你的回合内，你不会受到任何伤害。 NL selenamod:初见 ：失去 [E] ，下回合开始时获得 [E] [E] 。",
+    "DESCRIPTION": "在你的回合内，你不会受到任何伤害。 NL selenamod:初见 ：失去 [E] ，在抽牌堆中加入1张 *奇迹 。",
+    "UPGRADE_DESCRIPTION": "在你的回合内，你不会受到任何伤害。 NL selenamod:初见 ：失去 [E] ，在抽牌堆中加入1张 *奇迹+ 。",
     "FLAVOR2": "NO DATE"
   },
   "SelenaMod:OneStepAway": {
@@ -352,7 +352,7 @@
   "SelenaMod:LoveWithoutObstacle": {
     "NAME": "爱无坦途",
     "DESCRIPTION": "给予所有敌人 !M! 层荆棘，你每打出1张获得 !SelenaMod:SecondMagicVar! 点 格挡 。",
-    "UPGRADE_DESCRIPTION": "给予所有人 !M! 层荆棘，你每打出1张获得 !SelenaMod:SecondMagicVar! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "给予所有人 !M! 层锋利外壳，你每打出1张获得 !SelenaMod:SecondMagicVar! 点 格挡 。",
     "FLAVOR2": "而我已所无惧"
   },
   "SelenaMod:FlowerTree": {
@@ -403,8 +403,8 @@
   },
   "SelenaMod:SpringBreeze": {
     "NAME": "春风",
-    "DESCRIPTION": " selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果改为即时生效。",
-    "UPGRADE_DESCRIPTION": " 固有 。 NL selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果改为即时生效。",
+    "DESCRIPTION": " selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果改为即时生效。 NL selenamod:初见 ：你所有的信效果改为抽2张牌",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果改为即时生效。NL selenamod:初见 ：你所有的信效果改为抽2张牌",
     "FLAVOR2": "“绽放原来是件不必等待的事，我已见到了我的花期。”"
   },
   "SelenaMod:WipeTears": {

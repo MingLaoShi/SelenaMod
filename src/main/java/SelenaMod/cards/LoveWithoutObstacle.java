@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AfterImagePower;
+import com.megacrit.cardcrawl.powers.SharpHidePower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 
 public class LoveWithoutObstacle extends CustomSelenaCard{
@@ -22,11 +23,14 @@ public class LoveWithoutObstacle extends CustomSelenaCard{
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        for(AbstractMonster m: AbstractDungeon.getCurrRoom().monsters.monsters){
-            addPowerToEnemy(m,new ThornsPower(m,this.magicNumber));
-        }
-        if(this.upgraded){
-            addPowerToSelf(new ThornsPower(abstractPlayer,this.magicNumber));
+        if (!this.upgraded) {
+            for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                addPowerToEnemy(m, new ThornsPower(m, this.magicNumber));
+            }
+        } else {
+            for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                addPowerToEnemy(m, new SharpHidePower(m, this.secondMagicVar));
+            }
         }
         addPowerToSelf(new AfterImagePower(abstractPlayer,this.secondMagicVar));
     }

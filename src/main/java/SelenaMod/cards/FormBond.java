@@ -9,7 +9,7 @@ public class FormBond extends CustomSelenaCard {
     public static String ID = ModHelper.makeID(FormBond.class.getSimpleName());
 
     public FormBond() {
-        super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
     }
 
     @Override
