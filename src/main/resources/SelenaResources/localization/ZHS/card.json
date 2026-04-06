@@ -279,8 +279,8 @@
   },
   "SelenaMod:SacredSong": {
     "NAME": "神曲",
-    "DESCRIPTION": "获得随机的 selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果各1种。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "获得随机的 selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果各1种。",
+    "DESCRIPTION": "打出随机的拥有 selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果的牌各1张。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "打出随机的拥有 selenamod:留白 ， selenamod:转调 ， selenamod:覆写 效果的牌各1张。",
     "FLAVOR2": "没见过魔鬼的人却要描绘地狱"
   },
   "SelenaMod:LoopTrick": {
