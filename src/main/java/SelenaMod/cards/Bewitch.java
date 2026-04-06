@@ -1,5 +1,6 @@
 package SelenaMod.cards;
 
+import SelenaMod.actions.ExhaustAllMiraclesAction;
 import SelenaMod.powers.BewitchPower;
 import SelenaMod.powers.SirenPower;
 import SelenaMod.utils.ModHelper;
@@ -23,5 +24,6 @@ public class Bewitch extends CustomSelenaCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addPowerToSelf(new SirenPower(abstractPlayer));
         addPowerToSelf(new BewitchPower(abstractPlayer, this.magicNumber));
+        addToBot(new ExhaustAllMiraclesAction());
     }
 }
