@@ -9,6 +9,7 @@ import SelenaMod.utils.ModHelper;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -175,12 +176,47 @@ public abstract class CustomSelenaCard extends CustomCard {
         if (!this.flavorTip.isEmpty() && !Settings.hideCards && this.getRenderTip()) {
 //        if(!this.flavorTip.isEmpty()){
             float height = ModHelper.GetPowerTipHeight(this.flavorTip.get(0));
+            // 根据关键词数量调整FLAVOR2的Y坐标，避免被关键词遮挡
+            int keywordCount = this.keywords != null ? this.keywords.size() : 0;
+            float keywordOffset = 0;
+            if (keywordCount >= 3) {
+                // 计算关键词占用的总高度
+                for (String s : this.keywords) {
+                    if (com.megacrit.cardcrawl.helpers.GameDictionary.keywords.containsKey(s)) {
+                        float textHeight = -com.megacrit.cardcrawl.helpers.FontHelper.getSmartHeight(
+                                com.megacrit.cardcrawl.helpers.FontHelper.tipBodyFont,
+                                com.megacrit.cardcrawl.helpers.GameDictionary.keywords.get(s),
+                                320.0F,
+                                18.0F
+                        ) - 7.0F * Settings.scale;
+                        keywordOffset += textHeight + 16.0F * 3.15F; // BOX_EDGE_H = 16.0F
+                    }
+                }
+            }
+            String flavor = FlavorText.AbstractCardFlavorFields.flavor.get(this);
+            if (StringUtils.isNotEmpty(flavor)) {
+                float textHeight = -com.megacrit.cardcrawl.helpers.FontHelper.getSmartHeight(
+                        com.megacrit.cardcrawl.helpers.FontHelper.tipBodyFont,
+                        flavor,
+                        320.0F,
+                        18.0F
+                ) - 7.0F * Settings.scale;
+                keywordOffset += textHeight + 16.0F * 3.15F; // BOX_EDGE_H = 16.0F
+            }
+            keywordOffset -= AbstractCard.IMG_HEIGHT * this.drawScale / 2.0F;
+            if (keywordOffset < 0) {
+                keywordOffset = 0;
+            }
+            float y = this.current_y + AbstractCard.IMG_HEIGHT * this.drawScale / 2.0F + height + 80.0F * Settings.scale + keywordOffset;
+//            if(y<this.current_y + AbstractCard.IMG_HEIGHT * this.drawScale / 2.0F + height + 80.0F * Settings.scale){
+//                y=this.current_y + AbstractCard.IMG_HEIGHT * this.drawScale / 2.0F + height + 80.0F * Settings.scale;
+//            }
             if (this.current_x > Settings.WIDTH * 0.75F) {
                 ModHelper.RenderPowerTips(this.current_x - AbstractCard.IMG_WIDTH * this.drawScale / 2.0F - 12.0F * Settings.scale - 320.0F * Settings.scale,
-                        this.current_y + AbstractCard.IMG_HEIGHT * this.drawScale / 2.0F + height + 80.0F * Settings.scale, sb, flavorTip);
+                        y, sb, flavorTip);
             } else {
                 ModHelper.RenderPowerTips(this.current_x + AbstractCard.IMG_WIDTH * this.drawScale / 2.0F + 12.0F * Settings.scale,
-                        this.current_y + AbstractCard.IMG_HEIGHT * this.drawScale / 2.0F + height + 80.0F * Settings.scale, sb, flavorTip);
+                        y, sb, flavorTip);
             }
 
         }
