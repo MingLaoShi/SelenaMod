@@ -20,7 +20,7 @@ public class ForTomorrow extends CustomSelenaCard {
     public static String ID = ModHelper.makeID("ForTomorrow");
     private static CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public ForTomorrow() {
-        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
         this.setDamage(10);
         this.setMagic(1);
         this.cardsToPreview = new Miracle();
