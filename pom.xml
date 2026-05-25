@@ -18,6 +18,20 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <fork>true</fork>
+                    <executable>C:/Program Files/Java/jdk1.8.0_171/bin/javac</executable>
+                    <compilerArgs>
+                        <arg>-J-Djava.ext.dirs=C:/Program Files/Java/jdk1.8.0_171/jre/lib/ext</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
@@ -57,15 +71,17 @@
             <systemPath>C:\Program Files (x86)\Steam\steamapps\workshop\content\646570\1609158507\StSLib.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
+            <groupId>VideoTheSpire</groupId>
+            <artifactId>VideoTheSpire</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>C:\Program Files (x86)\Steam\steamapps\workshop\content\646570\3189856464\VideoTheSpire.jar
+            </systemPath>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>RELEASE</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

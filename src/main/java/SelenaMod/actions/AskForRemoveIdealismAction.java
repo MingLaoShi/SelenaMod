@@ -28,3 +28,4 @@ public class AskForRemoveIdealismAction extends AbstractGameAction {
         tickDuration();
     }
 }
+
