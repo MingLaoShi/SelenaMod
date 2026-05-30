@@ -8,8 +8,10 @@ import SelenaMod.powers.WhiteSpacePower;
 import SelenaMod.utils.ModHelper;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
+import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText.PowerTipFlavorFields;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -25,8 +27,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public abstract class CustomSelenaCard extends CustomCard {
     public boolean firstSight = true;
@@ -37,12 +42,36 @@ public abstract class CustomSelenaCard extends CustomCard {
     private String flavor2 = null;
     private ArrayList<PowerTip> flavorTip = new ArrayList<>();
 
+    // 涉及"塞壬"和"失控"的卡牌ID集合
+    private static final Set<String> SIREN_CARDS = new HashSet<>(Arrays.asList(
+            "SelenaMod:SoundOfStorm",
+            "SelenaMod:Bewitch",
+            "SelenaMod:Rebirth",
+            "SelenaMod:PeonyPavilion",
+            "SelenaMod:Dirge",
+            "SelenaMod:Lament",
+            "SelenaMod:OutOfControl",
+            "SelenaMod:Sacrifice"
+    ));
+
+    // 暗红色
+    private static final Color DARK_RED = new Color(0.6f, 0.1f, 0.1f, 1.0f);
+    private static final Color DARK_RED_BG = new Color(0.3f, 0.05f, 0.05f, 0.9f);
+
+    private void setSirenFlavorColors() {
+        if (SIREN_CARDS.contains(this.cardID)) {
+            FlavorText.AbstractCardFlavorFields.boxColor.set(this, DARK_RED_BG);
+            FlavorText.AbstractCardFlavorFields.textColor.set(this, DARK_RED);
+        }
+    }
+
     public CustomSelenaCard(String id, String name, String img, int cost, String rawDescription, AbstractCard.CardType type, AbstractCard.CardColor color, AbstractCard.CardRarity rarity, AbstractCard.CardTarget target) {
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
         this.flavor2 = ModHelper.FLAVOR2.get(id);
         if (StringUtils.isNotEmpty(flavor2)) {
             flavorTip.add(new PowerTip("@STSLIB:FLAVOR@", this.flavor2));
         }
+        setSirenFlavorColors();
     }
 
     public CustomSelenaCard(String id, int cost, AbstractCard.CardType type, AbstractCard.CardRarity rarity, AbstractCard.CardTarget target) {
@@ -53,9 +82,7 @@ public abstract class CustomSelenaCard extends CustomCard {
         if (StringUtils.isNotEmpty(flavor2)) {
             flavorTip.add(new PowerTip("@STSLIB:FLAVOR@", this.flavor2));
         }
-//        ReflectionHacks.setPrivate(this,AbstractCard.class,"textColor", Color.BLACK.cpy());
-//        ReflectionHacks.setPrivate(this,AbstractCard.class,"goldColor", Color.GREEN.cpy());
-
+        setSirenFlavorColors();
     }
 
     public CustomSelenaCard(String id, int cost, AbstractCard.CardType type, AbstractCard.CardColor color, AbstractCard.CardRarity rarity, AbstractCard.CardTarget target) {
@@ -66,6 +93,7 @@ public abstract class CustomSelenaCard extends CustomCard {
         if (StringUtils.isNotEmpty(flavor2)) {
             flavorTip.add(new PowerTip("@STSLIB:FLAVOR@", this.flavor2));
         }
+        setSirenFlavorColors();
     }
 
     @Override
@@ -207,17 +235,23 @@ public abstract class CustomSelenaCard extends CustomCard {
             if (keywordOffset < 0) {
                 keywordOffset = 0;
             }
-            float y = this.current_y + AbstractCard.IMG_HEIGHT * this.drawScale / 2.0F + height + 80.0F * Settings.scale + keywordOffset;
+            float y = this.current_y + AbstractCard.IMG_HEIGHT * this.drawScale / 2.0F + 80.0F * Settings.scale + height;
 //            if(y<this.current_y + AbstractCard.IMG_HEIGHT * this.drawScale / 2.0F + height + 80.0F * Settings.scale){
 //                y=this.current_y + AbstractCard.IMG_HEIGHT * this.drawScale / 2.0F + height + 80.0F * Settings.scale;
 //            }
-            if (this.current_x > Settings.WIDTH * 0.75F) {
-                ModHelper.RenderPowerTips(this.current_x - AbstractCard.IMG_WIDTH * this.drawScale / 2.0F - 12.0F * Settings.scale - 320.0F * Settings.scale,
-                        y, sb, flavorTip);
-            } else {
-                ModHelper.RenderPowerTips(this.current_x + AbstractCard.IMG_WIDTH * this.drawScale / 2.0F + 12.0F * Settings.scale,
-                        y, sb, flavorTip);
+            // 卡牌在右侧，提示框显示在左边，向右移动半个卡牌高度
+            float x = this.current_x - AbstractCard.IMG_WIDTH * this.drawScale / 2.0F;
+
+            // 为塞壬/失控卡牌设置暗红色
+            if (SIREN_CARDS.contains(this.cardID)) {
+                for (PowerTip tip : flavorTip) {
+                    PowerTipFlavorFields.boxColor.set(tip, DARK_RED_BG);
+                    PowerTipFlavorFields.textColor.set(tip, DARK_RED);
+                }
             }
+
+            ModHelper.RenderPowerTips(x, y, sb, flavorTip);
+
 
         }
 
